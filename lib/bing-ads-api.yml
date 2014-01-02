@@ -1,0 +1,321 @@
+##################################
+## Constant values for Bing Api ##
+##################################
+
+
+# WSDL URL for services
+# Default defines sandbox urls. For production, check 'production.wsdl' key
+wsdl:
+  sandbox:
+    campaign_management: "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
+    reporting: "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc?singleWsdl"
+  production:
+    campaign_management: "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
+    reporting: "https://api.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc?singleWsdl"
+
+# All major constants are here
+# In general the key and value are the same. Key in snake_case (ruby-like) and value in CamelCase (Bing alike)
+constants:
+  # Common constants: Time zones, ad_languages (names and codes). For 'market country' check the locales file
+  common:
+    time_zones:
+      abu_dhabi_muscat: 'AbuDhabiMuscat'
+      adelaide: 'Adelaide'
+      alaska: 'Alaska'
+      almaty_novosibirsk: 'Almaty_Novosibirsk'
+      amsterdam_berlin_bern_rome_stockholm_vienna: 'AmsterdamBerlinBernRomeStockholmVienna'
+      arizona: 'Arizona'
+      astana_dhaka: 'AstanaDhaka'
+      athens_buckarest_istanbul: 'AthensBuckarestIstanbul'
+      atlantic_time_canada: 'AtlanticTimeCanada'
+      auckland_wellington: 'AucklandWellington'
+      azores: 'Azores'
+      baghdad: 'Baghdad'
+      baku_tbilisi_yerevan: 'BakuTbilisiYerevan'
+      bangkok_hanoi_jakarta: 'BangkokHanoiJakarta'
+      beijing_chongqing_hong_kong_urumqi: 'BeijingChongqingHongKongUrumqi'
+      belgrade_bratislava_budapest_ljubljana_prague: 'BelgradeBratislavaBudapestLjubljanaPrague'
+      bogota_lima_quito: 'BogotaLimaQuito'
+      brasilia: 'Brasilia'
+      brisbane: 'Brisbane'
+      brussels_copenhagen_madrid_paris: 'BrusselsCopenhagenMadridParis'
+      bucharest: 'Bucharest'
+      buenos_aires_georgetown: 'BuenosAiresGeorgetown'
+      cairo: 'Cairo'
+      canberra_melbourne_sydney: 'CanberraMelbourneSydney'
+      cape_verde_island: 'CapeVerdeIsland'
+      caracas_la_paz: 'CaracasLaPaz'
+      casablanca_monrovia: 'CasablancaMonrovia'
+      central_america: 'CentralAmerica'
+      central_time_u_s_canada: 'CentralTimeUSCanada'
+      chennai_kolkata_mumbai_new_delhi: 'ChennaiKolkataMumbaiNewDelhi'
+      chihuahua_la_paz_mazatlan: 'ChihuahuaLaPazMazatlan'
+      darwin: 'Darwin'
+      eastern_time_u_s_canada: 'EasternTimeUSCanada'
+      ekaterinburg: 'Ekaterinburg'
+      fiji_kamchatka_marshall_island: 'FijiKamchatkaMarshallIsland'
+      greenland: 'Greenland'
+      greenwich_mean_time_dublin_edinburgh_lisbon_london: 'GreenwichMeanTimeDublinEdinburghLisbonLondon'
+      guadalajara_mexico_city_monterrey: 'GuadalajaraMexicoCityMonterrey'
+      guam_port_moresby: 'GuamPortMoresby'
+      harare_pretoria: 'HararePretoria'
+      hawaii: 'Hawaii'
+      helsinki_kyiv_riga_sofia_tallinn_vilnius: 'HelsinkiKyivRigaSofiaTallinnVilnius'
+      hobart: 'Hobart'
+      indiana_east: 'IndianaEast'
+      international_date_line_west: 'InternationalDateLineWest'
+      irkutsk_ulaan_bataar: 'IrkutskUlaanBataar'
+      islandamabad_karachi_tashkent: 'IslandamabadKarachiTashkent'
+      jerusalem: 'Jerusalem'
+      kabul: 'Kabul'
+      kathmandu: 'Kathmandu'
+      krasnoyarsk: 'Krasnoyarsk'
+      kuala_lumpur_singapore: 'KualaLumpurSingapore'
+      kuwait_riyadh: 'KuwaitRiyadh'
+      magadan_solomon_island_new_caledonia: 'MagadanSolomonIslandNewCaledonia'
+      mid_atlantic: 'MidAtlantic'
+      midway_islandand_samoa: 'MidwayIslandand_Samoa'
+      moscow_st_petersburg_volgograd: 'MoscowStPetersburgVolgograd'
+      mountain_time_u_s_canada: 'MountainTime_US_Canada'
+      nairobi: 'Nairobi'
+      newfoundland: 'Newfoundland'
+      nukualofa: 'Nukualofa'
+      osaka_sapporo_tokyo: 'OsakaSapporoTokyo'
+      pacific_time_u_s_canada_tijuana: 'PacificTimeUSCanadaTijuana'
+      perth: 'Perth'
+      rangoon: 'Rangoon'
+      santiago: 'Santiago'
+      sarajevo_skopje_warsaw_zagreb: 'SarajevoSkopjeWarsawZagreb'
+      saskatchewan: 'Saskatchewan'
+      seoul: 'Seoul'
+      sri_jayawardenepura: 'SriJayawardenepura'
+      taipei: 'Taipei'
+      tehran: 'Tehran'
+      vladivostok: 'Vladivostok'
+      west_central_africa: 'WestCentralAfrica'
+      yakutsk: 'Yakutsk'
+    # Ad Languages names
+    ad_languages:
+      danish: 'Danish'
+      dutch: 'Dutch'
+      english: 'English'
+      finnish: 'Finnish'
+      french: 'French'
+      german: 'German'
+      italian: 'Italian'
+      norwegian: 'Norwegian'
+      portuguese: 'Portuguese'
+      spanish: 'Spanish'
+      swedish: 'Swedish'
+      traditional_chinese: 'Traditional Chinese'
+      # Ad languages codes
+      codes:
+        danish: 'DA'
+        dutch: 'NL'
+        english: 'EN'
+        finnish: 'FI'
+        french: 'FR'
+        german: 'DE'
+        italian: 'IT'
+        norwegian: 'NO'
+        portuguese: 'PT'
+        spanish: 'ES'
+        swedish: 'SV'
+        traditional_chinese: 'ZH'
+
+  # Constansts specific for campaign management services
+  campaign_management:
+    budget_limit_type:
+      monthly_budget_spend_until_depleted: 'MonthlyBudgetSpendUntilDepleted'
+      daily_budget_accelerated: 'DailyBudgetAccelerated'
+      daily_budget_standard: 'DailyBudgetStandard'
+    campaign_status:
+      active: 'Active'
+      paused: 'Paused'
+      budget_paused: 'BudgetPaused'
+      budget_and_manual_paused: 'BudgetAndManualPaused'
+      deleted: 'Deleted'
+    ad_distribution:
+      search: 'Search'
+      content: 'Content'
+    ad_rotation_type:
+      optimize_for_clicks: 'OptimizeForClicks'
+      rotate_ads_evenly: 'RotateAdsEvenly'
+    bidding_model:
+      keyword: 'Keyword'
+      site_placement: 'SitePlacement'
+    pricing_model:
+      cpc: 'Cpc'
+      cpm: 'Cpm'
+    ad_group_status:
+      draft: 'Draft'
+      active: 'Active'
+      paused: 'Paused'
+      deleted: 'Deleted'
+    ad_status:
+      inactive: 'Inactive'
+      Active: 'Active'
+      paused: 'Paused'
+      deleted: 'Deleted'
+    ad_type:
+      text: 'Text'
+      image: 'Image'
+      mobile: 'Mobile'
+      rich_search: 'RichSearch'
+      product: 'Product'
+    keyword_editorial_status:
+      active: 'Active'
+      disapproved: 'Disapproved'
+      inactive: 'Inactive'
+    keyword_status:
+      active: 'Active'
+      paused: 'Paused'
+      deleted: 'Deleted'
+      inactive: 'Inactive'
+  # Constants specific for reporting services 
+  reporting:
+    format:
+      csv: 'Csv'
+      tsv: 'Tsv'
+      Xml: 'Xml'
+    language:
+      english: 'English'
+      french: 'French'
+    request_status_type:
+      Error: 'Error'
+      Success: 'Success'
+      Pending: 'Pending'
+    aggregation:
+      summary: 'Summary'
+      hourly: 'Hourly'
+      daily: 'Daily'
+      weekly: 'Weekly'
+      monthly: 'Monthly'
+      yearly: 'Yearly'
+      hour_of_day: 'HourOfDay'
+      day_of_week: 'DayOfWeek'
+    time_periods:
+      today: 'Today'
+      yesterday: 'Yesterday'
+      last_seven_days: 'LastSevenDays'
+      this_week: 'ThisWeek'
+      last_week: 'LastWeek'
+      last_four_weeks: 'LastFourWeeks'
+      this_month: 'ThisMonth'
+      last_month: 'LastMonth'
+      last_three_months: 'LastThreeMonths'
+      last_six_months: 'LastSixMonths'
+      this_year: 'ThisYear'
+      last_year: 'LastYear'
+    # From here the constants are specific per ReportRequest derive
+    # This includes columns, filters and scopes (if any)
+    account_performance_report:
+      # 'type' represents the value for 'type' attribute in <ReportRequeset> tag for the request XML
+      type: "AccountPerformanceReportRequest"
+      # 'columns' names for <Columns> tag
+      columns:
+        account_name: "AccountName"
+        account_number: "AccountNumber"
+        time_period: "TimePeriod"
+        currency_code: "CurrencyCode"
+        ad_distribution: "AdDistribution"
+        impressions: "Impressions"
+        clicks: "Clicks"
+        ctr: "Ctr"
+        average_cpc: "AverageCpc"
+        spend: "Spend"
+        average_position: "AveragePosition"
+        conversions: "Conversions"
+        conversion_rate: "ConversionRate"
+        cost_per_conversion: "CostPerConversion"
+        low_quality_clicks: "LowQualityClicks"
+        low_quality_clicks_percent: "LowQualityClicksPercent"
+        low_quality_impressions: "LowQualityImpressions"
+        low_quality_impressions_percent: "LowQualityImpressionsPercent"
+        low_quality_conversions: "LowQualityConversions"
+        low_quality_conversion_rate: "LowQualityConversionRate"
+        average_cpm: "AverageCpm"
+        device_type: "DeviceType"
+        device_o_s: "DeviceOS"
+        impression_share_percent: "ImpressionSharePercent"
+        impression_lost_to_budget_percent: "ImpressionLostToBudgetPercent"
+        impression_lost_to_rank_percent: "ImpressionLostToRankPercent"
+        impression_lost_to_bid_percent: "ImpressionLostToBidPercent"
+        impression_lost_to_landing_page_relevance_percent: "ImpressionLostToLandingPageRelevancePercent"
+        impression_lost_to_keyword_relevance_percent: "ImpressionLostToKeywordRelevancePercent"
+        phone_impressions: "PhoneImpressions"
+        phone_calls: "PhoneCalls"
+        manual_calls: "ManualCalls"
+        click_calls: "ClickCalls"
+        ptr: "Ptr"
+        phone_spend: "PhoneSpend"
+        average_cpp: "AverageCpp"
+        total_cost_phone_and_clicks: "TotalCostPhoneAndClicks"
+        network: "Network"
+        top_vs_other: "TopVsOther"
+      # 'filter' for the <Filter> tag in Request XML
+      filter:
+        ad_distribution: "AdDistribution"
+        device_os: "DeviceOS"
+        device_type: "DeviceType"
+    campaign_performance_report:
+      type: "CampaignPerformanceReportRequest"
+      columns:
+        account_name: "AccountName"
+        account_number: "AccountNumber"
+        time_period: "TimePeriod"
+        status: "Status"
+        campaign_name: "CampaignName"
+        campaign_id: "CampaignId"
+        currency_code: "CurrencyCode"
+        ad_distribution: "AdDistribution"
+        impressions: "Impressions"
+        clicks: "Clicks"
+        ctr: "Ctr"
+        average_cpc: "AverageCpc"
+        spend: "Spend"
+        average_position: "AveragePosition"
+        conversions: "Conversions"
+        conversion_rate: "ConversionRate"
+        cost_per_conversion: "CostPerConversion"
+        low_quality_clicks: "LowQualityClicks"
+        low_quality_clicks_percent: "LowQualityClicksPercent"
+        low_quality_impressions: "LowQualityImpressions"
+        low_quality_impressions_percent: "LowQualityImpressionsPercent"
+        low_quality_conversions: "LowQualityConversions"
+        low_quality_conversion_rate: "LowQualityConversionRate"
+        average_cpm: "AverageCpm"
+        device_type: "DeviceType"
+        device_o_s: "DeviceOS"
+        impression_share_percent: "ImpressionSharePercent"
+        impression_lost_to_budget_percent: "ImpressionLostToBudgetPercent"
+        impression_lost_to_rank_percent: "ImpressionLostToRankPercent"
+        quality_score: "QualityScore"
+        keyword_relevance: "KeywordRelevance"
+        landing_page_relevance: "LandingPageRelevance"
+        landing_page_user_experience: "LandingPageUserExperience"
+        historic_quality_score: "HistoricQualityScore"
+        historic_keyword_relevance: "HistoricKeywordRelevance"
+        historic_landing_page_relevance: "HistoricLandingPageRelevance"
+        historic_landing_page_user_experience: "HistoricLandingPageUserExperience"
+        impression_lost_to_bid_percent: "ImpressionLostToBidPercent"
+        impression_lost_to_landing_page_relevance_percent: "ImpressionLostToLandingPageRelevancePercent"
+        impression_lost_to_keyword_relevance_percent: "ImpressionLostToKeywordRelevancePercent"
+        phone_impressions: "PhoneImpressions"
+        phone_calls: "PhoneCalls"
+        manual_calls: "ManualCalls"
+        click_calls: "ClickCalls"
+        ptr: "Ptr"
+        phone_spend: "PhoneSpend"
+        average_cpp: "AverageCpp"
+        total_cost_phone_and_clicks: "TotalCostPhoneAndClicks"
+        network: "Network"
+        top_vs_other: "TopVsOther"
+      filter:
+        ad_distribution: "AdDistribution"
+        device_os: "DeviceOS"
+        device_type: "DeviceType"
+        status: "Status"
+
+
+
