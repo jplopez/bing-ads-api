@@ -35,5 +35,7 @@ module BingAdsApi
 			self.instance_variables.each {|var| hash[var.to_s.delete("@")] = self.instance_variable_get(var) }
 			return hash
 		end
+		
+
 	end
 end

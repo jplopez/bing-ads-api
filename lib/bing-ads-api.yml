@@ -129,7 +129,7 @@ constants:
       monthly_budget_spend_until_depleted: 'MonthlyBudgetSpendUntilDepleted'
       daily_budget_accelerated: 'DailyBudgetAccelerated'
       daily_budget_standard: 'DailyBudgetStandard'
-    campaign_status:
+    campaign_statuses:
       active: 'Active'
       paused: 'Paused'
       budget_paused: 'BudgetPaused'
@@ -147,12 +147,12 @@ constants:
     pricing_model:
       cpc: 'Cpc'
       cpm: 'Cpm'
-    ad_group_status:
+    ad_group_statuses:
       draft: 'Draft'
       active: 'Active'
       paused: 'Paused'
       deleted: 'Deleted'
-    ad_status:
+    ad_statuses:
       inactive: 'Inactive'
       Active: 'Active'
       paused: 'Paused'
@@ -163,11 +163,11 @@ constants:
       mobile: 'Mobile'
       rich_search: 'RichSearch'
       product: 'Product'
-    keyword_editorial_status:
+    keyword_editorial_statuses:
       active: 'Active'
       disapproved: 'Disapproved'
       inactive: 'Inactive'
-    keyword_status:
+    keyword_statuses:
       active: 'Active'
       paused: 'Paused'
       deleted: 'Deleted'

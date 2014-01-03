@@ -30,23 +30,23 @@ class CampaignManagementTest < ActiveSupport::TestCase
 	test "get campaigns by account" do
 		response = @service.get_campaigns_by_account_id(@options[:account_id])
 		assert !response.nil?, "No response received"
-		assert !response.is_a?(Hash), "No Hash as response received"
+		assert response.is_a?(Hash), "No Hash as response received"
 	end
 
 	test "add campaigns" do
 		campaigns = [
 			BingAdsApi::Campaign.new(
-			:budget_type => BingAdsApi::Campaign.BUDGET_LIMIT_TYPE['daily_budget_standard'], 
+			:budget_type => BingAdsApi::Campaign::DAILY_BUDGET_STANDARD, 
 			:conversion_tracking_enabled => "false",
 			:daily_budget => 2000,
 			:daylight_saving => "false",
 			:description => "Some Campaign",
 			:monthly_budget => 5400,
 			:name => "Some campaign",
-			:status => BingAdsApi::Campaign.CAMPAIGN_STATUS['paused'],
-			:time_zone => BingAdsApi::Campaign.TIME_ZONES['santiago']),
+			:status => BingAdsApi::Campaign::PAUSED,
+			:time_zone => BingAdsApi::Campaign::SANTIAGO),
 		]
-		response = service.add_campaigns(options[:account_id], campaigns)
+		response = @service.add_campaigns(@options[:account_id], campaigns)
 		puts "response.inspect"
 		puts response.inspect
 	end

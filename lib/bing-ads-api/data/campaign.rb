@@ -3,8 +3,11 @@
 module BingAdsApi
 	
 	class Campaign < BingAdsApi::DataObject
-		include BingAdsApi::CommonConstants
-		include BingAdsApi::CampaignManagementConstants
+		include BingAdsApi::TimeZone
+		include BingAdsApi::BudgetLimitType
+		include BingAdsApi::CampaignStatus
+		include BingAdsApi::PricingModel
+		
 		
 		attr_accessor :budget_type, 
 			:conversion_tracking_enabled,
