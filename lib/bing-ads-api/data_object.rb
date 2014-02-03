@@ -20,22 +20,29 @@ module BingAdsApi
 		
 		
 		# Internal: Metodo custom para transformar a hash un objeto.
+		#   Se puede indicar si se desean las keys en formato CamelCase o underscore_case
 		#
 		# Author: asaavedrab@neonline.cl
 		#
+		# keys - indica si las keys del hash deben estar en formato 
+		#        CamelCase (:camelcase) o underscore_case (:underscore)
+		# 
 		# Example:
+		# 
+		#   a=BusinessPartner.new
+		#   a.to_hash
+		#   # => {id => 1, name => "emol"}
 		#
-		# 	 a=BusinessPartner.new
-		# 	 a.to_hash
-		# 	 #	=> {id => 1, name => "emol"}
-		#
-		# Returns Hash.		
-		def to_hash
+		# Returns Hash.
+		def to_hash(keys = :underscore)
 			hash={}
-			self.instance_variables.each {|var| hash[var.to_s.delete("@")] = self.instance_variable_get(var) }
+			if keys == :underscore
+				self.instance_variables.each {|var| hash[var.to_s.delete("@").underscore] = self.instance_variable_get(var) }
+			elsif keys == :camelcase
+				self.instance_variables.each {|var| hash[var.to_s.delete("@").camelcase] = self.instance_variable_get(var) }
+			end
 			return hash
 		end
-		
 
 	end
 end

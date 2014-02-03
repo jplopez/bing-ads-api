@@ -52,7 +52,7 @@ module BingAdsApi
 			end
 	
 		end	
-		BingAdsApi.const_set(const_key.classify, const_module)
+		BingAdsApi.const_set(const_key.camelize, const_module)
 
 	end
 
@@ -67,7 +67,7 @@ module BingAdsApi
 			end
 	
 		end	
-		BingAdsApi.const_set(const_key.classify, const_class)
+		BingAdsApi.const_set(const_key.camelize, const_class)
 
 	end
 

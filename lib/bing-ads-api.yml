@@ -129,7 +129,7 @@ constants:
       monthly_budget_spend_until_depleted: 'MonthlyBudgetSpendUntilDepleted'
       daily_budget_accelerated: 'DailyBudgetAccelerated'
       daily_budget_standard: 'DailyBudgetStandard'
-    campaign_statuses:
+    campaign_status:
       active: 'Active'
       paused: 'Paused'
       budget_paused: 'BudgetPaused'
@@ -147,12 +147,12 @@ constants:
     pricing_model:
       cpc: 'Cpc'
       cpm: 'Cpm'
-    ad_group_statuses:
+    ad_group_status:
       draft: 'Draft'
       active: 'Active'
       paused: 'Paused'
       deleted: 'Deleted'
-    ad_statuses:
+    ad_status:
       inactive: 'Inactive'
       Active: 'Active'
       paused: 'Paused'
@@ -316,6 +316,3 @@ constants:
         device_os: "DeviceOS"
         device_type: "DeviceType"
         status: "Status"
-
-
-

@@ -9,7 +9,8 @@ module BingAdsApi
 		include BingAdsApi::PricingModel
 		
 		
-		attr_accessor :budget_type, 
+		attr_accessor :id, 
+			:budget_type, 
 			:conversion_tracking_enabled,
 			:daily_budget,
 			:daylight_saving,
