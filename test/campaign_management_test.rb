@@ -94,6 +94,24 @@ class CampaignManagementTest < ActiveSupport::TestCase
 	end
 
 
+	test "update campaigns" do
+
+		campaigns = @service.get_campaigns_by_account_id(@options[:account_id])
+		assert !campaigns.nil?, "No campaigns received"
+
+		campaigns.each do |campaign|
+			campaign.description = campaign.description + " updated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}"
+			campaign.status = nil
+		end 
+
+		response = @service.update_campaigns(@options[:account_id], campaigns)
+
+		puts "UpdateCampaigns response"
+		puts response.inspect
+		assert !response.nil?, "No response received"
+
+	end
+
 
 	test "get ad groups by campaign" do
 		campaigns = @service.get_campaigns_by_account_id(@options[:account_id])
@@ -114,15 +132,18 @@ class CampaignManagementTest < ActiveSupport::TestCase
 		campaigns = @service.get_campaigns_by_account_id(@options[:account_id])
 		assert !campaigns.empty?, "No campaigns received for account id #{@options[:account_id]}" 
 		campaign_id = campaigns.first.id
+
+		groups = @service.get_ad_groups_by_campaign_id(campaign_id)
 		
-		ad_group_ids = []
+		ad_group_ids = groups.map{ |gr| gr.id }
 		response = @service.get_ad_groups_by_ids(campaign_id, ad_group_ids)
 
 		puts "GetAdGroupsByIds response :"
 		puts response.inspect
 		
-		assert !response.nil?, "No ad group received from campaign #{campaign_id} and ad_group #{ad_group_id}"
-		assert reponse.is_a?(BingAdsApi::AdGroup), "No AdGroup response received"
+		assert !response.nil?, "No ad groups received in campaign #{campaign_id} where ad_group_ids #{ad_group_ids}"
+		assert response.size == ad_group_ids.size, "Excpected #{ad_group_ids.size} ad groups. Received #{response.size}"
+
 	end
 
 	test "add ad group" do
@@ -182,4 +203,27 @@ class CampaignManagementTest < ActiveSupport::TestCase
 
 	end
 
+
+	test "update ad groups" do
+		campaigns = @service.get_campaigns_by_account_id(@options[:account_id])
+		assert !campaigns.empty?, "No campaigns received for account id #{@options[:account_id]}" 
+		campaign_id = campaigns.first.id
+		
+		ad_groups = @service.get_ad_groups_by_campaign_id(campaign_id)
+		
+		ad_groups.each do |ad_group|
+			ad_group.name = ad_group.name + " updated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}"
+			ad_group.bidding_model = nil
+			ad_group.language = nil
+			ad_group.pricing_model = nil
+			ad_group.start_date = DateTime.now
+		end
+		
+		response = @service.update_ad_groups(campaign_id, ad_groups)
+		
+		puts "UpdateAdGroups response"
+		puts response
+		assert !response.nil?, "No response received"
+
+	end
 end

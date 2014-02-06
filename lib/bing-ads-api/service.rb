@@ -91,7 +91,18 @@ module BingAdsApi
 				return response.hash
 			rescue Savon::SOAPFault => error
 				LOGGER.error "SOAP Error calling #{operation.to_s}: #{error.http.code}"
-				raise
+				fault_detail = error.to_hash[:fault][:detail]
+				if fault_detail.key?(:api_fault_detail)
+					api_fault_detail = BingAdsApi::ApiFaultDetail.new(fault_detail[:api_fault_detail])
+					raise BingAdsApi::ApiException.new(
+						api_fault_detail, "SOAP Error calling #{operation.to_s}")
+				elsif failt_detail.key?(:ad_api_fault_detail) 
+					ad_api_fault_detail = BingAdsApi::AdApiFaultDetail.new(fault_detail[:ad_api_fault_detail])
+					raise BingAdsApi::ApiException.new(
+						ad_api_fault_detail, "SOAP Error calling #{operation.to_s}")
+				else
+					raise
+				end
 			rescue Savon::HTTPError => error
 				LOGGER.error "Http Error calling #{operation.to_s}: #{error.http.code}"
 				raise

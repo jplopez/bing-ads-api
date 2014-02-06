@@ -28,8 +28,7 @@ module BingAdsApi
 		## Operations Wrappers ##
 		#########################
 
-		# Public : Returns a Hash with the 
-		#   'get_campaigns_by_account_id_response' object structure 
+		# Public : Returns all the campaigns found in the specified account 
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
@@ -37,9 +36,9 @@ module BingAdsApi
 		# 
 		# Examples 
 		#   campaign_management_service.get_campaigns_by_account_id(1) 
-		#   # => Hash 
+		#   # => Array[BingAdsApi::Campaign]
 		# 
-		# Returns Hash with the 'get_campaigns_by_account_id_response' object structure
+		# Returns Array of BingAdsApi::Campaign
 		# Raises exception
 		def get_campaigns_by_account_id(account_id)
 			response = call(:get_campaigns_by_account_id, 
@@ -84,28 +83,40 @@ module BingAdsApi
 		end
 
 
-		# Public : Returns the specified ad groups that belongs to the 
-		#   specified campaign 
+		# Public : Updates on or more campaigns for the specified account 
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
-		# campaign_id   - campaign id
-		# ad_groups_ids - array with ids from ad groups
+		# account_id - account who own the updated campaigns
+		# campaigns - Array with the campaigns to be updated
 		# 
 		# Examples 
-		#   service.get_ad_groups_by_ids(1, [1,2,3]) 
-		#   # => Array[AdGroups] 
+		#   service_update_campaigns(1, [<BingAdsApi::Campaign]) 
+		#   # =>  true
 		# 
-		# Returns Array with the ad groups specified in the ad_groups_ids array
+		# Returns boolean. true if the update was successfull. false otherwise
 		# Raises exception
-		def get_ad_groups_by_ids(campaign_id, ad_groups_ids)
-			response = call(:get_ad_groups_by_ids, 
-				{campaign_id: campaign_id, ad_groups_ids: ad_groups_ids})
-			response_hash = get_response_hash(response, __method__)
-			ad_groups = response_hash[:ad_groups][:ad_group].map do |ad_group_hash|
-				BingAdsApi::AdGroup.new(ad_group_hash)
+		# 
+		# Signature :
+		# 	signature 
+		
+		def update_campaigns(account_id, campaigns)
+			camps = []
+			if campaigns.is_a? Array
+				camps = campaigns.map do |camp| 
+					camp.to_hash(:camelcase) 
+				end
+			elsif campaigns.is_a? BingAdsApi::Campaign
+				camps = campaigns.to_hash
+			else 
+				raise "campaigns must be an array of BingAdsApi::Campaigns"
 			end
-			return ad_groups
+			message = {
+				:account_id => account_id, 
+				:campaigns => {:campaign => camps} }
+			puts message
+			response = call(:update_campaigns, message)
+			return get_response_hash(response, __method__)
 			
 		end
 
@@ -131,6 +142,35 @@ module BingAdsApi
 				BingAdsApi::AdGroup.new(ad_group_hash)
 			end
 			return ad_groups
+		end
+
+
+		# Public : Returns the specified ad groups that belongs to the 
+		#   specified campaign 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# campaign_id   - campaign id
+		# ad_groups_ids - array with ids from ad groups
+		# 
+		# Examples 
+		#   service.get_ad_groups_by_ids(1, [1,2,3]) 
+		#   # => Array[AdGroups] 
+		# 
+		# Returns Array with the ad groups specified in the ad_groups_ids array
+		# Raises exception
+		def get_ad_groups_by_ids(campaign_id, ad_groups_ids)
+			
+			message = {
+				:campaign_id => campaign_id,
+				:ad_group_ids => {"ins1:long" => ad_groups_ids} }
+			response = call(:get_ad_groups_by_ids, message)
+			response_hash = get_response_hash(response, __method__)
+			ad_groups = response_hash[:ad_groups][:ad_group].map do |ad_group_hash|
+				BingAdsApi::AdGroup.new(ad_group_hash)
+			end
+			return ad_groups
+			
 		end
 
 
@@ -162,6 +202,36 @@ module BingAdsApi
 				:ad_groups => {:ad_group => groups} }
 			puts message
 			response = call(:add_ad_groups, message)
+			return get_response_hash(response, __method__)
+		end
+
+
+		# Public : Updates on or more ad groups in a specified campaign 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# campaign_id - campaign who owns the updated ad groups
+		# 
+		# Examples 
+		#   service.update_ad_groups(1, [<BingAdsApi::AdGroup]) 
+		#   # => true 
+		# 
+		# Returns boolean. true if the updates is successfull. false otherwise
+		# Raises exception
+		def update_ad_groups(campaign_id, ad_groups)
+			groups = []
+			if ad_groups.is_a? Array
+				groups = ad_groups.map{ |gr| gr.to_hash(:camelcase) }
+			elsif ad_groups.is_a? BingAdsApi::AdGroup
+				groups = ad_groups.to_hash
+			else 
+				raise "ad_groups must be an array of BingAdsApi::AdGroup"
+			end
+			message = {
+				:campaign_id => campaign_id, 
+				:ad_groups => {:ad_group => groups} }
+			puts message
+			response = call(:update_ad_groups, message)
 			return get_response_hash(response, __method__)
 		end
 
