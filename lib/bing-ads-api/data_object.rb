@@ -45,6 +45,10 @@ module BingAdsApi
 		end
 
 
+		def to_s
+			to_hash.to_s
+		end
+
 		private
 			
 			# Public : Helper method to determinate the key name in the hash for the SOAP request 

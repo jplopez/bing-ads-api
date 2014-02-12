@@ -2,6 +2,17 @@
 
 module BingAdsApi
 
+	# Public : Generic exception thrown by service classes in BingAdsApi. 
+	#   Exception of this kind wrap an AdApiFaultDetail or ApiFaultDetail instance
+	#   to look over the specific details of the SOAP request fault.
+	# 
+	# Author jlopezn@neonline.cl 
+	# 
+	# Example
+	#   
+	#
+	#
+	#
 	class ApiException < Exception
 		
 		attr_accessor :fault_object
