@@ -15,6 +15,16 @@ module BingAdsApi
 		end
 		
 		
+		def to_s
+			str = super.to_s + ":\n" 
+			if batch_errors
+				str += "\tErrors:\n" + errors.map{ |e| "\t" + e.to_s }.join("\n")
+			end
+			
+			return str
+		end
+		
+		
 		private
 		
 			# Public : Helper method for the AdApiFaultDetail constructor 

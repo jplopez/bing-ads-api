@@ -211,19 +211,44 @@ class CampaignManagementTest < ActiveSupport::TestCase
 		
 		ad_groups = @service.get_ad_groups_by_campaign_id(campaign_id)
 		
-		ad_groups.each do |ad_group|
-			ad_group.name = ad_group.name + " updated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}"
-			ad_group.bidding_model = nil
-			ad_group.language = nil
-			ad_group.pricing_model = nil
-			ad_group.start_date = DateTime.now
+		ad_groups_to_update = ad_groups.map do |ad_group|
+			BingAdsApi::AdGroup.new(
+				:id => ad_group.id, 
+				:name => ad_group.name + " updated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}" )
 		end
 		
-		response = @service.update_ad_groups(campaign_id, ad_groups)
+		response = @service.update_ad_groups(campaign_id, ad_groups_to_update)
 		
 		puts "UpdateAdGroups response"
 		puts response
 		assert !response.nil?, "No response received"
 
 	end
+	
+	
+	test "add ad" do
+		
+	end
+	
+	
+	test "add ads" do
+		
+	end
+	
+	
+	test "get ads by group id" do
+		
+	end
+	
+	
+	test "get ads by ids" do
+		
+	end
+	
+	
+	test "update ads" do
+		
+	end
+	
+	
 end

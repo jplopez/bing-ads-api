@@ -236,12 +236,61 @@ module BingAdsApi
 		end
 
 
-		def get_ads(account_id, campaign_id, ads_group_id)
+		# Public : Obtains all the ads associated to the specified ad group 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# ad_group_id - long with the ad group id
+		# 
+		# Examples 
+		#   service.get_ads_by_ad_group_id(1) 
+		#   # => [<BingAdsApi::Ad] 
+		# 
+		# Returns An array of BingAdsApi::Ad
+		# Raises exception
+		def get_ads_by_ad_group_id(ad_group_id)
+			response = call(:get_ads_by_ad_group_id, 
+				{ad_group_id: ad_group_id})
+			response_hash = get_response_hash(response, __method__)
+			ads = response_hash[:ads][:ad].map do |ad_hash|
+				BingAdsApi::Ad.new(ad_hash)
+			end
+			return ads
+		end
+
+
+		# Public : Obtains the ads indicated in ad_ids associated to the specified ad group 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# ad_group_id - long with the ad group id
+		# ads_id - an Array io ads ids, that are associated to the ad_group_id provided
+		# 
+		# Examples 
+		#   service.get_ads_by_ids(1, [1,2,3]) 
+		#   # => [<BingAdsApi::Ad>] 
+		# 
+		# Returns An array of BingAdsApi::Ad
+		# Raises exception
+		def get_ads_by_ids(ad_group_id, ad_ids)
 			
 		end
 
 
-		def add_ads(account_id, campaign_id, ads_group_id, ads)
+		# Public : Add ads into a specified ad group 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# ad_group_id - a number with the id where the ads should be added
+		# ads - an array of BingAdsApi::Ad instances
+		# 
+		# Examples 
+		#   service.add_ads(1, [BingAdsApi::Ad]) 
+		#   # => [<number>] 
+		# 
+		# Returns an array with the id assigned to the added ads
+		# Raises exception
+		def add_ads(ad_group_id, ads)
 			
 		end
 

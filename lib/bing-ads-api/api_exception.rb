@@ -32,7 +32,7 @@ module BingAdsApi
 		
 		
 		def to_s
-			super.to_s + " - " + fault_object.to_s 
+			super.to_s + " - " + fault_object.to_s
 		end
 	end
 end

@@ -6,5 +6,8 @@ module BingAdsApi
 	
 		attr_accessor :code, :details, :error_code, :index, :message, :type
 		
+		def to_s
+			"#{index}:#{code}:#{error_code} - #{message} (#{type})"
+		end
 	end
 end 

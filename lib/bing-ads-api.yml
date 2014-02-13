@@ -152,9 +152,14 @@ constants:
       active: 'Active'
       paused: 'Paused'
       deleted: 'Deleted'
+    ad_editorial_status:
+      active: 'Active'
+      disapproved: 'Disapproved'
+      inactive: 'Inactive'
+      active_limited: 'ActiveLimited'
     ad_status:
       inactive: 'Inactive'
-      Active: 'Active'
+      active: 'Active'
       paused: 'Paused'
       deleted: 'Deleted'
     ad_type:

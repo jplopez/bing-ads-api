@@ -6,5 +6,8 @@ module BingAdsApi
 		
 		attr_accessor :tracking_id
 		
+		def to_s
+			return tracking_id.to_s
+		end
 	end
 end
