@@ -96,7 +96,7 @@ module BingAdsApi
 					api_fault_detail = BingAdsApi::ApiFaultDetail.new(fault_detail[:api_fault_detail])
 					raise BingAdsApi::ApiException.new(
 						api_fault_detail, "SOAP Error calling #{operation.to_s}")
-				elsif failt_detail.key?(:ad_api_fault_detail) 
+				elsif fault_detail.key?(:ad_api_fault_detail) 
 					ad_api_fault_detail = BingAdsApi::AdApiFaultDetail.new(fault_detail[:ad_api_fault_detail])
 					raise BingAdsApi::ApiException.new(
 						ad_api_fault_detail, "SOAP Error calling #{operation.to_s}")

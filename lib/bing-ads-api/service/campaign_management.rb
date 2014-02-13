@@ -223,9 +223,9 @@ module BingAdsApi
 			if ad_groups.is_a? Array
 				groups = ad_groups.map{ |gr| gr.to_hash(:camelcase) }
 			elsif ad_groups.is_a? BingAdsApi::AdGroup
-				groups = ad_groups.to_hash
+				groups = ad_groups.to_hash(:camelcase)
 			else 
-				raise "ad_groups must be an array of BingAdsApi::AdGroup"
+				raise "ad_groups must be an array or instance of BingAdsApi::AdGroup"
 			end
 			message = {
 				:campaign_id => campaign_id, 
@@ -252,8 +252,13 @@ module BingAdsApi
 			response = call(:get_ads_by_ad_group_id, 
 				{ad_group_id: ad_group_id})
 			response_hash = get_response_hash(response, __method__)
-			ads = response_hash[:ads][:ad].map do |ad_hash|
-				BingAdsApi::Ad.new(ad_hash)
+			
+			if response_hash[:ads][:ad].is_a?(Array)
+				ads = response_hash[:ads][:ad].map do |ad_hash|
+					initialize_ad(ad_hash)
+				end
+			else
+				ads = [ initialize_ad(response_hash[:ads][:ad]) ]
 			end
 			return ads
 		end
@@ -273,7 +278,22 @@ module BingAdsApi
 		# Returns An array of BingAdsApi::Ad
 		# Raises exception
 		def get_ads_by_ids(ad_group_id, ad_ids)
+
+
+			message = {
+				:ad_group_id => ad_group_id,
+				:ad_ids => {"ins1:long" => ad_ids} }
+			response = call(:get_ads_by_ids, message)
+			response_hash = get_response_hash(response, __method__)
 			
+			if response_hash[:ads][:ad].is_a?(Array)
+				ads = response_hash[:ads][:ad].map do |ad_hash|
+					initialize_ad(ad_hash)
+				end
+			else
+				ads = [ initialize_ad(response_hash[:ads][:ad]) ]
+			end
+			return ads
 		end
 
 
@@ -292,12 +312,116 @@ module BingAdsApi
 		# Raises exception
 		def add_ads(ad_group_id, ads)
 			
+			ads_for_soap = []
+			if ads.is_a? Array
+				ads_for_soap = ads.map{ |ad| ad_to_hash(ad, :camelcase) }
+			elsif ads.is_a? BingAdsApi::Ad
+				ads_for_soap = ad_to_hash(ads, :camelcase)
+			else 
+				raise "ads must be an array or instance of BingAdsApi::Ad"
+			end
+			message = {
+				:ad_group_id => ad_group_id, 
+				:ads => {:ad => ads_for_soap} }
+			puts message
+			response = call(:add_ads, message)
+
+			response_hash = get_response_hash(response, __method__)
+
+			# Checks if there are partial errors in the request
+			if response_hash[:partial_errors].key?(:batch_error) 
+				partial_errors = BingAdsApi::PartialErrors.new(
+					response_hash[:partial_errors])
+				response_hash[:partial_errors] = partial_errors
+			else 
+				response_hash.delete(:partial_errors)
+			end
+			
+			return response_hash
+		end
+
+
+		def update_ads(ad_group_id, ads)
+
+			ads_for_soap = []
+			if ads.is_a? Array
+				ads_for_soap = ads.map{ |ad| ad_to_hash(ad, :camelcase) }
+			elsif ads.is_a? BingAdsApi::Ad
+				ads_for_soap = ad_to_hash(ads, :camelcase)
+			else 
+				raise "ads must be an array or instance of BingAdsApi::Ad"
+			end
+			message = {
+				:ad_group_id => ad_group_id, 
+				:ads => {:ad => ads_for_soap} }
+			puts message
+			response = call(:update_ads, message)
+
+			response_hash = get_response_hash(response, __method__)
+
+			# Checks if there are partial errors in the request
+			if response_hash[:partial_errors].key?(:batch_error) 
+				partial_errors = BingAdsApi::PartialErrors.new(
+					response_hash[:partial_errors])
+				response_hash[:partial_errors] = partial_errors
+			else 
+				response_hash.delete(:partial_errors)
+			end
+			
+			return response_hash
 		end
 
 
 		private
 			def get_service_name
 				"campaign_management"
+			end
+			
+			# Private : Returns an instance of any of the subclases of BingAdsApi::Ad based on the '@i:type' value in the hash 
+			# 
+			# Author jlopezn@neonline.cl 
+			# 
+			# ad_hash - Hash returned by the SOAP request with the Ad attributes
+			# 
+			# Examples 
+			#   initialize_ad({:device_preference=>"0", :editorial_status=>"Active", 
+			#      :forward_compatibility_map=>{:"@xmlns:a"=>"http://schemas.datacontract.org/2004/07/System.Collections.Generic"}, 
+			#      :id=>"1", :status=>"Active", :type=>"Text", 
+			#      :destination_url=>"www.some-url.com", :display_url=>"http://www.some-url.com", 
+			#      :text=>"My Page", :title=>"My Page", 
+			#      :"@i:type"=>"TextAd"}) 
+			#   # => BingAdsApi::TextAd 
+			# 
+			# Returns BingAdsApi::Ad subclass instance
+			def initialize_ad(ad_hash)
+				ad = BingAdsApi::Ad.new(ad_hash)
+				case ad_hash["@i:type".to_sym]
+				when "TextAd"
+					ad = BingAdsApi::TextAd.new(ad_hash)
+				when "MobileAd"
+					ad = BingAdsApi::MobileAd.new(ad_hash)
+				when "ProductAd"
+					ad = BingAdsApi::ProductAd.new(ad_hash)
+				end
+				return ad
+			end
+
+
+			# Private : Helper method to correctly assemble the Ad XML for SOAP requests  
+			# 
+			# Author jlopezn@neonline.cl 
+			# 
+			# ad - BingAdsApi::Ad subclass instance
+			# 
+			# Examples 
+			#   ad_to_hash(BingAdsApi::Ad, :camelcase) 
+			#   # => Hash 
+			# 
+			# Returns The same hash that ad.to_hash returns plus the needed key for the Ad Type
+			def ad_to_hash(ad, keys)
+				hash = ad.to_hash(keys)
+				hash["@xsi:type"] = self.client_proxy.class::NAMESPACE.to_s + ":" + ad.class.to_s.demodulize
+				return hash
 			end
 	end
 

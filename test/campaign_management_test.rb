@@ -226,28 +226,234 @@ class CampaignManagementTest < ActiveSupport::TestCase
 	end
 	
 	
-	test "add ad" do
+	test "add ads" do
 		
+		ad_group_id = 1980939070
+		
+		date = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+
+		# TextAds
+		text_ads = [
+			BingAdsApi::TextAd.new(
+				:type => BingAdsApi::Ad::TEXT,
+				:status => BingAdsApi::Ad::INACTIVE,
+				:destination_url => "http://www.adxion.com",
+				:display_url => "AdXion.com",
+				:text => "TextAd #{date}",
+				:title => "TextAd"),
+
+			BingAdsApi::TextAd.new(
+				:type => BingAdsApi::Ad::TEXT,
+				:status => BingAdsApi::Ad::INACTIVE,
+				:destination_url => "http://www.adxion.com",
+				:display_url => "AdXion.com",
+				:text => "TextAd 2 #{date}",
+				:title => "TextAd 2")
+		]
+		response = @service.add_ads(ad_group_id, text_ads)
+		assert !response.nil? , "No response received adding text ads"
+
+		assert response[:partial_errors].nil?, "TextAds response with partial errors"
+
+		puts "Text: AddAds response[:ad_ids][:long]"
+		puts response[:ad_ids][:long]
+		assert !response[:ad_ids][:long].nil?, "No ad ids received for TextAds"
+
+
+		mobile_ads = [
+			BingAdsApi::MobileAd.new(
+				:bussines_name => "Bussiness 1",
+				:destination_url => "http://www.adxion.com",
+				:display_url => "AdXion.com",
+				:phone_number => "555555555",
+				:text => "Publish with us",
+				:title => "MobileAd"),
+
+			BingAdsApi::MobileAd.new(
+				:bussines_name => "Bussiness 2",
+				:destination_url => "http://www.adxion.com",
+				:display_url => "AdXion.com",
+				:phone_number => "555555555",
+				:text => "Keep publishing",
+				:title => "MobileAd 2")
+		]
+		response = @service.add_ads(ad_group_id, mobile_ads)
+		assert !response.nil? , "No response received adding mobile ads"
+
+		puts response[:partial_errors] if !response[:partial_errors].nil?
+		assert response[:partial_errors].nil?, "MobileAds response with partial errors"
+		
+		puts "Mobile: AddAds response[:ad_ids][:long]"
+		puts response[:ad_ids][:long]
+		assert !response[:ad_ids][:long].nil?, "No ad ids received for MobileAds"
+
+		# product_ads = [
+			# BingAdsApi::MobileAd.new(
+				# :promotional_text => "My Promotional text #{date}"),
+# 
+			# BingAdsApi::MobileAd.new(
+				# :promotional_text => "My Promotional text 2 #{date}")
+		# ]
+		# response = @service.add_ads(ad_group_id, product_ads)
+		# assert !response.nil? , "No response received adding product ads"
+
 	end
 	
 	
-	test "add ads" do
+	test "add ad" do
+
+		ad_group_id = 1980939070
 		
+		date = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+
+		# TextAd
+		text_ad = BingAdsApi::TextAd.new(
+				:type => BingAdsApi::Ad::TEXT,
+				:status => BingAdsApi::Ad::INACTIVE,
+				:destination_url => "http://www.adxion.com",
+				:display_url => "AdXion.com",
+				:text => "Text Ad #{date}",
+				:title => "Text Ad")
+		
+		response = @service.add_ads(ad_group_id, text_ad)
+		assert !response.nil? , "No response received adding text ad"
+
+		assert response[:partial_errors].nil?, "TextAd response with partial errors"
+
+		puts "Text: AddAds response[:ad_ids][:long]"
+		puts response[:ad_ids][:long]
+		assert !response[:ad_ids][:long].nil?, "No ad ids received for TextAd"
+
+		
+		# MobileAd
+		mobile_ad = BingAdsApi::MobileAd.new(
+				:bussines_name => "Bussiness",
+				:destination_url => "http://www.adxion.com",
+				:display_url => "adxion.com",
+				:phone_number => "555555555",
+				:text => "Publish with us",
+				:title => "Mobile Ad")
+		
+		response = @service.add_ads(ad_group_id, mobile_ad)
+		assert !response.nil? , "No response received adding mobile ad"
+
+		puts response[:partial_errors] if !response[:partial_errors].nil?
+		assert response[:partial_errors].nil?, "MobileAd response with partial errors"
+		
+		puts "Mobile: AddAds response[:ad_ids][:long]"
+		puts response[:ad_ids][:long]
+		assert !response[:ad_ids][:long].nil?, "No ad ids received for MobileAd"
+
+
+		# ProductAd
+		# product_ad = BingAdsApi::ProductAd.new(
+				# :promotional_text => "Promotion #{date}")
+		# response = @service.add_ads(ad_group_id, product_ad)
+		# assert !response.nil? , "No response received adding product ad"
+# 
+		# puts response[:partial_errors] if !response[:partial_errors].nil?
+		# assert response[:partial_errors].nil?, "ProductAd response with partial errors"
+# 		
+		# puts "Product: AddAds response[:ad_ids][:long]"
+		# puts response[:ad_ids][:long]
+		# assert !response[:ad_ids][:long].nil?, "No ad ids received for ProductAd"
+
+	end
+
+	test "add ad with partial errors" do
+
+		ad_group_id = 1980939070
+		
+		date = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+		text_ad = BingAdsApi::TextAd.new(
+				:type => BingAdsApi::Ad::TEXT,
+				:status => BingAdsApi::Ad::INACTIVE,
+				:destination_url => "http://www.adxion.com",
+				:display_url => "http://www.adxion.com",
+				:text => "Test Text Ad #{date}",
+				:title => "Test Text Ad #{date}")
+		
+		response = @service.add_ads(ad_group_id, text_ad)
+		assert !response.nil? , "No response received adding text ad"
+
+		puts response[:partial_errors]
+		assert !response[:partial_errors].nil?, "response should have partial errors"
 	end
 	
 	
 	test "get ads by group id" do
+		campaigns = @service.get_campaigns_by_account_id(@options[:account_id])
+		assert !campaigns.empty?, "No campaigns received for account id #{@options[:account_id]}" 
+		campaign_id = campaigns.first.id
 		
+		ad_group = @service.get_ad_groups_by_campaign_id(campaign_id).first
+		
+		ads = @service.get_ads_by_ad_group_id(ad_group.id)
+		assert !ads.empty?, "No ads received for ad group #{ad_group.id}"
+		ads.each do |ad|
+			assert ad.is_a?(BingAdsApi::Ad), "Object received is not an ad"
+		end 
 	end
 	
 	
 	test "get ads by ids" do
-		
+		# campaigns = @service.get_campaigns_by_account_id(@options[:account_id])
+		# assert !campaigns.empty?, "No campaigns received for account id #{@options[:account_id]}" 
+		# campaign_id = campaigns.first.id
+		# ad_group = @service.get_ad_groups_by_campaign_id(campaign_id).first
+		# ads = @service.get_ads_by_ad_group_id(ad_group.id)
+		ad_group_id = 1980939070
+		ads = @service.get_ads_by_ad_group_id(ad_group_id)
+		assert !ads.nil?, "No ads by ad group response received" 
+		assert !ads.empty?, "No ads received for ad group #{ad_group_id}"
+
+		# Get 2 ads
+		ad_ids = [ads[0].id, ads[1].id]
+		ads_by_ids = @service.get_ads_by_ids(ad_group_id, ad_ids) 
+		assert !ads_by_ids.nil?, "No response received" 
+		assert !ads_by_ids.empty?, "No ads received for ad group #{ad_group_id} and ad ids #{ad_ids}"
+		assert ad_ids.size == ads_by_ids.size, "Expetected ads #{ad_ids.size}. Received #{ads_by_ids.size}"
+		ads.each do |ad|
+			assert ad.is_a?(BingAdsApi::Ad), "Object received is not an ad"
+		end 
+
+		# Get specific ad
+		ad_ids = [ads[0].id]
+		ads_by_ids = @service.get_ads_by_ids(ad_group_id, ad_ids) 
+		assert !ads_by_ids.nil?, "No response received" 
+		assert !ads.empty?, "No ads received for ad group #{ad_group_id} and ad ids #{ad_ids}"
+		assert ad_ids.size == ads_by_ids.size, "Expetected one ad. Received #{ads_by_ids.size}"
+
 	end
 	
 	
 	test "update ads" do
 		
+		ad_group_id = 1980939070
+		# One TextAd and one MobileAd
+		ad_ids = [4560003693, 4560003694]
+		
+		ads = @service.get_ads_by_ids(ad_group_id, ad_ids)
+		
+		# Loop to modify something in the adds
+		ads.each do |ad|
+			case ad.type
+			when "Text"
+				ad.text = ad.text + " updated"
+			when "Mobile"
+				ad.phone_number = 1234567890
+			when "Product"
+				ad.promotional_text = ad.promotional_text + " edit"
+			end
+			ad.status = nil
+			ad.editorial_status = nil
+		end 
+		
+		response = @service.update_ads(ad_group_id, ads)
+		assert !response.nil? , "No response received updateing ads"
+
+		assert response[:partial_errors].nil?, "response with partial errors when updating ads"
+
 	end
 	
 	
