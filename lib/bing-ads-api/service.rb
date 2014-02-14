@@ -10,23 +10,26 @@ module BingAdsApi
 		
 		attr_accessor :client_proxy, :environment
 		
+		# Default logger for services
 		LOGGER = Logger.new(STDOUT)
 		
 		# Public : Constructor 
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
-		# options - Hash with autentication and environment settings
-		# Options:
-		#   environment - :production or :sandbox
-		#   username - Bing Ads username 
-		#   passwrod - Bing Ads user's sign-in password
-		#   developer_token - client application's developer access token
-		#   customer_id - identifier for the customer that owns the account
-		#   account_id - identifier of the account that own the entities in the request
-		#   proxy - Hash with any Client Proxy additional options (such as header, logger or enconding)
+		# === Parameters
+		# * +options+ - Hash with autentication and environment settings
+		#
+		# === Options
+		# * environment - +:production+ or +:sandbox+
+		# * username - Bing Ads username 
+		# * passwrod - Bing Ads user's sign-in password
+		# * developer_token - client application's developer access token
+		# * customer_id - identifier for the customer that owns the account
+		# * account_id - identifier of the account that own the entities in the request
+		# * proxy - Hash with any Client Proxy additional options (such as header, logger or enconding)
 		# 
-		# Examples 
+		# === Examples 
 		#   service = BingAdsApi::Service.new(
 		#     :environment => :sandbox,
 		#     :username    => 'username',
@@ -61,15 +64,16 @@ module BingAdsApi
 		end
 
 		# Public : This is a utility wrapper for calling services into the 
-		#    ClientProxy. This methods handle all the Savon::Client Exceptions
-		#    and returns a Hash with the call response  
+		# +ClientProxy+. This methods handle all the +Savon::Client+ Exceptions
+		# and returns a Hash with the call response  
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
-		# operation - name of the operation to be called
-		# message - hash with the parameters to the operation
+		# === Parameters
+		# +operation+ - name of the operation to be called
+		# +message+ - hash with the parameters to the operation
 		# 
-		# Examples 
+		# === Examples 
 		#   service.call(:some_operation, {key: value}) 
 		#   # => <Hash> 
 		# 
@@ -113,6 +117,22 @@ module BingAdsApi
 		end
 
 
+		# Public : Extracts the actual response from the entire response hash. 
+		# For example, if you specify 'AddCampaigns', this method will return
+		# the content of 'AddCampaignsResponse' tag as a Hash
+		#
+		# Author jlopezn@neonline.cl 
+		#
+		# === Parameters 
+		# response - The complete response hash received from a Operation call
+		# method - Name of the method of with the 'reponse' tag is require
+		# 
+		# === Examples 
+		#   service.get_response_hash(Hash, 'add_campaigns') 
+		#   # => Hash 
+		# 
+		# Returns Hash with the inner structure of the method response hash
+		# Raises exception
 		def get_response_hash(response, method)
 			return response[:envelope][:body]["#{method}_response".to_sym]
 		end
@@ -120,7 +140,7 @@ module BingAdsApi
 		private
 
 			# Private : This method must be overriden by specific services. 
-			#    Returns the service name 
+			# Returns the service name 
 			# 
 			# Author jlopezn@neonline.cl 
 			# 

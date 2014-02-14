@@ -1,7 +1,23 @@
 # -*- encoding : utf-8 -*-
 module BingAdsApi
 	
+	
+	# Public : This class represents the Campaign Management Services 
+	# defined in the Bing Ads API, to manage advertising campaigns  
+	# 
+	# Author jlopezn@neonline.cl 
+	# 
+	# Examples 
+	#  options = {
+	#    :environment => :sandbox,
+	#    :username => "username",
+	#    :password => "pass",
+	#    :developer_token => "SOME_TOKEN",
+	#    :customer_id => "1234567",
+	#    :account_id => "9876543" }
+	#  service = BingAdsApi::CampaignManagement.new(options)
 	class CampaignManagement < BingAdsApi::Service
+		
 		
 		# Public : Constructor 
 		# 
@@ -304,11 +320,19 @@ module BingAdsApi
 		# ad_group_id - a number with the id where the ads should be added
 		# ads - an array of BingAdsApi::Ad instances
 		# 
-		# Examples 
+		# Examples
+		#   # if the operation returns partial errors 
 		#   service.add_ads(1, [BingAdsApi::Ad]) 
-		#   # => [<number>] 
+		#   # => {:ad_ids => [], :partial_errors => BingAdsApi::PartialErrors } 
 		# 
-		# Returns an array with the id assigned to the added ads
+		#   # if the operation doesn't return partial errors 
+		#   service.add_ads(1, [BingAdsApi::Ad]) 
+		#   # => {:ad_ids => [] } 
+		# 
+		# Returns Hash with the AddAdsResponse structure. 
+		#   If the operation returns 'PartialErrors' key, 
+		#   this methods returns those errors as an BingAdsApi::PartialErrors 
+		#   instance
 		# Raises exception
 		def add_ads(ad_group_id, ads)
 			
@@ -341,6 +365,19 @@ module BingAdsApi
 		end
 
 
+		# Public : Updates ads for the specified ad group 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# ad_group_id - long with the ad group id
+		# ads - array of BingAdsApi::Ad subclasses instances to update
+		# 
+		# Examples 
+		#   service.update_ads(1, [<BingAdsApi::Ad>]) 
+		#   # => Hash 
+		# 
+		# Returns Hash with the UpdateAddsResponse structure
+		# Raises exception
 		def update_ads(ad_group_id, ads)
 
 			ads_for_soap = []

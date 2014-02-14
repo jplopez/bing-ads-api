@@ -2,11 +2,23 @@
 
 module BingAdsApi
 	
+	# Public : Defines a fault object that operations return when generic errors occur, 
+	# such as an authentication error. 
+	# 
+	# Author jlopezn@neonline.cl 
 	class AdApiFaultDetail < BingAdsApi::ApplicationFault
 		
 		attr_accessor :errors
 		
 		
+		# Public : Constructor 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# attributes - Hash with the initial attributes
+		# === Attributes
+		# * tracking_id : the operation tracking id value
+		# * errors : array of hashes with the Ad api errors
 		def initialize(attributes={})
 			super(attributes)
 			if attributes
@@ -14,7 +26,9 @@ module BingAdsApi
 			end
 		end
 		
-		
+		# Public : Specified to string method 
+		# 
+		# Author jlopezn@neonline.cl 
 		def to_s
 			str = super.to_s + ":\n" 
 			if batch_errors

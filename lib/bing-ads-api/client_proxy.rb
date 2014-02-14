@@ -39,18 +39,20 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# options - Hash con valores de autenticación y WSDL
 		# 
-		# Options:
-		#   username - Bing Ads username 
-		#   passwrod - Bing Ads user's sign-in password
-		#   developer_token - client application's developer access token
-		#   customer_id - identifier for the customer that owns the account
-		#   account_id - identifier of the account that own the entities in the request
-		#   wsdl_url - URL for the WSDL to be called 
-		#   proxy - Hash with any Savon Client additional options (such as header, logger or enconding)
 		# 
-		# Examples 
+		# === Options
+		# * username - Bing Ads username 
+		# * passwrod - Bing Ads user's sign-in password
+		# * developer_token - client application's developer access token
+		# * customer_id - identifier for the customer that owns the account
+		# * account_id - identifier of the account that own the entities in the request
+		# * wsdl_url - URL for the WSDL to be called 
+		# * proxy - Hash with any Savon Client additional options (such as header, logger or enconding)
+		# 
+		# === Examples 
 		#   options = {
 		#     :username => "username",
 		#     :password => "password",
@@ -81,11 +83,12 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# service_name - Service to be called
 		# message - Message for the service
 		# options - Additional options for the service
 		# 
-		# Examples 
+		# === Examples 
 		#   client.call_service(:some_service_name, {key: value}) 
 		#   # => <Response> 
 		# 

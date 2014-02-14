@@ -18,6 +18,9 @@ Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'data', '*.rb')].each { |f
 # Require Fault objects
 Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'fault', '*.rb')].each { |file| require file }
 
+# Public : This is the main namespace for all classes and submodules in this BingAdsApi Gem 
+# 
+# Author jlopezn@neonline.cl 
 module BingAdsApi
 	
 

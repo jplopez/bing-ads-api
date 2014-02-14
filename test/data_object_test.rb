@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 require 'test_helper'
 
+# Public : Test Case for Data Object instances 
+# 
+# Author jlopezn@neonline.cl 
 class DataObjectTest < ActiveSupport::TestCase
 
 	test "truth" do

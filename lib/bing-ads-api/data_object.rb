@@ -2,8 +2,9 @@
 
 module BingAdsApi
 	
+	##
 	# Public : Base Class to define Bing API data objects
-	#   Do not use this class directly, use any of the derived classes 
+	# Do not use this class directly, use any of the derived classes 
 	# 
 	# Author jlopezn@neonline.cl 
 	# 
@@ -20,12 +21,12 @@ module BingAdsApi
 		
 		
 		# Internal: Metodo custom para transformar a hash un objeto.
-		#   Se puede indicar si se desean las keys en formato CamelCase o underscore_case
+		# Se puede indicar si se desean las keys en formato CamelCase o underscore_case
 		#
 		# Author: asaavedrab@neonline.cl
 		#
 		# keys - indica si las keys del hash deben estar en formato 
-		#        CamelCase (:camelcase) o underscore_case (:underscore)
+		# CamelCase (:camelcase) o underscore_case (:underscore)
 		# 
 		# Example:
 		# 
@@ -45,6 +46,9 @@ module BingAdsApi
 		end
 
 
+		# Public : Specified to string method 
+		# 
+		# Author jlopezn@neonline.cl 
 		def to_s
 			to_hash.to_s
 		end
@@ -57,7 +61,7 @@ module BingAdsApi
 			# 
 			# attribute - the attribute name
 			# keys      - defines the case for the attribute name. 
-			#   Expected values are :camelcase y :underscore
+			# Expected values are :camelcase y :underscore
 			# 
 			# Examples 
 			#   get_attribute_key("attribute_name", :underscore) 

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class BingAdsApi::AdGroup - BingAdsApi</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/bing-ads-api/data/ad_group.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="DataObject.html">BingAdsApi::DataObject</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">BingAdsApi::AdDistribution</span>
+  
+  
+  
+    <li><span class="include">BingAdsApi::AdRotationType</span>
+  
+  
+  
+    <li><span class="include">BingAdsApi::PricingModel</span>
+  
+  
+  
+    <li><span class="include">BingAdsApi::BiddingModel</span>
+  
+  
+  
+    <li><a class="include" href="AdLanguage.html">BingAdsApi::AdLanguage</a>
+  
+  
+  
+    <li><span class="include">BingAdsApi::AdGroupStatus</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-to_hash">#to_hash</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BingAdsApi.html">BingAdsApi</a>
+  
+    <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
+  
+    <li><a href="../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
+  
+    <li><a href="../BingAdsApi/AdApiFaultDetail.html">BingAdsApi::AdApiFaultDetail</a>
+  
+    <li><a href="../BingAdsApi/AdGroup.html">BingAdsApi::AdGroup</a>
+  
+    <li><a href="../BingAdsApi/AdLanguage.html">BingAdsApi::AdLanguage</a>
+  
+    <li><a href="../BingAdsApi/ApiException.html">BingAdsApi::ApiException</a>
+  
+    <li><a href="../BingAdsApi/ApiFaultDetail.html">BingAdsApi::ApiFaultDetail</a>
+  
+    <li><a href="../BingAdsApi/ApplicationFault.html">BingAdsApi::ApplicationFault</a>
+  
+    <li><a href="../BingAdsApi/BatchError.html">BingAdsApi::BatchError</a>
+  
+    <li><a href="../BingAdsApi/Campaign.html">BingAdsApi::Campaign</a>
+  
+    <li><a href="../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
+  
+    <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
+  
+    <li><a href="../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
+  
+    <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
+  
+    <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
+  
+    <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
+  
+    <li><a href="../BingAdsApi/PartialErrors.html">BingAdsApi::PartialErrors</a>
+  
+    <li><a href="../BingAdsApi/ProductAd.html">BingAdsApi::ProductAd</a>
+  
+    <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
+  
+    <li><a href="../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
+  
+    <li><a href="../BingAdsApi/TimeZone.html">BingAdsApi::TimeZone</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class BingAdsApi::AdGroup</h1>
+
+  <div id="description" class="description">
+    
+<p>Public : Defines an ad group.</p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<p>Examples</p>
+
+<pre class="ruby"><span class="ruby-identifier">ad_group</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span>.<span class="ruby-identifier">new</span>(
+  :<span class="ruby-identifier">ad_distribution</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span><span class="ruby-operator">::</span><span class="ruby-constant">SEARCH</span>,
+  :<span class="ruby-identifier">language</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span><span class="ruby-operator">::</span><span class="ruby-constant">SPANISH</span>,
+  :<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Ad Group name&quot;</span>,
+  :<span class="ruby-identifier">pricing_model</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span><span class="ruby-operator">::</span><span class="ruby-constant">CPC</span>,
+  :<span class="ruby-identifier">bidding_model</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span><span class="ruby-operator">::</span><span class="ruby-constant">KEYWORD</span>) 
+<span class="ruby-comment"># =&gt; &lt;BingAdsApi::AdGroup&gt;</span>
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-ad_distribution" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ad_distribution</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ad_rotation" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ad_rotation</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-bidding_model" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">bidding_model</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-broad_match_bid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">broad_match_bid</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-content_match_bid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">content_match_bid</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-end_date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">end_date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-exact_match_bid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">exact_match_bid</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-language" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">language</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-phrase_match_bid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">phrase_match_bid</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pricing_model" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pricing_model</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-start_date" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">start_date</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-status" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">status</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(attributes={})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Constructor in a ActiveRecord style, with a hash of attributes as
+input</p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<p>attributes - Hash with the objects attributes</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/ad_group.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">attributes</span>)
+        <span class="ruby-identifier">set_custom_attributes</span>(<span class="ruby-identifier">attributes</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">(keys = :underscore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Returns this object as a hash to SOAP requests  This methods is a
+specialization for the +<a
+href="DataObject.html#method-i-to_hash">BingAdsApi::DataObject#to_hash</a>+
+method that ads specific hash keys for the <a
+href="AdGroup.html">AdGroup</a> object</p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<p>keys - specifies the keys case: CamelCase or underscore_case</p>
+
+<p>Returns Hash</p>
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/ad_group.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">keys</span> = <span class="ruby-value">:underscore</span>)
+        <span class="ruby-identifier">hash</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">keys</span>)
+        
+        <span class="ruby-identifier">amount_key</span> = <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;amount&quot;</span>, <span class="ruby-identifier">keys</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_match_bid</span>
+                <span class="ruby-comment">#hash.delete(:content_match_bid)</span>
+                <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;content_match_bid&quot;</span>, <span class="ruby-identifier">keys</span>)] = {<span class="ruby-identifier">amount_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_match_bid</span>}
+        <span class="ruby-keyword">end</span> 
+        
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exact_match_bid</span>
+                <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;exact_match_bid&quot;</span>, <span class="ruby-identifier">keys</span>)] = {<span class="ruby-identifier">amount_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exact_match_bid</span>}
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">phrase_match_bid</span>
+                <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;phrase_match_bid&quot;</span>, <span class="ruby-identifier">keys</span>)] = {<span class="ruby-identifier">amount_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">phrase_match_bid</span>}
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">broad_match_bid</span>
+                <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;broad_match_bid&quot;</span>, <span class="ruby-identifier">keys</span>)] = {<span class="ruby-identifier">amount_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">broad_match_bid</span>}
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_date</span>
+                <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;start_date&quot;</span>, <span class="ruby-identifier">keys</span>)] = <span class="ruby-identifier">date_to_hash</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">keys</span>)
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">end_date</span>
+                <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;end_date&quot;</span>, <span class="ruby-identifier">keys</span>)] = <span class="ruby-identifier">date_to_hash</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">keys</span>)
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

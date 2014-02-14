@@ -2,11 +2,24 @@
 
 module BingAdsApi
 	
+	# Public : Defines a fault object that operations return when web service-specific errors occur, 
+	# such as when the request message contains incomplete or invalid data. 
+	# 
+	# Author jlopezn@neonline.cl 
 	class ApiFaultDetail < BingAdsApi::ApplicationFault
 		
 		attr_accessor :batch_errors, :operation_errors
 		
 		
+		# Public : Constructor 
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# attributes - Hash with the initial attributes
+		# === Attributes
+		# * tracking_id : the operation tracking id value
+		# * batch_errors : array of hashes with the batch errors
+		# * operation_errors : array of hashes with the operation errors 
 		def initialize(attributes={})
 			super(attributes)
 			if attributes
@@ -16,6 +29,11 @@ module BingAdsApi
 		end
 		
 		
+		# Public : Specific to string  
+		# 
+		# Author jlopezn@neonline.cl 
+		# 
+		# Returns the object 'stringified'
 		def to_s
 			str = super.to_s + ":\n" 
 			if batch_errors

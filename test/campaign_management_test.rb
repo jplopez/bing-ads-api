@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 require 'test_helper'
 
+# Public : Test case for Campaign Management services 
+# 
+# Author jlopezn@neonline.cl 
 class CampaignManagementTest < ActiveSupport::TestCase
 
 	def setup

@@ -2,6 +2,18 @@
 
 module BingAdsApi
 	
+	# Public : Defines an ad group. 
+	# 
+	# Author jlopezn@neonline.cl 
+	# 
+	# Examples 
+	#   ad_group = BingAdsApi::AdGroup.new(
+	#     :ad_distribution => BingAdsApi::AdGroup::SEARCH,
+	#     :language => BingAdsApi::AdGroup::SPANISH,
+	#     :name => "Ad Group name",
+	#     :pricing_model => BingAdsApi::AdGroup::CPC,
+	#     :bidding_model => BingAdsApi::AdGroup::KEYWORD) 
+	#   # => <BingAdsApi::AdGroup>
 	class AdGroup < BingAdsApi::DataObject
 		include BingAdsApi::AdDistribution
 		include BingAdsApi::AdRotationType
@@ -44,8 +56,8 @@ module BingAdsApi
 		
 		
 		# Public : Returns this object as a hash to SOAP requests 
-		#    This methods is a specialization for the DataObject#to_hash method
-		#    it only ads specific hash keys for the AdGroup object
+		# This methods is a specialization for the +DataObject#to_hash+ method
+		# that ads specific hash keys for the AdGroup object
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
