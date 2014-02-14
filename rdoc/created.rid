@@ -1,4 +1,4 @@
-Fri, 14 Feb 2014 11:14:24 -0300
+Fri, 14 Feb 2014 11:25:07 -0300
 README.rdoc	Mon, 16 Dec 2013 11:55:40 -0300
 lib/bing-ads-api.rb	Fri, 14 Feb 2014 10:50:32 -0300
 lib/bing-ads-api/api_exception.rb	Fri, 14 Feb 2014 11:02:02 -0300
@@ -17,6 +17,6 @@ lib/bing-ads-api/fault/batch_error.rb	Fri, 14 Feb 2014 10:48:23 -0300
 lib/bing-ads-api/fault/operation_error.rb	Fri, 14 Feb 2014 10:49:19 -0300
 lib/bing-ads-api/fault/partial_errors.rb	Fri, 14 Feb 2014 11:10:01 -0300
 lib/bing-ads-api/service.rb	Fri, 14 Feb 2014 11:05:32 -0300
-lib/bing-ads-api/service/campaign_management.rb	Fri, 14 Feb 2014 11:13:33 -0300
+lib/bing-ads-api/service/campaign_management.rb	Fri, 14 Feb 2014 11:25:01 -0300
 lib/bing-ads-api/service/reporting.rb	Fri, 14 Feb 2014 11:14:17 -0300
 lib/bing-ads-api/version.rb	Fri, 14 Feb 2014 10:50:54 -0300

@@ -48,13 +48,15 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# account_id - account who owns the campaigns
 		# 
-		# Examples 
+		# === Examples 
 		#   campaign_management_service.get_campaigns_by_account_id(1) 
 		#   # => Array[BingAdsApi::Campaign]
 		# 
 		# Returns Array of BingAdsApi::Campaign
+		# 
 		# Raises exception
 		def get_campaigns_by_account_id(account_id)
 			response = call(:get_campaigns_by_account_id, 
@@ -71,14 +73,16 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# account_id - account who will own the newly campaigns
 		# campaigns - An array of BingAdsApi::Campaign
 		# 
-		# Examples 
+		# === Examples 
 		#   service.add_campaigns(1, [<BingAdsApi::Campaign>]) 
 		#   # => <Hash> 
 		# 
 		# Returns hash with the 'add_campaigns_response' structure
+		# 
 		# Raises exception
 		def add_campaigns(account_id, campaigns)
 			
@@ -103,19 +107,17 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# account_id - account who own the updated campaigns
 		# campaigns - Array with the campaigns to be updated
 		# 
-		# Examples 
+		# === Examples 
 		#   service_update_campaigns(1, [<BingAdsApi::Campaign]) 
 		#   # =>  true
 		# 
-		# Returns boolean. true if the update was successfull. false otherwise
-		# Raises exception
+		# Returns boolean. true if the update was successful. false otherwise
 		# 
-		# Signature :
-		# 	signature 
-		
+		# Raises exception
 		def update_campaigns(account_id, campaigns)
 			camps = []
 			if campaigns.is_a? Array
@@ -138,17 +140,19 @@ module BingAdsApi
 
 
 		# Public : Returns all the ad groups that belongs to the 
-		#   specified campaign 
+		# specified campaign 
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# campaign_id   - campaign id
 		# 
-		# Examples 
+		# === Examples 
 		#   service.get_ad_groups_by_campaign_id(1) 
 		#   # => Array[AdGroups] 
 		# 
 		# Returns Array with all the ad groups present in campaign_id
+		# 
 		# Raises exception
 		def get_ad_groups_by_campaign_id(campaign_id)
 			response = call(:get_ad_groups_by_campaign_id, 
@@ -162,18 +166,20 @@ module BingAdsApi
 
 
 		# Public : Returns the specified ad groups that belongs to the 
-		#   specified campaign 
+		# specified campaign 
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# campaign_id   - campaign id
 		# ad_groups_ids - array with ids from ad groups
 		# 
-		# Examples 
+		# === Examples 
 		#   service.get_ad_groups_by_ids(1, [1,2,3]) 
 		#   # => Array[AdGroups] 
 		# 
 		# Returns Array with the ad groups specified in the ad_groups_ids array
+		# 
 		# Raises exception
 		def get_ad_groups_by_ids(campaign_id, ad_groups_ids)
 			
@@ -194,14 +200,16 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# campaing_id - the campaign id where the ad groups will be added
 		# ad_groups - Array[BingAdsApi::AdGroup] ad groups to be added
 		# 
-		# Examples 
+		# === Examples 
 		#   service.add_ad_groups(1, [<BingAdsApi::AdGroup>]) 
 		#   # => <Hash> 
 		# 
 		# Returns Hash with the 'add_ad_groups_response' structure
+		# 
 		# Raises exception
 		def add_ad_groups(campaign_id, ad_groups)
 			
@@ -226,13 +234,15 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# campaign_id - campaign who owns the updated ad groups
 		# 
-		# Examples 
+		# === Examples 
 		#   service.update_ad_groups(1, [<BingAdsApi::AdGroup]) 
 		#   # => true 
 		# 
 		# Returns boolean. true if the updates is successfull. false otherwise
+		# 
 		# Raises exception
 		def update_ad_groups(campaign_id, ad_groups)
 			groups = []
@@ -256,13 +266,15 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# ad_group_id - long with the ad group id
 		# 
-		# Examples 
+		# === Examples 
 		#   service.get_ads_by_ad_group_id(1) 
 		#   # => [<BingAdsApi::Ad] 
 		# 
 		# Returns An array of BingAdsApi::Ad
+		# 
 		# Raises exception
 		def get_ads_by_ad_group_id(ad_group_id)
 			response = call(:get_ads_by_ad_group_id, 
@@ -284,14 +296,16 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# ad_group_id - long with the ad group id
 		# ads_id - an Array io ads ids, that are associated to the ad_group_id provided
 		# 
-		# Examples 
+		# === Examples 
 		#   service.get_ads_by_ids(1, [1,2,3]) 
 		#   # => [<BingAdsApi::Ad>] 
 		# 
 		# Returns An array of BingAdsApi::Ad
+		# 
 		# Raises exception
 		def get_ads_by_ids(ad_group_id, ad_ids)
 
@@ -317,10 +331,11 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# ad_group_id - a number with the id where the ads should be added
 		# ads - an array of BingAdsApi::Ad instances
 		# 
-		# Examples
+		# === Examples
 		#   # if the operation returns partial errors 
 		#   service.add_ads(1, [BingAdsApi::Ad]) 
 		#   # => {:ad_ids => [], :partial_errors => BingAdsApi::PartialErrors } 
@@ -330,9 +345,10 @@ module BingAdsApi
 		#   # => {:ad_ids => [] } 
 		# 
 		# Returns Hash with the AddAdsResponse structure. 
-		#   If the operation returns 'PartialErrors' key, 
-		#   this methods returns those errors as an BingAdsApi::PartialErrors 
-		#   instance
+		# If the operation returns 'PartialErrors' key, 
+		# this methods returns those errors as an BingAdsApi::PartialErrors 
+		# instance
+		#
 		# Raises exception
 		def add_ads(ad_group_id, ads)
 			
@@ -369,14 +385,16 @@ module BingAdsApi
 		# 
 		# Author jlopezn@neonline.cl 
 		# 
+		# === Parameters
 		# ad_group_id - long with the ad group id
 		# ads - array of BingAdsApi::Ad subclasses instances to update
 		# 
-		# Examples 
+		# === Examples 
 		#   service.update_ads(1, [<BingAdsApi::Ad>]) 
 		#   # => Hash 
 		# 
 		# Returns Hash with the UpdateAddsResponse structure
+		# 
 		# Raises exception
 		def update_ads(ad_group_id, ads)
 

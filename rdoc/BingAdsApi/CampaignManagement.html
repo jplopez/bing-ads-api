@@ -280,21 +280,25 @@ campaigns</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-add_ad_groups-label-Parameters">Parameters</h3>
+
 <p>campaing_id - the campaign id where the ad groups will be added ad_groups -
 <a href="BingAdsApi::AdGroup">Array</a> ad groups to be added</p>
 
-<p>Examples</p>
+<h3 id="method-i-add_ad_groups-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_ad_groups</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span><span class="ruby-operator">&gt;</span>]) 
 <span class="ruby-comment"># =&gt; &lt;Hash&gt;</span>
 </pre>
 
-<p>Returns Hash with the ‘add_ad_groups_response’ structure Raises exception</p>
+<p>Returns Hash with the ‘add_ad_groups_response’ structure</p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="add_ad_groups-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 206</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 214</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_ad_groups</span>(<span class="ruby-identifier">campaign_id</span>, <span class="ruby-identifier">ad_groups</span>)
         
         <span class="ruby-identifier">groups</span> = []
@@ -337,10 +341,12 @@ campaigns</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-add_ads-label-Parameters">Parameters</h3>
+
 <p>ad_group_id - a number with the id where the ads should be added ads - an
 array of <a href="Ad.html">BingAdsApi::Ad</a> instances</p>
 
-<p>Examples</p>
+<h3 id="method-i-add_ads-label-Examples">Examples</h3>
 
 <pre class="ruby"><span class="ruby-comment"># if the operation returns partial errors </span>
 <span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_ads</span>(<span class="ruby-value">1</span>, [<span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ad</span>]) 
@@ -351,18 +357,16 @@ array of <a href="Ad.html">BingAdsApi::Ad</a> instances</p>
 <span class="ruby-comment"># =&gt; {:ad_ids =&gt; [] }</span>
 </pre>
 
-<p>Returns Hash with the AddAdsResponse structure.</p>
-
-<pre>If the operation returns 'PartialErrors' key, 
-this methods returns those errors as an BingAdsApi::PartialErrors 
-instance</pre>
+<p>Returns Hash with the AddAdsResponse structure.  If the operation returns
+‘PartialErrors’ key,  this methods returns those errors as an <a
+href="PartialErrors.html">BingAdsApi::PartialErrors</a>  instance</p>
 
 <p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="add_ads-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 337</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 353</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_ads</span>(<span class="ruby-identifier">ad_group_id</span>, <span class="ruby-identifier">ads</span>)
         
         <span class="ruby-identifier">ads_for_soap</span> = []
@@ -417,21 +421,25 @@ instance</pre>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-add_campaigns-label-Parameters">Parameters</h3>
+
 <p>account_id - account who will own the newly campaigns campaigns - An array
 of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
 
-<p>Examples</p>
+<h3 id="method-i-add_campaigns-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_campaigns</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">&gt;</span>]) 
 <span class="ruby-comment"># =&gt; &lt;Hash&gt;</span>
 </pre>
 
-<p>Returns hash with the ‘add_campaigns_response’ structure Raises exception</p>
+<p>Returns hash with the ‘add_campaigns_response’ structure</p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="add_campaigns-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 83</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_campaigns</span>(<span class="ruby-identifier">account_id</span>, <span class="ruby-identifier">campaigns</span>)
         
         <span class="ruby-identifier">camps</span> = []
@@ -470,27 +478,28 @@ of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
 
         <div class="method-description">
           
-          <p>Public : Returns all the ad groups that belongs to the</p>
-
-<pre>specified campaign</pre>
+          <p>Public : Returns all the ad groups that belongs to the  specified campaign</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-get_ad_groups_by_campaign_id-label-Parameters">Parameters</h3>
+
 <p>campaign_id   - campaign id</p>
 
-<p>Examples</p>
+<h3 id="method-i-get_ad_groups_by_campaign_id-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ad_groups_by_campaign_id</span>(<span class="ruby-value">1</span>) 
 <span class="ruby-comment"># =&gt; Array[AdGroups]</span>
 </pre>
 
-<p>Returns Array with all the ad groups present in campaign_id Raises
-exception</p>
+<p>Returns Array with all the ad groups present in campaign_id</p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="get_ad_groups_by_campaign_id-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 153</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 157</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_ad_groups_by_campaign_id</span>(<span class="ruby-identifier">campaign_id</span>)
         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">call</span>(<span class="ruby-value">:get_ad_groups_by_campaign_id</span>, 
                 {<span class="ruby-identifier">campaign_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">campaign_id</span>})
@@ -521,27 +530,29 @@ exception</p>
 
         <div class="method-description">
           
-          <p>Public : Returns the specified ad groups that belongs to the</p>
-
-<pre>specified campaign</pre>
+          <p>Public : Returns the specified ad groups that belongs to the  specified
+campaign</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-get_ad_groups_by_ids-label-Parameters">Parameters</h3>
+
 <p>campaign_id   - campaign id ad_groups_ids - array with ids from ad groups</p>
 
-<p>Examples</p>
+<h3 id="method-i-get_ad_groups_by_ids-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ad_groups_by_ids</span>(<span class="ruby-value">1</span>, [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]) 
 <span class="ruby-comment"># =&gt; Array[AdGroups]</span>
 </pre>
 
-<p>Returns Array with the ad groups specified in the ad_groups_ids array
-Raises exception</p>
+<p>Returns Array with the ad groups specified in the ad_groups_ids array</p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="get_ad_groups_by_ids-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 178</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_ad_groups_by_ids</span>(<span class="ruby-identifier">campaign_id</span>, <span class="ruby-identifier">ad_groups_ids</span>)
         
         <span class="ruby-identifier">message</span> = {
@@ -580,20 +591,24 @@ Raises exception</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-get_ads_by_ad_group_id-label-Parameters">Parameters</h3>
+
 <p>ad_group_id - long with the ad group id</p>
 
-<p>Examples</p>
+<h3 id="method-i-get_ads_by_ad_group_id-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ads_by_ad_group_id</span>(<span class="ruby-value">1</span>) 
 <span class="ruby-comment"># =&gt; [&lt;BingAdsApi::Ad]</span>
 </pre>
 
-<p>Returns An array of <a href="Ad.html">BingAdsApi::Ad</a> Raises exception</p>
+<p>Returns An array of <a href="Ad.html">BingAdsApi::Ad</a></p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="get_ads_by_ad_group_id-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 267</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 279</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_ads_by_ad_group_id</span>(<span class="ruby-identifier">ad_group_id</span>)
         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">call</span>(<span class="ruby-value">:get_ads_by_ad_group_id</span>, 
                 {<span class="ruby-identifier">ad_group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ad_group_id</span>})
@@ -634,21 +649,25 @@ group</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-get_ads_by_ids-label-Parameters">Parameters</h3>
+
 <p>ad_group_id - long with the ad group id ads_id - an Array io ads ids, that
 are associated to the ad_group_id provided</p>
 
-<p>Examples</p>
+<h3 id="method-i-get_ads_by_ids-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ads_by_ids</span>(<span class="ruby-value">1</span>, [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]) 
 <span class="ruby-comment"># =&gt; [&lt;BingAdsApi::Ad&gt;]</span>
 </pre>
 
-<p>Returns An array of <a href="Ad.html">BingAdsApi::Ad</a> Raises exception</p>
+<p>Returns An array of <a href="Ad.html">BingAdsApi::Ad</a></p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="get_ads_by_ids-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 296</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 310</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_ads_by_ids</span>(<span class="ruby-identifier">ad_group_id</span>, <span class="ruby-identifier">ad_ids</span>)
 
 
@@ -692,21 +711,24 @@ are associated to the ad_group_id provided</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-get_campaigns_by_account_id-label-Parameters">Parameters</h3>
+
 <p>account_id - account who owns the campaigns</p>
 
-<p>Examples</p>
+<h3 id="method-i-get_campaigns_by_account_id-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">campaign_management_service</span>.<span class="ruby-identifier">get_campaigns_by_account_id</span>(<span class="ruby-value">1</span>) 
 <span class="ruby-comment"># =&gt; Array[BingAdsApi::Campaign]</span>
 </pre>
 
-<p>Returns Array of <a href="Campaign.html">BingAdsApi::Campaign</a> Raises
-exception</p>
+<p>Returns Array of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="get_campaigns_by_account_id-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 59</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_campaigns_by_account_id</span>(<span class="ruby-identifier">account_id</span>)
         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">call</span>(<span class="ruby-value">:get_campaigns_by_account_id</span>, 
                 {<span class="ruby-identifier">account_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">account_id</span>})
@@ -741,21 +763,24 @@ exception</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-update_ad_groups-label-Parameters">Parameters</h3>
+
 <p>campaign_id - campaign who owns the updated ad groups</p>
 
-<p>Examples</p>
+<h3 id="method-i-update_ad_groups-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">update_ad_groups</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span>]) 
 <span class="ruby-comment"># =&gt; true</span>
 </pre>
 
-<p>Returns boolean. true if the updates is successfull. false otherwise Raises
-exception</p>
+<p>Returns boolean. true if the updates is successfull. false otherwise</p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="update_ad_groups-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 237</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 247</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_ad_groups</span>(<span class="ruby-identifier">campaign_id</span>, <span class="ruby-identifier">ad_groups</span>)
         <span class="ruby-identifier">groups</span> = []
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">ad_groups</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
@@ -797,21 +822,25 @@ exception</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-update_ads-label-Parameters">Parameters</h3>
+
 <p>ad_group_id - long with the ad group id ads - array of <a
 href="Ad.html">BingAdsApi::Ad</a> subclasses instances to update</p>
 
-<p>Examples</p>
+<h3 id="method-i-update_ads-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">update_ads</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ad</span><span class="ruby-operator">&gt;</span>]) 
 <span class="ruby-comment"># =&gt; Hash</span>
 </pre>
 
-<p>Returns Hash with the UpdateAddsResponse structure Raises exception</p>
+<p>Returns Hash with the UpdateAddsResponse structure</p>
+
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="update_ads-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 381</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 399</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_ads</span>(<span class="ruby-identifier">ad_group_id</span>, <span class="ruby-identifier">ads</span>)
 
         <span class="ruby-identifier">ads_for_soap</span> = []
@@ -866,26 +895,25 @@ href="Ad.html">BingAdsApi::Ad</a> subclasses instances to update</p>
 
 <p>Author jlopezn@neonline.cl</p>
 
+<h3 id="method-i-update_campaigns-label-Parameters">Parameters</h3>
+
 <p>account_id - account who own the updated campaigns campaigns - Array with
 the campaigns to be updated</p>
 
-<p>Examples</p>
+<h3 id="method-i-update_campaigns-label-Examples+">Examples </h3>
 
 <pre class="ruby"><span class="ruby-identifier">service_update_campaigns</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span>]) 
 <span class="ruby-comment"># =&gt;  true</span>
 </pre>
 
-<p>Returns boolean. true if the update was successfull. false otherwise Raises
-exception</p>
+<p>Returns boolean. true if the update was successful. false otherwise</p>
 
-<p>Signature :</p>
-
-<pre>signature</pre>
+<p>Raises exception</p>
           
 
           
           <div class="method-source-code" id="update_campaigns-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 119</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/campaign_management.rb, line 121</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_campaigns</span>(<span class="ruby-identifier">account_id</span>, <span class="ruby-identifier">campaigns</span>)
         <span class="ruby-identifier">camps</span> = []
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">campaigns</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
