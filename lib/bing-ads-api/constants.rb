@@ -56,19 +56,78 @@ module BingAdsApi
 
 	end
 
-
-	## Dynamic classes for reporting constants
-	BingAdsApi::Config.instance.reporting_constants.each do |const_key, const_value|
-
-		const_class = Class.new(Object) do
-			# Dynamically create Constants classes for each value found 
-			const_value.each do |key, value|
-				self.const_set(key.upcase, value)
-			end
-	
-		end	
-		BingAdsApi.const_set(const_key.camelize, const_class)
-
+	# Public : Module for Reporting formats 
+	# 
+	# Example
+	#   BingAdsApi::ReportFormat.CSV
+	#   # => 'Csv'
+	#
+	# Author jlopezn@neonline.cl 
+	module ReportFormat
+		BingAdsApi::Config.instance.reporting_constants['format'].each do |key, value|
+			ReportFormat.const_set(key.upcase, value)
+		end
 	end
+	
+	
+	# Public : Module for Reporting languages 
+	# 
+	# Example
+	#   BingAdsApi::ReportLanguage.ENGLISH
+	#   # => 'English'
+	#
+	# Author jlopezn@neonline.cl 
+	module ReportLanguage
+		BingAdsApi::Config.instance.reporting_constants['language'].each do |key, value|
+			ReportLanguage.const_set(key.upcase, value)
+		end
+	end
+	
+	
+	# Public : Module for Reporting languages 
+	# 
+	# Example
+	#   BingAdsApi::ReportAggregation.SUMMARY
+	#   # => 'Summary'
+	#   BingAdsApi::ReportAggregation.HOURLY
+	#   # => 'Hourly'
+	#
+	# Author jlopezn@neonline.cl 
+	module ReportAggregation
+		BingAdsApi::Config.instance.reporting_constants['aggregation'].each do |key, value|
+			ReportAggregation.const_set(key.upcase, value)
+		end
+	end
+	
+	
+	# Public : Module for Reporting languages 
+	# 
+	# Example
+	#   BingAdsApi::ReportTimePeriods.TODAY
+	#   # => 'Today'
+	#   BingAdsApi::ReportTimePeriods.LAST_WEEK
+	#   # => 'LastWeek'
+	# 
+	# Author jlopezn@neonline.cl 
+	module ReportTimePeriods
+		BingAdsApi::Config.instance.reporting_constants['time_periods'].each do |key, value|
+			ReportTimePeriods.const_set(key.upcase, value)
+		end
+	end
+	
+	
+	## Dynamic classes for reporting constants
+	# BingAdsApi::Config.instance.reporting_constants.each do |const_key, const_value|
+# 
+		# const_module = Module.new do
+			# # Dynamically create Constants classes for each value found 
+			# const_value.each do |key, value|
+				# self.const_set(key.upcase, value)
+			# end
+# 	
+		# end	
+		# BingAdsApi.const_set(const_key.camelize, const_module)
+# 
+	# end
 
 end

@@ -59,12 +59,24 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link">Object
+  <p class="link"><a href="Service.html">BingAdsApi::Service</a>
   
 </nav>
 
     
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
     
+    <li><a href="#method-i-poll_generate_report">#poll_generate_report</a>
+    
+    <li><a href="#method-i-submit_generate_report">#submit_generate_report</a>
+    
+  </ul>
+</nav>
+
   </div>
 
   <div id="project-metadata">
@@ -84,6 +96,10 @@
   <ul class="link-list">
   
     <li><a href="../BingAdsApi.html">BingAdsApi</a>
+  
+    <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
   
     <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
   
@@ -107,6 +123,12 @@
   
     <li><a href="../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
   
+    <li><a href="../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
+  
+    <li><a href="../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
+  
     <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
     <li><a href="../BingAdsApi/Config.html">BingAdsApi::Config</a>
@@ -121,7 +143,19 @@
   
     <li><a href="../BingAdsApi/PartialErrors.html">BingAdsApi::PartialErrors</a>
   
+    <li><a href="../BingAdsApi/PerformanceReportRequest.html">BingAdsApi::PerformanceReportRequest</a>
+  
     <li><a href="../BingAdsApi/ProductAd.html">BingAdsApi::ProductAd</a>
+  
+    <li><a href="../BingAdsApi/ReportAggregation.html">BingAdsApi::ReportAggregation</a>
+  
+    <li><a href="../BingAdsApi/ReportFormat.html">BingAdsApi::ReportFormat</a>
+  
+    <li><a href="../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
+  
+    <li><a href="../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
   
     <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
   
@@ -175,6 +209,101 @@ Services  defined in the Bing Ads API, to request and download reports</p>
 
     <!-- Methods -->
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-poll_generate_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">poll_generate_report</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Get the status of a report request</p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<h3 id="method-i-poll_generate_report-label-Parameters">Parameters</h3>
+
+<p>report_request_id - Identifier of the report request</p>
+
+<h3 id="method-i-poll_generate_report-label-Examples+">Examples </h3>
+
+<pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">poll_generate_report</span>(<span class="ruby-string">&quot;12345&quot;</span>) 
+<span class="ruby-comment"># =&gt; Hash</span>
+</pre>
+
+<p>Returns Hash with the PollGenerateReportResponse structure</p>
+
+<p>Raises exception</p>
+          
+
+          
+          <div class="method-source-code" id="poll_generate_report-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/reporting.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">poll_generate_report</span>
+        
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- poll_generate_report-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- poll_generate_report-method -->
+
+    
+      <div id="method-i-submit_generate_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">submit_generate_report</span><span
+            class="method-args">(report_request)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Submits a report request</p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<h3 id="method-i-submit_generate_report-label-Parameters">Parameters</h3>
+
+<p>report_request - a <a
+href="ReportRequest.html">BingAdsApi::ReportRequest</a> subclass instance</p>
+
+<h3 id="method-i-submit_generate_report-label-Examples+">Examples </h3>
+
+<p>Returns String with the requested report id</p>
+
+<p>Raises exception</p>
+          
+
+          
+          <div class="method-source-code" id="submit_generate_report-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/reporting.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_generate_report</span>(<span class="ruby-identifier">report_request</span>)
+        
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- submit_generate_report-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- submit_generate_report-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
   </section><!-- 5Buntitled-5D -->
 
 </div><!-- documentation -->

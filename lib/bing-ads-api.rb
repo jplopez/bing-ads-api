@@ -18,6 +18,13 @@ Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'data', '*.rb')].each { |f
 # Require Fault objects
 Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'fault', '*.rb')].each { |file| require file }
 
+# Require report request data objects
+require 'bing-ads-api/data/reporting/performance_report_request'
+# require 'bing-ads-api/data/reporting/account_performance_report_request'
+require 'bing-ads-api/data/reporting/campaign_performance_report_request'
+# require 'bing-ads-api/data/reporting/ad_group_performance_report_request'
+# require 'bing-ads-api/data/reporting/ad_performance_report_request'
+
 # Public : This is the main namespace for all classes and submodules in this BingAdsApi Gem 
 # 
 # Author jlopezn@neonline.cl 

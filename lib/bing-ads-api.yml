@@ -182,7 +182,7 @@ constants:
     format:
       csv: 'Csv'
       tsv: 'Tsv'
-      Xml: 'Xml'
+      xml: 'Xml'
     language:
       english: 'English'
       french: 'French'

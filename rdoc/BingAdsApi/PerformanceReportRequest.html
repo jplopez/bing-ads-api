@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class BingAdsApi::BatchError - BingAdsApi</title>
+<title>class BingAdsApi::PerformanceReportRequest - BingAdsApi</title>
 
 <link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>lib/bing-ads-api/fault/batch_error.rb
+    <li>lib/bing-ads-api/data/reporting/performance_report_request.rb
   </ul>
 </nav>
 
@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="DataObject.html">BingAdsApi::DataObject</a>
+  <p class="link"><a href="ReportRequest.html">BingAdsApi::ReportRequest</a>
   
 </nav>
 
@@ -70,7 +70,7 @@
 
   <ul class="link-list">
     
-    <li><a href="#method-i-to_s">#to_s</a>
+    <li><a href="#method-c-new">::new</a>
     
   </ul>
 </nav>
@@ -170,18 +170,22 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class BingAdsApi::BatchError</h1>
+  <h1 class="class">class BingAdsApi::PerformanceReportRequest</h1>
 
   <div id="description" class="description">
     
-<p>Public : Defines an error object that identifies the item within the batch
-of items  in the request message that caused the operation to fail, and
-describes the reason for the failure.</p>
+<p>Public : Defines the base class for ‘performance report requests’. Do not
+instantiate this object. Instead, use <a
+href="AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>,
+<a
+href="CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>,
+BingAdsApi::AdGroupPerformanceReportRequest or
+BingAdsApi::AdPerformanceReportRequest</p>
+
+<p>Reference: <a
+href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx">msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx</a></p>
 
 <p>Author jlopezn@neonline.cl</p>
-
-<p>Reference : <a
-href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx">msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx</a></p>
 
   </div><!-- description -->
 
@@ -194,6 +198,19 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
     
 
     
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="AGGREGATIONS">AGGREGATIONS
+        
+        <dd class="description"><p>Valid aggregations for reports</p>
+        
+      
+      </dl>
+    </section>
+    
 
     
     <!-- Attributes -->
@@ -201,9 +218,9 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="attribute-i-code" class="method-detail">
+      <div id="attribute-i-aggregation" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">code</span><span
+          <span class="method-name">aggregation</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -214,9 +231,9 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
         </div>
       </div>
       
-      <div id="attribute-i-details" class="method-detail">
+      <div id="attribute-i-columns" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">details</span><span
+          <span class="method-name">columns</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -227,9 +244,9 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
         </div>
       </div>
       
-      <div id="attribute-i-error_code" class="method-detail">
+      <div id="attribute-i-filter" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">error_code</span><span
+          <span class="method-name">filter</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -240,9 +257,9 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
         </div>
       </div>
       
-      <div id="attribute-i-index" class="method-detail">
+      <div id="attribute-i-scope" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">index</span><span
+          <span class="method-name">scope</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -253,22 +270,9 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
         </div>
       </div>
       
-      <div id="attribute-i-message" class="method-detail">
+      <div id="attribute-i-time" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">message</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-type" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">type</span><span
+          <span class="method-name">time</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -284,43 +288,49 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
 
     <!-- Methods -->
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
 
     
-      <div id="method-i-to_s" class="method-detail ">
+      <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
+          <span class="method-name">new</span><span
+            class="method-args">(attributes={})</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Public : Specified to string method</p>
+          <p>Public : Constructor. Adds validations to aggregations and time</p>
 
 <p>Author jlopezn@neonline.cl</p>
+
+<h3 id="method-c-new-label-Parameters">Parameters</h3>
+
+<p>attributes - Hash with Performance report request</p>
           
 
           
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/fault/batch_error.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-        <span class="ruby-node">&quot;#{index}:#{code}:#{error_code} - #{message} (#{type})&quot;</span>
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/performance_report_request.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid aggregation '#{attributes[:aggregation]}'&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_aggregation</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:aggregation</span>])
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Invalid time&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_time</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:time</span>])
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">attributes</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
+          </div><!-- new-source -->
           
         </div>
 
         
 
         
-      </div><!-- to_s-method -->
+      </div><!-- new-method -->
 
     
-    </section><!-- public-instance-method-details -->
+    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

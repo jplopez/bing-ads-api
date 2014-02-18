@@ -1,13 +1,20 @@
-Fri, 14 Feb 2014 11:25:07 -0300
+Tue, 18 Feb 2014 11:50:48 -0300
 README.rdoc	Mon, 16 Dec 2013 11:55:40 -0300
-lib/bing-ads-api.rb	Fri, 14 Feb 2014 10:50:32 -0300
+lib/bing-ads-api.rb	Tue, 18 Feb 2014 11:47:33 -0300
 lib/bing-ads-api/api_exception.rb	Fri, 14 Feb 2014 11:02:02 -0300
 lib/bing-ads-api/client_proxy.rb	Fri, 14 Feb 2014 10:59:55 -0300
 lib/bing-ads-api/config.rb	Fri, 14 Feb 2014 11:06:16 -0300
-lib/bing-ads-api/constants.rb	Tue, 07 Jan 2014 18:07:07 -0300
+lib/bing-ads-api/constants.rb	Mon, 17 Feb 2014 16:36:51 -0300
 lib/bing-ads-api/data/ad.rb	Fri, 14 Feb 2014 11:08:17 -0300
 lib/bing-ads-api/data/ad_group.rb	Fri, 14 Feb 2014 10:37:43 -0300
 lib/bing-ads-api/data/campaign.rb	Fri, 14 Feb 2014 10:40:03 -0300
+lib/bing-ads-api/data/report_request.rb	Mon, 17 Feb 2014 18:31:19 -0300
+lib/bing-ads-api/data/reporting/account_performance_report_request.rb	Tue, 18 Feb 2014 11:50:10 -0300
+lib/bing-ads-api/data/reporting/account_through_campaign_report_scope.rb	Tue, 18 Feb 2014 11:48:24 -0300
+lib/bing-ads-api/data/reporting/campaign_performance_report_filter.rb	Mon, 17 Feb 2014 17:18:36 -0300
+lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb	Tue, 18 Feb 2014 11:50:43 -0300
+lib/bing-ads-api/data/reporting/campaign_scope.rb	Mon, 17 Feb 2014 17:23:52 -0300
+lib/bing-ads-api/data/reporting/performance_report_request.rb	Tue, 18 Feb 2014 11:01:11 -0300
 lib/bing-ads-api/data_object.rb	Fri, 14 Feb 2014 11:03:46 -0300
 lib/bing-ads-api/fault/ad_api_error.rb	Fri, 14 Feb 2014 10:46:30 -0300
 lib/bing-ads-api/fault/ad_api_fault_detail.rb	Fri, 14 Feb 2014 11:10:12 -0300
@@ -18,5 +25,5 @@ lib/bing-ads-api/fault/operation_error.rb	Fri, 14 Feb 2014 10:49:19 -0300
 lib/bing-ads-api/fault/partial_errors.rb	Fri, 14 Feb 2014 11:10:01 -0300
 lib/bing-ads-api/service.rb	Fri, 14 Feb 2014 11:05:32 -0300
 lib/bing-ads-api/service/campaign_management.rb	Fri, 14 Feb 2014 11:25:01 -0300
-lib/bing-ads-api/service/reporting.rb	Fri, 14 Feb 2014 11:14:17 -0300
+lib/bing-ads-api/service/reporting.rb	Fri, 14 Feb 2014 12:09:36 -0300
 lib/bing-ads-api/version.rb	Fri, 14 Feb 2014 10:50:54 -0300

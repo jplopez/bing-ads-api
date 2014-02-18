@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class BingAdsApi::BatchError - BingAdsApi</title>
+<title>module BingAdsApi::ReportLanguage - BingAdsApi</title>
 
 <link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
 
@@ -20,7 +20,7 @@
 <script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
 
 
-<body id="top" class="class">
+<body id="top" class="module">
 <nav id="metadata">
   <nav id="home-section" class="section">
   <h3 class="section-header">
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>lib/bing-ads-api/fault/batch_error.rb
+    <li>lib/bing-ads-api/constants.rb
   </ul>
 </nav>
 
@@ -56,25 +56,9 @@
 
   <div id="class-metadata">
     
-    <nav id="parent-class-section" class="section">
-  <h3 class="section-header">Parent</h3>
-  
-  <p class="link"><a href="DataObject.html">BingAdsApi::DataObject</a>
-  
-</nav>
-
     
-    <!-- Method Quickref -->
-<nav id="method-list-section" class="section">
-  <h3 class="section-header">Methods</h3>
-
-  <ul class="link-list">
     
-    <li><a href="#method-i-to_s">#to_s</a>
     
-  </ul>
-</nav>
-
   </div>
 
   <div id="project-metadata">
@@ -170,18 +154,19 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class BingAdsApi::BatchError</h1>
+  <h1 class="module">module BingAdsApi::ReportLanguage</h1>
 
   <div id="description" class="description">
     
-<p>Public : Defines an error object that identifies the item within the batch
-of items  in the request message that caused the operation to fail, and
-describes the reason for the failure.</p>
+<p>Public : Module for <a href="Reporting.html">Reporting</a> languages</p>
+
+<p>Example</p>
+
+<pre class="ruby"><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportLanguage</span>.<span class="ruby-constant">ENGLISH</span>
+<span class="ruby-comment"># =&gt; 'English'</span>
+</pre>
 
 <p>Author jlopezn@neonline.cl</p>
-
-<p>Reference : <a
-href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx">msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx</a></p>
 
   </div><!-- description -->
 
@@ -196,132 +181,9 @@ href="http://msdn.microsoft.com/en-US/library/bing-ads-overview-batcherror.aspx"
     
 
     
-    <!-- Attributes -->
-    <section id="attribute-method-details" class="method-section section">
-      <h3 class="section-header">Attributes</h3>
-
-      
-      <div id="attribute-i-code" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">code</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-details" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">details</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-error_code" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">error_code</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-index" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">index</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-message" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">message</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-type" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">type</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section><!-- attribute-method-details -->
-    
 
     <!-- Methods -->
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
-
-    
-      <div id="method-i-to_s" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Public : Specified to string method</p>
-
-<p>Author jlopezn@neonline.cl</p>
-          
-
-          
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/fault/batch_error.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-        <span class="ruby-node">&quot;#{index}:#{code}:#{error_code} - #{message} (#{type})&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_s-method -->
-
-    
-    </section><!-- public-instance-method-details -->
-  
   </section><!-- 5Buntitled-5D -->
 
 </div><!-- documentation -->

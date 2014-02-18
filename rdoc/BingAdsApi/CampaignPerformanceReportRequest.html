@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class BingAdsApi::CampaignPerformanceReportRequest - BingAdsApi</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="PerformanceReportRequest.html">BingAdsApi::PerformanceReportRequest</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BingAdsApi.html">BingAdsApi</a>
+  
+    <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
+  
+    <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
+  
+    <li><a href="../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
+  
+    <li><a href="../BingAdsApi/AdApiFaultDetail.html">BingAdsApi::AdApiFaultDetail</a>
+  
+    <li><a href="../BingAdsApi/AdGroup.html">BingAdsApi::AdGroup</a>
+  
+    <li><a href="../BingAdsApi/AdLanguage.html">BingAdsApi::AdLanguage</a>
+  
+    <li><a href="../BingAdsApi/ApiException.html">BingAdsApi::ApiException</a>
+  
+    <li><a href="../BingAdsApi/ApiFaultDetail.html">BingAdsApi::ApiFaultDetail</a>
+  
+    <li><a href="../BingAdsApi/ApplicationFault.html">BingAdsApi::ApplicationFault</a>
+  
+    <li><a href="../BingAdsApi/BatchError.html">BingAdsApi::BatchError</a>
+  
+    <li><a href="../BingAdsApi/Campaign.html">BingAdsApi::Campaign</a>
+  
+    <li><a href="../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
+  
+    <li><a href="../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
+  
+    <li><a href="../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
+  
+    <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
+  
+    <li><a href="../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
+  
+    <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
+  
+    <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
+  
+    <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
+  
+    <li><a href="../BingAdsApi/PartialErrors.html">BingAdsApi::PartialErrors</a>
+  
+    <li><a href="../BingAdsApi/PerformanceReportRequest.html">BingAdsApi::PerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ProductAd.html">BingAdsApi::ProductAd</a>
+  
+    <li><a href="../BingAdsApi/ReportAggregation.html">BingAdsApi::ReportAggregation</a>
+  
+    <li><a href="../BingAdsApi/ReportFormat.html">BingAdsApi::ReportFormat</a>
+  
+    <li><a href="../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
+  
+    <li><a href="../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
+  
+    <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
+  
+    <li><a href="../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
+  
+    <li><a href="../BingAdsApi/TimeZone.html">BingAdsApi::TimeZone</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class BingAdsApi::CampaignPerformanceReportRequest</h1>
+
+  <div id="description" class="description">
+    
+<p>Public : Defines the base object for all report requests. Do not
+instantiate this object. Instead, you may instantiate one  of the following
+report request objects which derives from this object to request a report.</p>
+
+<p>Reference: <a
+href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx">msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx</a></p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<h3 id="label-Usage">Usage</h3>
+
+<pre class="ruby"><span class="ruby-identifier">request</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignPerformanceReportRequest</span>.<span class="ruby-identifier">new</span>(
+  :<span class="ruby-identifier">format</span>   =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">xml</span>,
+  :<span class="ruby-identifier">language</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">english</span>,
+  :<span class="ruby-identifier">report_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Me report&quot;</span>,
+  :<span class="ruby-identifier">aggregation</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">hourly</span>,
+  :<span class="ruby-identifier">columns</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">account_name</span>, :<span class="ruby-identifier">account_number</span>, :<span class="ruby-identifier">time_period</span>],
+  <span class="ruby-comment"># The filter is specified as a hash</span>
+  :<span class="ruby-identifier">filter</span> =<span class="ruby-operator">&gt;</span> {
+    :<span class="ruby-identifier">ad_distribution</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">search</span>, 
+    :<span class="ruby-identifier">device_os</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">android</span>,
+    :<span class="ruby-identifier">device_type</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">tablet</span>,
+    :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">submited</span> },
+  :<span class="ruby-identifier">scope</span> =<span class="ruby-operator">&gt;</span> { 
+    :<span class="ruby-identifier">account_ids</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">123456</span>, <span class="ruby-value">234567</span>],
+    :<span class="ruby-identifier">campaigns</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignReportScope</span><span class="ruby-operator">&gt;</span>] },
+  <span class="ruby-comment"># predefined date</span>
+  :<span class="ruby-identifier">time</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">this_week</span>)
+
+<span class="ruby-identifier">request2</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignPerformanceReportRequest</span>.<span class="ruby-identifier">new</span>(
+  :<span class="ruby-identifier">format</span>   =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">csv</span>,
+  :<span class="ruby-identifier">language</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">french</span>,
+  :<span class="ruby-identifier">report_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Me report&quot;</span>,
+  :<span class="ruby-identifier">aggregation</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">daily</span>,
+  :<span class="ruby-identifier">columns</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">account_name</span>, :<span class="ruby-identifier">account_number</span>, :<span class="ruby-identifier">time_period</span>],
+  <span class="ruby-comment"># no filter is specified as a ReportFilter object</span>
+  :<span class="ruby-identifier">scope</span> =<span class="ruby-operator">&gt;</span> { 
+    :<span class="ruby-identifier">account_ids</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">123456</span>, <span class="ruby-value">234567</span>],
+    :<span class="ruby-identifier">campaigns</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignReportScope</span><span class="ruby-operator">&gt;</span>] },
+  <span class="ruby-comment"># Custom date range</span>
+  :<span class="ruby-identifier">time</span> =<span class="ruby-operator">&gt;</span> {
+    :<span class="ruby-identifier">custom_date_range_start</span> =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, :<span class="ruby-identifier">month</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">year</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2013</span>},
+    :<span class="ruby-identifier">custom_date_range_end</span>   =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">month</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">year</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2013</span>} }
+  )
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="COLUMNS">COLUMNS
+        
+        <dd class="description"><p>Valid Columns for this report request</p>
+        
+      
+        <dt id="FILTERS">FILTERS
+        
+        <dd class="description"><p>Valid Filters for this report request</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(attributes={})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Constructor. Adds a validations for the columns, filter  and scope
+attributes</p>
+
+<p>Author jlopezn@neonline.cl</p>
+
+<h3 id="method-c-new-label-Parameters">Parameters</h3>
+
+<p>attributes - Hash with the report request attributes</p>
+
+<h3 id="method-c-new-label-Example">Example</h3>
+
+<pre class="ruby"><span class="ruby-identifier">request</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignPerformanceReportRequest</span>.<span class="ruby-identifier">new</span>(
+  :<span class="ruby-identifier">format</span>   =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">xml</span>,
+  :<span class="ruby-identifier">language</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">english</span>,
+  :<span class="ruby-identifier">report_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Me report&quot;</span>,
+  :<span class="ruby-identifier">aggregation</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">hourly</span>,
+  :<span class="ruby-identifier">columns</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">account_name</span>, :<span class="ruby-identifier">account_number</span>, :<span class="ruby-identifier">time_period</span>],
+  <span class="ruby-comment"># The filter is specified as a hash</span>
+  :<span class="ruby-identifier">filter</span> =<span class="ruby-operator">&gt;</span> {
+    :<span class="ruby-identifier">ad_distribution</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">search</span>, 
+    :<span class="ruby-identifier">device_os</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">android</span>,
+    :<span class="ruby-identifier">device_type</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">tablet</span>,
+    :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">submited</span> },
+  :<span class="ruby-identifier">scope</span> =<span class="ruby-operator">&gt;</span> { 
+    :<span class="ruby-identifier">account_ids</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">123456</span>, <span class="ruby-value">234567</span>],
+    :<span class="ruby-identifier">campaigns</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignReportScope</span><span class="ruby-operator">&gt;</span>] },
+  <span class="ruby-comment"># predefined date</span>
+  :<span class="ruby-identifier">time</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">this_week</span>)
+
+<span class="ruby-identifier">request2</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignPerformanceReportRequest</span>.<span class="ruby-identifier">new</span>(
+  :<span class="ruby-identifier">format</span>   =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">csv</span>,
+  :<span class="ruby-identifier">language</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">french</span>,
+  :<span class="ruby-identifier">report_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Me report&quot;</span>,
+  :<span class="ruby-identifier">aggregation</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">daily</span>,
+  :<span class="ruby-identifier">columns</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">account_name</span>, :<span class="ruby-identifier">account_number</span>, :<span class="ruby-identifier">time_period</span>],
+  <span class="ruby-comment"># no filter is specified as a ReportFilter object</span>
+  :<span class="ruby-identifier">scope</span> =<span class="ruby-operator">&gt;</span> { 
+    :<span class="ruby-identifier">account_ids</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">123456</span>, <span class="ruby-value">234567</span>],
+    :<span class="ruby-identifier">campaigns</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignReportScope</span><span class="ruby-operator">&gt;</span>] },
+  <span class="ruby-comment"># Custom date range</span>
+  :<span class="ruby-identifier">time</span> =<span class="ruby-operator">&gt;</span> {
+    :<span class="ruby-identifier">custom_date_range_start</span> =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, :<span class="ruby-identifier">month</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">year</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2013</span>},
+    :<span class="ruby-identifier">custom_date_range_end</span>   =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">month</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">year</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2013</span>} }
+  )
+</pre>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Invalid columns&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_columns</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:columns</span>])
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Invalid filters&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_filter</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:filter</span>])
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Invalid scope&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_scope</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:scope</span>])
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">attributes</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
