@@ -157,6 +157,16 @@
   
     <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
   
+    <li><a href="../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
     <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
   
     <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
@@ -179,6 +189,8 @@
   
     <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
   
+    <li><a href="../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
     <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
   
     <li><a href="../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
@@ -199,8 +211,10 @@
 <p>Public : This class represents the <a href="Campaign.html">Campaign</a>
 Management Services  defined in the Bing Ads API, to manage advertising
 campaigns</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <p>Examples</p>
 
@@ -246,8 +260,10 @@ campaigns</p>
         <div class="method-description">
           
           <p>Public : Constructor</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <p>options - Hash with the parameters for the client proxy and the environment</p>
 
@@ -299,8 +315,10 @@ campaigns</p>
         <div class="method-description">
           
           <p>Public : Adds 1 or more AdGroups to a <a href="Campaign.html">Campaign</a></p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-add_ad_groups-label-Parameters">Parameters</h3>
 
@@ -312,10 +330,13 @@ campaigns</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_ad_groups</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span><span class="ruby-operator">&gt;</span>]) 
 <span class="ruby-comment"># =&gt; &lt;Hash&gt;</span>
 </pre>
-
-<p>Returns Hash with the ‘add_ad_groups_response’ structure</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash with the ‘add_ad_groups_response’ structure</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -360,8 +381,10 @@ campaigns</p>
         <div class="method-description">
           
           <p>Public : Add ads into a specified ad group</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-add_ads-label-Parameters">Parameters</h3>
 
@@ -378,12 +401,18 @@ array of <a href="Ad.html">BingAdsApi::Ad</a> instances</p>
 <span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_ads</span>(<span class="ruby-value">1</span>, [<span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ad</span>]) 
 <span class="ruby-comment"># =&gt; {:ad_ids =&gt; [] }</span>
 </pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash with the AddAdsResponse structure.</p>
+</dd></dl>
 
-<p>Returns Hash with the AddAdsResponse structure.  If the operation returns
-‘PartialErrors’ key,  this methods returns those errors as an <a
-href="PartialErrors.html">BingAdsApi::PartialErrors</a>  instance</p>
-
-<p>Raises exception</p>
+<p>If the operation returns ‘PartialErrors’ key,  this methods returns those
+errors as an <a href="PartialErrors.html">BingAdsApi::PartialErrors</a> 
+instance</p>
+<dl class="rdoc-list note-list"><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -440,8 +469,10 @@ href="PartialErrors.html">BingAdsApi::PartialErrors</a>  instance</p>
         <div class="method-description">
           
           <p>Public : Adds a campaign to the specified account</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-add_campaigns-label-Parameters">Parameters</h3>
 
@@ -453,10 +484,13 @@ of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_campaigns</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">&gt;</span>]) 
 <span class="ruby-comment"># =&gt; &lt;Hash&gt;</span>
 </pre>
-
-<p>Returns hash with the ‘add_campaigns_response’ structure</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>hash with the ‘add_campaigns_response’ structure</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -501,8 +535,10 @@ of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
         <div class="method-description">
           
           <p>Public : Returns all the ad groups that belongs to the  specified campaign</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-get_ad_groups_by_campaign_id-label-Parameters">Parameters</h3>
 
@@ -513,10 +549,13 @@ of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ad_groups_by_campaign_id</span>(<span class="ruby-value">1</span>) 
 <span class="ruby-comment"># =&gt; Array[AdGroups]</span>
 </pre>
-
-<p>Returns Array with all the ad groups present in campaign_id</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Array with all the ad groups present in campaign_id</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -554,8 +593,10 @@ of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
           
           <p>Public : Returns the specified ad groups that belongs to the  specified
 campaign</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-get_ad_groups_by_ids-label-Parameters">Parameters</h3>
 
@@ -566,10 +607,13 @@ campaign</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ad_groups_by_ids</span>(<span class="ruby-value">1</span>, [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]) 
 <span class="ruby-comment"># =&gt; Array[AdGroups]</span>
 </pre>
-
-<p>Returns Array with the ad groups specified in the ad_groups_ids array</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Array with the ad groups specified in the ad_groups_ids array</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -610,8 +654,10 @@ campaign</p>
         <div class="method-description">
           
           <p>Public : Obtains all the ads associated to the specified ad group</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-get_ads_by_ad_group_id-label-Parameters">Parameters</h3>
 
@@ -622,10 +668,13 @@ campaign</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ads_by_ad_group_id</span>(<span class="ruby-value">1</span>) 
 <span class="ruby-comment"># =&gt; [&lt;BingAdsApi::Ad]</span>
 </pre>
-
-<p>Returns An array of <a href="Ad.html">BingAdsApi::Ad</a></p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>An array of <a href="Ad.html">BingAdsApi::Ad</a></p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -668,8 +717,10 @@ campaign</p>
           
           <p>Public : Obtains the ads indicated in ad_ids associated to the specified ad
 group</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-get_ads_by_ids-label-Parameters">Parameters</h3>
 
@@ -681,10 +732,13 @@ are associated to the ad_group_id provided</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_ads_by_ids</span>(<span class="ruby-value">1</span>, [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]) 
 <span class="ruby-comment"># =&gt; [&lt;BingAdsApi::Ad&gt;]</span>
 </pre>
-
-<p>Returns An array of <a href="Ad.html">BingAdsApi::Ad</a></p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>An array of <a href="Ad.html">BingAdsApi::Ad</a></p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -730,8 +784,10 @@ are associated to the ad_group_id provided</p>
         <div class="method-description">
           
           <p>Public : Returns all the campaigns found in the specified account</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-get_campaigns_by_account_id-label-Parameters">Parameters</h3>
 
@@ -742,10 +798,13 @@ are associated to the ad_group_id provided</p>
 <pre class="ruby"><span class="ruby-identifier">campaign_management_service</span>.<span class="ruby-identifier">get_campaigns_by_account_id</span>(<span class="ruby-value">1</span>) 
 <span class="ruby-comment"># =&gt; Array[BingAdsApi::Campaign]</span>
 </pre>
-
-<p>Returns Array of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Array of <a href="Campaign.html">BingAdsApi::Campaign</a></p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -782,8 +841,10 @@ are associated to the ad_group_id provided</p>
         <div class="method-description">
           
           <p>Public : Updates on or more ad groups in a specified campaign</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-update_ad_groups-label-Parameters">Parameters</h3>
 
@@ -794,10 +855,13 @@ are associated to the ad_group_id provided</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">update_ad_groups</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroup</span>]) 
 <span class="ruby-comment"># =&gt; true</span>
 </pre>
-
-<p>Returns boolean. true if the updates is successfull. false otherwise</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>boolean. true if the updates is successfull. false otherwise</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -841,8 +905,10 @@ are associated to the ad_group_id provided</p>
         <div class="method-description">
           
           <p>Public : Updates ads for the specified ad group</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-update_ads-label-Parameters">Parameters</h3>
 
@@ -854,10 +920,13 @@ href="Ad.html">BingAdsApi::Ad</a> subclasses instances to update</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">update_ads</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ad</span><span class="ruby-operator">&gt;</span>]) 
 <span class="ruby-comment"># =&gt; Hash</span>
 </pre>
-
-<p>Returns Hash with the UpdateAddsResponse structure</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash with the UpdateAddsResponse structure</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           
@@ -914,8 +983,10 @@ href="Ad.html">BingAdsApi::Ad</a> subclasses instances to update</p>
         <div class="method-description">
           
           <p>Public : Updates on or more campaigns for the specified account</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-update_campaigns-label-Parameters">Parameters</h3>
 
@@ -927,10 +998,13 @@ the campaigns to be updated</p>
 <pre class="ruby"><span class="ruby-identifier">service_update_campaigns</span>(<span class="ruby-value">1</span>, [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span>]) 
 <span class="ruby-comment"># =&gt;  true</span>
 </pre>
-
-<p>Returns boolean. true if the update was successful. false otherwise</p>
-
-<p>Raises exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>boolean. true if the update was successful. false otherwise</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           

@@ -7,7 +7,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-reporting-campaignperformancereportfilter.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class CampaignPerformanceReportFilter < BingAdsApi::DataObject
 		
 		attr_accessor :ad_distribution, :device_os, :device_type, :status

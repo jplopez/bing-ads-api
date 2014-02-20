@@ -10,7 +10,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-campaign-management-ad.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	class Ad < BingAdsApi::DataObject
 		include BingAdsApi::AdEditorialStatus
@@ -33,7 +33,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-campaign-management-textad.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	class TextAd < BingAdsApi::Ad
 		
@@ -44,11 +44,11 @@ module BingAdsApi
 		
 		# Public : Specification of DataObject#to_hash method that ads the type attribute based on this specific class 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# keys - specifies the keys case
 		# 
-		# Returns Hash
+		# Returns:: Hash
 		def to_hash(keys = :underscore)
 			hash = super(keys)
 			hash[get_attribute_key("type", keys)] = "Text"
@@ -63,7 +63,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-campaign-management-mobilead.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	class MobileAd < BingAdsApi::Ad
 		
@@ -76,11 +76,11 @@ module BingAdsApi
 
 		# Public : Specification of DataObject#to_hash method that ads the type attribute based on this specific class 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# keys - specifies the keys case
 		# 
-		# Returns Hash
+		# Returns:: Hash
 		def to_hash(keys = :underscore)
 			hash = super(keys)
 			hash[get_attribute_key("type", keys)] = "Mobile"
@@ -95,7 +95,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-productad-campaign-management.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	class ProductAd < BingAdsApi::Ad
 		
@@ -103,11 +103,11 @@ module BingAdsApi
 	
 		# Public : Specification of DataObject#to_hash method that ads the type attribute based on this specific class 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# keys - specifies the keys case
 		# 
-		# Returns Hash
+		# Returns:: Hash
 		def to_hash(keys = :underscore)
 			hash = super(keys)
 			hash[get_attribute_key("type", keys)] = "Product"

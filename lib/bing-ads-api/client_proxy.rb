@@ -6,7 +6,7 @@ module BingAdsApi
 	#   de servicios a la API de Bing. En su inicialización requiere los datos 
 	#   de autenticación y el WSDL al servicio que se requiere. 
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	# Examples
 	#   # => hash con datos autenticación y WSDL 
@@ -37,7 +37,7 @@ module BingAdsApi
 		
 		# Public : Constructor 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# options - Hash con valores de autenticación y WSDL
@@ -64,7 +64,7 @@ module BingAdsApi
 		#   # => Instancia de ClientProxy
 		#   client = BingAdsApi::ClientProxy.new(options)
 		# 
-		# Returns ClientProxy instance
+		# Returns:: ClientProxy instance
 		def initialize(options=nil)
 			if options
 				@username        ||= options[:username]
@@ -81,7 +81,7 @@ module BingAdsApi
 		
 		# Public : Delegate for Savon::Client.call method 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# service_name - Service to be called
@@ -92,8 +92,8 @@ module BingAdsApi
 		#   client.call_service(:some_service_name, {key: value}) 
 		#   # => <Response> 
 		# 
-		# Returns Response from the Savon::Client 
-		# Raises Savon::SOAPFault Savon::HTTPError Savon::InvalidResponseError
+		# Returns:: Response from the Savon::Client 
+		# Raises:: Savon::SOAPFault Savon::HTTPError Savon::InvalidResponseError
 		def call(service_name, message, options={})
 			self.service.call(service_name, message)
 		end
@@ -102,13 +102,13 @@ module BingAdsApi
 		private
 			# Internal : Wrapper for Savon client instances 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# Examples 
 			#   get_proxy 
 			#   # => <Savon::Client> 
 			# 
-			# Returns Savon client instance
+			# Returns:: Savon client instance
 			def get_proxy(client_settings)
 
 				settings = {

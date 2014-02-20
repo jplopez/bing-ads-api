@@ -72,6 +72,8 @@
     
     <li><a href="#method-c-new">::new</a>
     
+    <li><a href="#method-i-to_hash">#to_hash</a>
+    
   </ul>
 </nav>
 
@@ -135,6 +137,16 @@
   
     <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
   
+    <li><a href="../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
     <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
   
     <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
@@ -156,6 +168,8 @@
     <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
   
     <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
   
     <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
   
@@ -180,8 +194,10 @@ report request objects which derives from this object to request a report.</p>
 
 <p>Reference: <a
 href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx">msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx</a></p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
   </div><!-- description -->
 
@@ -212,11 +228,6 @@ href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-report
         <dt id="REQUEST_STATUS">REQUEST_STATUS
         
         <dd class="description"><p>Valid report request status for reports</p>
-        
-      
-        <dt id="TIME_PERIODS">TIME_PERIODS
-        
-        <dd class="description"><p>Valid languages for reports</p>
         
       
       </dl>
@@ -302,8 +313,10 @@ href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-report
         <div class="method-description">
           
           <p>Public : Constructor. Adds validations to format and language attributes</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-c-new-label-Parameters">Parameters</h3>
 
@@ -312,11 +325,12 @@ href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-report
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/report_request.rb, line 39</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/report_request.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid format '#{attributes[:format]}'&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_format</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:format</span>])
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid language '#{attributes[:language]}'&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_language</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:language</span>])
         <span class="ruby-keyword">super</span>(<span class="ruby-identifier">attributes</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">return_only_complete_data</span> = <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:return_only_complete_data</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -329,6 +343,73 @@ href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-report
 
     
     </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">(keys_case = :underscore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <dl class="rdoc-list note-list"><dt>Public
+<dd>
+<p>Returns this object as a Hash for SOAP Requests</p>
+</dd><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-to_hash-label-Parameters">Parameters</h3>
+<ul><li>
+<p><code>keys_case</code> - specifies the case for the hash keys</p>
+</li></ul>
+
+<h4 id="method-i-to_hash-label-keys_case">keys_case</h4>
+<ul><li>
+<p>:camelcase  - CamelCase</p>
+</li><li>
+<p>:underscore - underscore_case</p>
+</li></ul>
+
+<h3 id="method-i-to_hash-label-Examples+">Examples </h3>
+
+<pre class="ruby"><span class="ruby-identifier">report_request</span>.<span class="ruby-identifier">to_hash</span>(:<span class="ruby-identifier">camelcase</span>) 
+<span class="ruby-comment"># =&gt; {&quot;Format&quot;=&gt;&quot;Xml&quot;, &quot;Language&quot;=&gt;&quot;English&quot;, &quot;ReportName&quot;=&gt;&quot;My Report&quot;, &quot;ReturnOnlyCompleteData&quot;=&gt;true}</span>
+</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/report_request.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">keys_case</span> = <span class="ruby-value">:underscore</span>)
+        <span class="ruby-identifier">hash</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">keys_case</span>)
+        <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'format'</span>, <span class="ruby-identifier">keys_case</span>)]   = <span class="ruby-constant">FORMATS</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">format</span>.<span class="ruby-identifier">to_s</span>]
+        <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'language'</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-constant">LANGUAGES</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">language</span>.<span class="ruby-identifier">to_s</span>]
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+    </section><!-- public-instance-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

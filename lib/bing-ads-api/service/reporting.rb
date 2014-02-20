@@ -4,7 +4,7 @@ module BingAdsApi
 	# Public : This class represents the Reporting Services 
 	# defined in the Bing Ads API, to request and download reports
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	# Examples 
 	#  options = {
@@ -20,7 +20,7 @@ module BingAdsApi
 		
 		# Public : Get the status of a report request 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# report_request_id - Identifier of the report request
@@ -29,25 +29,25 @@ module BingAdsApi
 		#   service.poll_generate_report("12345") 
 		#   # => Hash 
 		# 
-		# Returns Hash with the PollGenerateReportResponse structure
+		# Returns:: Hash with the PollGenerateReportResponse structure
 		#
-		# Raises exception
+		# Raises:: exception
 		def poll_generate_report
 			
 		end
 		
 		# Public : Submits a report request 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# report_request - a BingAdsApi::ReportRequest subclass instance
 		# 
 		# === Examples 
 		# 
-		# Returns String with the requested report id
+		# Returns:: String with the requested report id
 		#
-		# Raises exception
+		# Raises:: exception
 		def submit_generate_report(report_request)
 			
 		end

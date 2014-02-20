@@ -3,7 +3,7 @@ require 'test_helper'
 
 # Public : Test Case for general purpose methods, helper and modules 
 # 
-# Author jlopezn@neonline.cl 
+# Author:: jlopezn@neonline.cl 
 class BingAdsApiTest < ActiveSupport::TestCase
 
 	test "truth" do

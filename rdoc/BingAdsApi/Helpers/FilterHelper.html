@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module BingAdsApi::Helpers::FilterHelper - BingAdsApi</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/bing-ads-api/data/reporting/helpers/filter_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-filter_to_hash">#filter_to_hash</a>
+    
+    <li><a href="#method-i-solve_filter_value">#solve_filter_value</a>
+    
+    <li><a href="#method-i-valid_filter">#valid_filter</a>
+    
+    <li><a href="#method-i-valid_filter_value">#valid_filter_value</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../BingAdsApi.html">BingAdsApi</a>
+  
+    <li><a href="../../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
+  
+    <li><a href="../../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
+  
+    <li><a href="../../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
+  
+    <li><a href="../../BingAdsApi/AdApiFaultDetail.html">BingAdsApi::AdApiFaultDetail</a>
+  
+    <li><a href="../../BingAdsApi/AdGroup.html">BingAdsApi::AdGroup</a>
+  
+    <li><a href="../../BingAdsApi/AdLanguage.html">BingAdsApi::AdLanguage</a>
+  
+    <li><a href="../../BingAdsApi/ApiException.html">BingAdsApi::ApiException</a>
+  
+    <li><a href="../../BingAdsApi/ApiFaultDetail.html">BingAdsApi::ApiFaultDetail</a>
+  
+    <li><a href="../../BingAdsApi/ApplicationFault.html">BingAdsApi::ApplicationFault</a>
+  
+    <li><a href="../../BingAdsApi/BatchError.html">BingAdsApi::BatchError</a>
+  
+    <li><a href="../../BingAdsApi/Campaign.html">BingAdsApi::Campaign</a>
+  
+    <li><a href="../../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
+  
+    <li><a href="../../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
+  
+    <li><a href="../../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
+  
+    <li><a href="../../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
+  
+    <li><a href="../../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
+  
+    <li><a href="../../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
+  
+    <li><a href="../../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
+    <li><a href="../../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
+  
+    <li><a href="../../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
+  
+    <li><a href="../../BingAdsApi/PartialErrors.html">BingAdsApi::PartialErrors</a>
+  
+    <li><a href="../../BingAdsApi/PerformanceReportRequest.html">BingAdsApi::PerformanceReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/ProductAd.html">BingAdsApi::ProductAd</a>
+  
+    <li><a href="../../BingAdsApi/ReportAggregation.html">BingAdsApi::ReportAggregation</a>
+  
+    <li><a href="../../BingAdsApi/ReportFormat.html">BingAdsApi::ReportFormat</a>
+  
+    <li><a href="../../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
+  
+    <li><a href="../../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
+  
+    <li><a href="../../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
+    <li><a href="../../BingAdsApi/Service.html">BingAdsApi::Service</a>
+  
+    <li><a href="../../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
+  
+    <li><a href="../../BingAdsApi/TimeZone.html">BingAdsApi::TimeZone</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module BingAdsApi::Helpers::FilterHelper</h1>
+
+  <div id="description" class="description">
+    
+<p>Public : Utility module for filter attribute in <code>ReportRequest</code>
+derived classes</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="FILTERS_CRITERIA">FILTERS_CRITERIA
+        
+        <dd class="description"><p>Valid filters values for each known criteria</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-filter_to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filter_to_hash</span><span
+            class="method-args">(valid_filters, keys_case=:undescore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Returns the filter attribute as a Hash to SOAP requests</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<p>filter - Hash with the filter values</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="filter_to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/helpers/filter_helper.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filter_to_hash</span>(<span class="ruby-identifier">valid_filters</span>, <span class="ruby-identifier">keys_case</span>=<span class="ruby-value">:undescore</span>)
+        <span class="ruby-identifier">hashed_filter</span> = {}
+        <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">hashed_filter</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-identifier">solve_filter_value</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hashed_filter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- filter_to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- filter_to_hash-method -->
+
+    
+      <div id="method-i-solve_filter_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">solve_filter_value</span><span
+            class="method-args">(filter_criteria, filter_value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <dl class="rdoc-list note-list"><dt>Internal
+<dd>
+<p>Solves the Bing value for the given filter attribute</p>
+</dd><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-solve_filter_value-label-Parameters">Parameters</h3>
+<ul><li>
+<p><code>filter_criteria</code> - String or symbol with the filter attribute
+to be solved</p>
+</li></ul>
+
+<h3 id="method-i-solve_filter_value-label-Examples+">Examples </h3>
+
+<pre class="ruby"><span class="ruby-identifier">solve_filter_value</span>(:<span class="ruby-identifier">ad_distribution</span>, :<span class="ruby-identifier">search</span>) 
+<span class="ruby-comment"># =&gt; &quot;Search&quot; </span>
+
+<span class="ruby-identifier">solve_filter_value</span>(:<span class="ruby-identifier">ad_distribution</span>, :<span class="ruby-identifier">other</span>) 
+<span class="ruby-comment"># =&gt; Exception &quot;Invalid filter name 'other' for 'ad_distribution' criteria&quot;</span>
+
+<span class="ruby-identifier">solve_filter_value</span>(:<span class="ruby-identifier">ad_distribution</span>, <span class="ruby-string">&quot;Search&quot;</span>) 
+<span class="ruby-comment"># =&gt; &quot;Search&quot; </span>
+
+<span class="ruby-identifier">solve_filter_value</span>(:<span class="ruby-identifier">ad_distribution</span>, <span class="ruby-string">&quot;Other&quot;</span>) 
+<span class="ruby-comment"># =&gt; Exception &quot;Invalid filter value 'Other' for 'ad_distribution' criteria&quot;</span>
+</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>String with the Bing value for the filter criteria.</p>
+</dd><dt>Raises
+<dd>
+<p>Exception if the filter’s criteria or value are unknown</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="solve_filter_value-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/helpers/filter_helper.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">solve_filter_value</span>(<span class="ruby-identifier">filter_criteria</span>, <span class="ruby-identifier">filter_value</span>)
+        
+        <span class="ruby-identifier">filter_criteria_values</span> = <span class="ruby-constant">FILTERS_CRITERIA</span>[<span class="ruby-identifier">filter_criteria</span>.<span class="ruby-identifier">to_s</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_criteria_values</span>.<span class="ruby-identifier">value?</span>(<span class="ruby-identifier">filter_value</span>)
+                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">filter_value</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid filter value '#{filter_value}' for '#{filter_criteria}' criteria&quot;</span>)
+                <span class="ruby-keyword">end</span> 
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">filter_value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_criteria_values</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">filter_value</span>.<span class="ruby-identifier">to_s</span>)
+                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">filter_criteria_values</span>[<span class="ruby-identifier">filter_value</span>.<span class="ruby-identifier">to_s</span>]
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid filter name '#{filter_value}' for '#{filter_criteria}' criteria&quot;</span>)
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- solve_filter_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- solve_filter_value-method -->
+
+    
+      <div id="method-i-valid_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_filter</span><span
+            class="method-args">(valid_filters, filter)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal : Validates the filter attribute at the ReporRequest
+initialization At the first invalid filter criteria or value detected this
+method raises Exception. If all filter criteria and values are ok, this
+method returns true  Valid filter criteria are validated against <a
+href="FilterHelper.html#FILTERS_CRITERIA">FILTERS_CRITERIA</a> constant
+Valid filter values are validated against FILTERS constant</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-valid_filter-label-Parameters">Parameters</h3>
+
+<p>valid_filters - Hash with the set of valid filter values filter - Hash with
+the filter criteria and values</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>true if filter is valid</p>
+</dd><dt>Raises
+<dd>
+<p>Exception at the first invalid filter criteria o value</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="valid_filter-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/helpers/filter_helper.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_filter</span>(<span class="ruby-identifier">valid_filters</span>, <span class="ruby-identifier">filter</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+                <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter_key</span><span class="ruby-operator">|</span>
+                        <span class="ruby-comment"># validates if filter criteria is recognized</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid filter criteria '#{filter_key.to_s}'&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_filters</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">filter_key</span>.<span class="ruby-identifier">to_s</span>)
+                        <span class="ruby-comment"># validates the filter criteria value</span>
+                        <span class="ruby-identifier">valid_filter_value</span>(<span class="ruby-identifier">filter_key</span>, <span class="ruby-identifier">filter</span>[<span class="ruby-identifier">filter_key</span>])
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid_filter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid_filter-method -->
+
+    
+      <div id="method-i-valid_filter_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_filter_value</span><span
+            class="method-args">(key, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal : Validates a specific filter criteria and his value</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<p>key - filter criteria to evaluate value - filter criteria to be evaluate</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>true if validation runs ok. Raise exception otherwise</p>
+</dd><dt>Raises
+<dd>
+<p>Exception if filter value provided is not valid</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="valid_filter_value-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/helpers/filter_helper.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_filter_value</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">solve_filter_value</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid_filter_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid_filter_value-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

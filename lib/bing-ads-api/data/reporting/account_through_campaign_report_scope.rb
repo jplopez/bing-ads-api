@@ -7,7 +7,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-reporting-accountthroughcampaignreportscope.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class AccountThroughCampaignReportScope < BingAdsApi::DataObject
 		
 		attr_accessor :account_ids, :campaigns

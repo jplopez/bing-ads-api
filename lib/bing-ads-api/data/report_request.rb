@@ -9,7 +9,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class ReportRequest < BingAdsApi::DataObject
 		
 		# Valid Formats for reports 
@@ -20,10 +20,6 @@ module BingAdsApi
 		LANGUAGES = BingAdsApi::Config.instance.
 			reporting_constants['language']
 
-		# Valid languages for reports 
-		TIME_PERIODS = BingAdsApi::Config.instance.
-			reporting_constants['time_periods']
-
 		# Valid report request status for reports 
 		REQUEST_STATUS = BingAdsApi::Config.instance.
 			reporting_constants['request_status_type']
@@ -32,7 +28,7 @@ module BingAdsApi
 		
 		# Public : Constructor. Adds validations to format and language attributes 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# attributes - Hash with Report request parameters
@@ -40,8 +36,31 @@ module BingAdsApi
 			raise Exception.new("Invalid format '#{attributes[:format]}'") if !valid_format(attributes[:format])
 			raise Exception.new("Invalid language '#{attributes[:language]}'") if !valid_language(attributes[:language])
 			super(attributes)
+			self.return_only_complete_data = attributes[:return_only_complete_data] || false
 		end
 	
+		
+		# Public:: Returns this object as a Hash for SOAP Requests 
+		# 
+		# Author:: jlopezn@neonline.cl 
+		# 
+		# === Parameters
+		# * +keys_case+ - specifies the case for the hash keys
+		# ==== keys_case
+		# * :camelcase  - CamelCase
+		# * :underscore - underscore_case
+		# 
+		# === Examples 
+		#   report_request.to_hash(:camelcase) 
+		#   # => {"Format"=>"Xml", "Language"=>"English", "ReportName"=>"My Report", "ReturnOnlyCompleteData"=>true}
+		# 
+		# Returns:: Hash
+		def to_hash(keys_case = :underscore)
+			hash = super(keys_case)
+			hash[get_attribute_key('format', keys_case)]   = FORMATS[self.format.to_s]
+			hash[get_attribute_key('language', keys_case)] = LANGUAGES[self.language.to_s]
+			return hash
+		end
 	
 		private
 		
@@ -54,17 +73,6 @@ module BingAdsApi
 				return LANGUAGES.key?(language.to_s)
 			end
 			
-			
-			def valid_time(time)
-				# Custom date range
-				if time.is_a?(Hash)
-					return false if !time.key?(:custom_date_range_start)
-					return false if !time.key?(:custom_date_range_end)
-				# Time periods
-				else
-					return TIME_PERIODS.key?(time.to_s)
-				end
-			end
 	end
 	
 end

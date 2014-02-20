@@ -5,7 +5,7 @@ module BingAdsApi
 	# Public : Defines a fault object that operations return when generic errors occur, 
 	# such as an authentication error. 
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class AdApiFaultDetail < BingAdsApi::ApplicationFault
 		
 		attr_accessor :errors
@@ -13,7 +13,7 @@ module BingAdsApi
 		
 		# Public : Constructor 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# attributes - Hash with the initial attributes
 		# === Attributes
@@ -28,7 +28,7 @@ module BingAdsApi
 		
 		# Public : Specified to string method 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		def to_s
 			str = super.to_s + ":\n" 
 			if batch_errors
@@ -44,11 +44,11 @@ module BingAdsApi
 			# Public : Helper method for the AdApiFaultDetail constructor 
 			#   to initialize the errors array 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# errors_hash - Hash with the :errors key received from the SOAP request
 			# 
-			# Returns none
+			# Returns:: none
 			def initialize_errors(errors_hash)
 				return if errors_hash.nil?
 				

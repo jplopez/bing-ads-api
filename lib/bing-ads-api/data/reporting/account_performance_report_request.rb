@@ -9,7 +9,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-reportrequest.aspx
 	#
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	# === Usage
 	#   
@@ -60,7 +60,7 @@ module BingAdsApi
 		# Public : Constructor. Adds a validations for the columns, filter 
 		# and scope attributes 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# attributes - Hash with the report request attributes

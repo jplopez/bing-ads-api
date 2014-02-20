@@ -5,7 +5,7 @@ module BingAdsApi
 	# Public : Defines a fault object that operations return when web service-specific errors occur, 
 	# such as when the request message contains incomplete or invalid data. 
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class ApiFaultDetail < BingAdsApi::ApplicationFault
 		
 		attr_accessor :batch_errors, :operation_errors
@@ -13,7 +13,7 @@ module BingAdsApi
 		
 		# Public : Constructor 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# attributes - Hash with the initial attributes
 		# === Attributes
@@ -31,9 +31,9 @@ module BingAdsApi
 		
 		# Public : Specific to string  
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
-		# Returns the object 'stringified'
+		# Returns:: the object 'stringified'
 		def to_s
 			str = super.to_s + ":\n" 
 			if batch_errors
@@ -52,11 +52,11 @@ module BingAdsApi
 			# Public : Helper method for the ApiFaultDetail constructor 
 			#   to initialize the batch errors array 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# batch_errors_hash - Hash with the :batch_errors key received from the SOAP request
 			# 
-			# Returns none
+			# Returns:: none
 			def initialize_batch_errors(batch_errors_hash)
 				return if batch_errors_hash.nil?
 				
@@ -74,11 +74,11 @@ module BingAdsApi
 			# Public : Helper method for the ApiFaultDetail constructor 
 			#   to initialize the operation errors array 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# operation_errors_hash - Hash with the :operation_errors key received from the SOAP request
 			# 
-			# Returns none
+			# Returns:: none
 			def initialize_operations_errors(operation_errors_hash)
 				return if operation_errors_hash.nil?
 				

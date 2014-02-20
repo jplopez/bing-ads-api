@@ -4,7 +4,7 @@ module BingAdsApi
 	
 	# Public : Defines an ad group. 
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	# Examples 
 	#   ad_group = BingAdsApi::AdGroup.new(
@@ -46,7 +46,7 @@ module BingAdsApi
 
 		# Public : Constructor in a ActiveRecord style, with a hash of attributes as input 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# attributes - Hash with the objects attributes
 		def initialize(attributes={})
@@ -59,11 +59,11 @@ module BingAdsApi
 		# This methods is a specialization for the +DataObject#to_hash+ method
 		# that ads specific hash keys for the AdGroup object
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# keys - specifies the keys case: CamelCase or underscore_case
 		# 
-		# Returns Hash
+		# Returns:: Hash
 		def to_hash(keys = :underscore)
 			hash = super(keys)
 			

@@ -4,7 +4,7 @@ module BingAdsApi
 	
 	# Public : Base class for service object 
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	class Service
 		
@@ -15,7 +15,7 @@ module BingAdsApi
 		
 		# Public : Constructor 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# * +options+ - Hash with autentication and environment settings
@@ -67,7 +67,7 @@ module BingAdsApi
 		# +ClientProxy+. This methods handle all the +Savon::Client+ Exceptions
 		# and returns a Hash with the call response  
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# +operation+ - name of the operation to be called
@@ -77,8 +77,8 @@ module BingAdsApi
 		#   service.call(:some_operation, {key: value}) 
 		#   # => <Hash> 
 		# 
-		# Returns Hash with the result of the service call
-		# Raises ServiceError if the SOAP call, the ClientProxy fails or the response is invalid
+		# Returns:: Hash with the result of the service call
+		# Raises:: ServiceError if the SOAP call, the ClientProxy fails or the response is invalid
 		def call(operation, message, &block)
 			raise "You must provide an operation" if operation.nil?
 			begin
@@ -121,7 +121,7 @@ module BingAdsApi
 		# For example, if you specify 'AddCampaigns', this method will return
 		# the content of 'AddCampaignsResponse' tag as a Hash
 		#
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		#
 		# === Parameters 
 		# response - The complete response hash received from a Operation call
@@ -131,8 +131,8 @@ module BingAdsApi
 		#   service.get_response_hash(Hash, 'add_campaigns') 
 		#   # => Hash 
 		# 
-		# Returns Hash with the inner structure of the method response hash
-		# Raises exception
+		# Returns:: Hash with the inner structure of the method response hash
+		# Raises:: exception
 		def get_response_hash(response, method)
 			return response[:envelope][:body]["#{method}_response".to_sym]
 		end
@@ -140,16 +140,16 @@ module BingAdsApi
 		private
 
 			# Private : This method must be overriden by specific services. 
-			# Returns the service name 
+			# Returns:: the service name 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# Examples 
 			#   get_service_name 
 			#   # => "service_name" 
 			# 
-			# Returns String with the service name
-			# Raises exception if the specific Service class hasn't overriden this method
+			# Returns:: String with the service name
+			# Raises:: exception if the specific Service class hasn't overriden this method
 			def get_service_name
 				raise "Should return the a service name from config.wsdl keys"
 			end
@@ -158,13 +158,13 @@ module BingAdsApi
 			# Private : Solves the service WSDL URL based on his service name 
 			#    and environment values 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# Examples 
 			#   solve_wsdl_url 
 			#   # => "https://bing.wsdl.url.com" 
 			# 
-			# Returns String with the Service url
+			# Returns:: String with the Service url
 			def solve_wsdl_url
 				config = BingAdsApi::Config.instance
 				return config.service_wsdl(environment, get_service_name)

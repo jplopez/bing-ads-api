@@ -3,7 +3,7 @@ require 'test_helper'
 
 # Public : Test case for ReportRequest an its subclasses 
 # 
-# Author jlopezn@neonline.cl 
+# Author:: jlopezn@neonline.cl 
 class ReportRequestTest < ActiveSupport::TestCase
 
 	def setup
@@ -30,6 +30,8 @@ class ReportRequestTest < ActiveSupport::TestCase
 			report_request = BingAdsApi::ReportRequest.new(:format => :xml,
 				:language => :english, :report_name => "My Report",
 				:return_only_complete_data => true)
+			puts "report request"
+			puts report_request.to_hash(:camelcase)
 		}
 
 	end
@@ -56,6 +58,8 @@ class ReportRequestTest < ActiveSupport::TestCase
 			performance_report_request = BingAdsApi::PerformanceReportRequest.new(:format => :xml,
 				:language => :english, :report_name => "My Report",
 				:aggregation => :hourly, :time => :today)
+			puts "performance report request"
+			puts performance_report_request.to_hash(:camelcase)
 		}
 	end
 
@@ -86,6 +90,75 @@ class ReportRequestTest < ActiveSupport::TestCase
 				:language => :english, :report_name => "My Report",
 				:aggregation => :hourly, :time => :today, 
 				:columns => [:account_name, :account_number, :time_period ],
+				:filter => {
+					# String as bing expected
+					:ad_distribution => "Search",
+					:device_os => "Windows",
+					# snake case symbol
+					:device_type => :computer,
+					# nil criteria
+					:status => nil
+				},
+				:scope => {:account_ids => 12345, 
+				:campaigns => [
+					{:account_id => 1234, :campaign_id => 1234},
+					{:account_id => 1234, :campaign_id => 1234},
+					{:account_id => 1234, :campaign_id => 1234}]
+				})
+			puts "campaign performance report request 1"
+			puts performance_report_request.to_hash(:camelcase)
+
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, 
+				:time => {
+					:custom_date_range_start => {
+						:day => 1,
+						:month => 12,
+						:year => 2013
+					}, 
+					:custom_date_range_end => {
+						:day => 31,
+						:month => 12,
+						:year => 2013
+					}
+				}, 
+				:columns => [:account_name, :account_number, :time_period ],
+				:filter => {
+					# String as bing expected
+					:ad_distribution => "Search",
+					:device_os => "Windows",
+					# snake case symbol
+					:device_type => :computer,
+					# nil criteria
+					:status => nil
+				},
+				:scope => {:account_ids => 12345, 
+				:campaigns => []})
+			puts "campaign performance report request 2"
+			puts performance_report_request.to_hash(:camelcase)
+
+
+		}
+	end
+
+
+	test "should raise column exception " do
+		assert_raises(Exception, "Bad column name for CampaignPerformanceReportRequest not raised") {
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, :time => :today, 
+				:columns => [:account_name, :account_number, :time_period, :unknown_column ],
+				:scope => {:account_ids => 12345, 
+				:campaigns => []})
+		}
+
+
+		assert_raises(Exception, "Bad column value for CampaignPerformanceReportRequest not raised") {
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, :time => :today, 
+				:columns => [:account_name, :account_number, :time_period, "UnknownColumn" ],
 				:scope => {:account_ids => 12345, 
 				:campaigns => []})
 		}
@@ -110,4 +183,79 @@ class ReportRequestTest < ActiveSupport::TestCase
 		}
 
 	end
+
+
+	test "campaign performance filter " do
+		assert_nothing_raised(Exception, "Bad filter for CampaignPerformanceReportRequest") {
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, :time => :today, 
+				:columns => [:account_name, :account_number, :time_period ],
+				:filter => {
+					# String as bing expected
+					:ad_distribution => "Search",
+					:device_os => "Windows",
+					# snake case symbol
+					:device_type => :computer,
+					# nil criteria
+					:status => nil
+				},
+				:scope => {:account_ids => 12345, 
+				:campaigns => []})
+		}
+	end
+
+
+	test "should raise campaign performance filter exception " do
+		assert_raises(Exception, "Bad filter string for CampaignPerformanceReportRequest not raised") {
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, :time => :today, 
+				:columns => [:account_name, :account_number, :time_period ],
+				:filter => {
+					# Wrong String as bing expected
+					:ad_distribution => "Searched",
+					:device_os => "Windows",
+					# snake case symbol
+					:device_type => :computer,
+					# nil criteria
+					:status => nil
+				},
+				:scope => {:account_ids => 12345, 
+				:campaigns => []})
+		}
+
+		assert_raises(Exception, "Bad filter symbol for CampaignPerformanceReportRequest not raised") {
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, :time => :today, 
+				:columns => [:account_name, :account_number, :time_period ],
+				:filter => {
+					# Wrong String as bing expected
+					:ad_distribution => "Search",
+					:device_os => "Windows",
+					# Wrong snake case symbol
+					:device_type => :notebook,
+					# nil criteria
+					:status => nil
+				},
+				:scope => {:account_ids => 12345, 
+				:campaigns => []})
+		}
+
+		assert_raises(Exception, "Bad filter criteria for CampaignPerformanceReportRequest not raised") {
+			performance_report_request = BingAdsApi::CampaignPerformanceReportRequest.new(:format => :xml,
+				:language => :english, :report_name => "My Report",
+				:aggregation => :hourly, :time => :today, 
+				:columns => [:account_name, :account_number, :time_period ],
+				:filter => {
+					# Wrong filter criteria. ie: invalid key
+					:not_a_valid_criteria => "Bleh",
+				},
+				:scope => {:account_ids => 12345, 
+				:campaigns => []})
+		}
+
+	end
+
 end

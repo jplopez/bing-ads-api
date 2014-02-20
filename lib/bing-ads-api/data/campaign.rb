@@ -4,7 +4,7 @@ module BingAdsApi
 	
 	# Public : Define a campaign 
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	# 
 	# Examples 
 	#   campaign = BingAdsApi::Campaign.new(

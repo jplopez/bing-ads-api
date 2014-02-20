@@ -139,6 +139,16 @@
   
     <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
   
+    <li><a href="../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
     <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
   
     <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
@@ -161,6 +171,8 @@
   
     <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
   
+    <li><a href="../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
     <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
   
     <li><a href="../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
@@ -179,8 +191,10 @@
   <div id="description" class="description">
     
 <p>Public : Base class for service object</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
   </div><!-- description -->
 
@@ -260,8 +274,10 @@
         <div class="method-description">
           
           <p>Public : Constructor</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-c-new-label-Parameters">Parameters</h3>
 <ul><li>
@@ -356,8 +372,10 @@ logger or enconding)</p>
           <p>Public : This is a utility wrapper for calling services into the 
 <code>ClientProxy</code>. This methods handle all the +Savon::Client+
 Exceptions and returns a Hash with the call response</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-call-label-Parameters">Parameters</h3>
 
@@ -369,10 +387,14 @@ Exceptions and returns a Hash with the call response</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">call</span>(:<span class="ruby-identifier">some_operation</span>, {<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>}) 
 <span class="ruby-comment"># =&gt; &lt;Hash&gt;</span>
 </pre>
-
-<p>Returns Hash with the result of the service call Raises ServiceError if the
-SOAP call, the <a href="ClientProxy.html">ClientProxy</a> fails or the
-response is invalid</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash with the result of the service call</p>
+</dd><dt>Raises
+<dd>
+<p>ServiceError if the SOAP call, the <a
+href="ClientProxy.html">ClientProxy</a> fails or the response is invalid</p>
+</dd></dl>
           
 
           
@@ -438,8 +460,10 @@ response is invalid</p>
           <p>Public : Extracts the actual response from the entire response hash.  For
 example, if you specify ‘AddCampaigns’, this method will return the content
 of ‘AddCampaignsResponse’ tag as a Hash</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-get_response_hash-label-Parameters+">Parameters </h3>
 
@@ -451,9 +475,13 @@ of ‘AddCampaignsResponse’ tag as a Hash</p>
 <pre class="ruby"><span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_response_hash</span>(<span class="ruby-constant">Hash</span>, <span class="ruby-string">'add_campaigns'</span>) 
 <span class="ruby-comment"># =&gt; Hash</span>
 </pre>
-
-<p>Returns Hash with the inner structure of the method response hash Raises
-exception</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash with the inner structure of the method response hash</p>
+</dd><dt>Raises
+<dd>
+<p>exception</p>
+</dd></dl>
           
 
           

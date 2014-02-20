@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class BingAdsApi::AdApiFaultDetail - BingAdsApi</title>
+<title>module BingAdsApi::Helpers - BingAdsApi</title>
 
 <link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
 
@@ -20,7 +20,7 @@
 <script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
 
 
-<body id="top" class="class">
+<body id="top" class="module">
 <nav id="metadata">
   <nav id="home-section" class="section">
   <h3 class="section-header">
@@ -47,7 +47,10 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>lib/bing-ads-api/fault/ad_api_fault_detail.rb
+    <li>lib/bing-ads-api/data/reporting/helpers/column_helper.rb
+    <li>lib/bing-ads-api/data/reporting/helpers/filter_helper.rb
+    <li>lib/bing-ads-api/data/reporting/helpers/scope_helper.rb
+    <li>lib/bing-ads-api/data/reporting/helpers/time_helper.rb
   </ul>
 </nav>
 
@@ -56,27 +59,9 @@
 
   <div id="class-metadata">
     
-    <nav id="parent-class-section" class="section">
-  <h3 class="section-header">Parent</h3>
-  
-  <p class="link"><a href="ApplicationFault.html">BingAdsApi::ApplicationFault</a>
-  
-</nav>
-
     
-    <!-- Method Quickref -->
-<nav id="method-list-section" class="section">
-  <h3 class="section-header">Methods</h3>
-
-  <ul class="link-list">
     
-    <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-to_s">#to_s</a>
-    
-  </ul>
-</nav>
-
   </div>
 
   <div id="project-metadata">
@@ -184,17 +169,10 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class BingAdsApi::AdApiFaultDetail</h1>
+  <h1 class="module">module BingAdsApi::Helpers</h1>
 
   <div id="description" class="description">
     
-<p>Public : Defines a fault object that operations return when generic errors
-occur,  such as an authentication error.</p>
-<dl class="rdoc-list note-list"><dt>Author
-<dd>
-<p>jlopezn@neonline.cl</p>
-</dd></dl>
-
   </div><!-- description -->
 
   
@@ -208,126 +186,9 @@ occur,  such as an authentication error.</p>
     
 
     
-    <!-- Attributes -->
-    <section id="attribute-method-details" class="method-section section">
-      <h3 class="section-header">Attributes</h3>
-
-      
-      <div id="attribute-i-errors" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">errors</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-    </section><!-- attribute-method-details -->
-    
 
     <!-- Methods -->
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(attributes={})</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Public : Constructor</p>
-<dl class="rdoc-list note-list"><dt>Author
-<dd>
-<p>jlopezn@neonline.cl</p>
-</dd></dl>
-
-<p>attributes - Hash with the initial attributes</p>
-
-<h3 id="method-c-new-label-Attributes">Attributes</h3>
-<ul><li>
-<p>tracking_id : the operation tracking id value</p>
-</li><li>
-<p>errors : array of hashes with the <a href="Ad.html">Ad</a> api errors</p>
-</li></ul>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/fault/ad_api_fault_detail.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
-        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">attributes</span>)
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">attributes</span>
-                <span class="ruby-identifier">initialize_errors</span>(<span class="ruby-identifier">attributes</span>[<span class="ruby-value">:errors</span>])
-        <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
-
-    
-    </section><!-- public-class-method-details -->
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
-
-    
-      <div id="method-i-to_s" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Public : Specified to string method</p>
-<dl class="rdoc-list note-list"><dt>Author
-<dd>
-<p>jlopezn@neonline.cl</p>
-</dd></dl>
-          
-
-          
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/fault/ad_api_fault_detail.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-        <span class="ruby-identifier">str</span> = <span class="ruby-keyword">super</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;:\n&quot;</span> 
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">batch_errors</span>
-                <span class="ruby-identifier">str</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;\tErrors:\n&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-string">&quot;\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
-        <span class="ruby-keyword">end</span>
-        
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_s-method -->
-
-    
-    </section><!-- public-instance-method-details -->
-  
   </section><!-- 5Buntitled-5D -->
 
 </div><!-- documentation -->

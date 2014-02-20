@@ -8,7 +8,7 @@ module BingAdsApi
 	#   BingAdsApi::TimeZone.SANTIAGO
 	#   # => 'Santiago'
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	module TimeZone
 	
 			
@@ -26,7 +26,7 @@ module BingAdsApi
 	#   BingAdsApi::AdLanguages.SPANISH_CODE
 	#   # => 'ES'
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	module AdLanguage
 	
 		BingAdsApi::Config.instance.common_constants['ad_languages'].each do |key, value|
@@ -62,7 +62,7 @@ module BingAdsApi
 	#   BingAdsApi::ReportFormat.CSV
 	#   # => 'Csv'
 	#
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	module ReportFormat
 		BingAdsApi::Config.instance.reporting_constants['format'].each do |key, value|
 			ReportFormat.const_set(key.upcase, value)
@@ -76,7 +76,7 @@ module BingAdsApi
 	#   BingAdsApi::ReportLanguage.ENGLISH
 	#   # => 'English'
 	#
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	module ReportLanguage
 		BingAdsApi::Config.instance.reporting_constants['language'].each do |key, value|
 			ReportLanguage.const_set(key.upcase, value)
@@ -92,7 +92,7 @@ module BingAdsApi
 	#   BingAdsApi::ReportAggregation.HOURLY
 	#   # => 'Hourly'
 	#
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	module ReportAggregation
 		BingAdsApi::Config.instance.reporting_constants['aggregation'].each do |key, value|
 			ReportAggregation.const_set(key.upcase, value)
@@ -108,7 +108,7 @@ module BingAdsApi
 	#   BingAdsApi::ReportTimePeriods.LAST_WEEK
 	#   # => 'LastWeek'
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	module ReportTimePeriods
 		BingAdsApi::Config.instance.reporting_constants['time_periods'].each do |key, value|
 			ReportTimePeriods.const_set(key.upcase, value)

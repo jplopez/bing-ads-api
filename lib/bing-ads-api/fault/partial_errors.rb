@@ -4,7 +4,7 @@ module BingAdsApi
 	
 	# Public : Defines an array of error that occur when adding ads  
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class PartialErrors < BingAdsApi::DataObject
 		
 		attr_accessor :batch_errors
@@ -12,7 +12,7 @@ module BingAdsApi
 		
 		# Public : Constructor 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# attributes - Hash with the initial attributes
 		# === Attributes
@@ -28,7 +28,7 @@ module BingAdsApi
 		
 		# Public : Specified to string method 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		def to_s
 			str = "  Batch Errors:\n"
 			if batch_errors
@@ -44,11 +44,11 @@ module BingAdsApi
 			# Public : Helper method for the ApiFaultDetail constructor 
 			#   to initialize the batch errors array 
 			# 
-			# Author jlopezn@neonline.cl 
+			# Author:: jlopezn@neonline.cl 
 			# 
 			# batch_errors_hash - Hash with the :batch_errors key received from the SOAP request
 			# 
-			# Returns none
+			# Returns:: none
 			def initialize_batch_errors(batch_errors_hash)
 				return if batch_errors_hash.nil?
 				

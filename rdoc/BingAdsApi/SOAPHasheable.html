@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module BingAdsApi::SOAPHasheable - BingAdsApi</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/bing-ads-api/soap_hasheable.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-date_to_hash">#date_to_hash</a>
+    
+    <li><a href="#method-i-get_attribute_key">#get_attribute_key</a>
+    
+    <li><a href="#method-i-normalize_hash_keys">#normalize_hash_keys</a>
+    
+    <li><a href="#method-i-object_to_hash">#object_to_hash</a>
+    
+    <li><a href="#method-i-to_hash">#to_hash</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BingAdsApi.html">BingAdsApi</a>
+  
+    <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
+  
+    <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
+  
+    <li><a href="../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
+  
+    <li><a href="../BingAdsApi/AdApiFaultDetail.html">BingAdsApi::AdApiFaultDetail</a>
+  
+    <li><a href="../BingAdsApi/AdGroup.html">BingAdsApi::AdGroup</a>
+  
+    <li><a href="../BingAdsApi/AdLanguage.html">BingAdsApi::AdLanguage</a>
+  
+    <li><a href="../BingAdsApi/ApiException.html">BingAdsApi::ApiException</a>
+  
+    <li><a href="../BingAdsApi/ApiFaultDetail.html">BingAdsApi::ApiFaultDetail</a>
+  
+    <li><a href="../BingAdsApi/ApplicationFault.html">BingAdsApi::ApplicationFault</a>
+  
+    <li><a href="../BingAdsApi/BatchError.html">BingAdsApi::BatchError</a>
+  
+    <li><a href="../BingAdsApi/Campaign.html">BingAdsApi::Campaign</a>
+  
+    <li><a href="../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
+  
+    <li><a href="../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
+  
+    <li><a href="../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
+  
+    <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
+  
+    <li><a href="../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
+  
+    <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
+  
+    <li><a href="../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
+    <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
+  
+    <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
+  
+    <li><a href="../BingAdsApi/PartialErrors.html">BingAdsApi::PartialErrors</a>
+  
+    <li><a href="../BingAdsApi/PerformanceReportRequest.html">BingAdsApi::PerformanceReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ProductAd.html">BingAdsApi::ProductAd</a>
+  
+    <li><a href="../BingAdsApi/ReportAggregation.html">BingAdsApi::ReportAggregation</a>
+  
+    <li><a href="../BingAdsApi/ReportFormat.html">BingAdsApi::ReportFormat</a>
+  
+    <li><a href="../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
+  
+    <li><a href="../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
+  
+    <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
+    <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
+  
+    <li><a href="../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
+  
+    <li><a href="../BingAdsApi/TimeZone.html">BingAdsApi::TimeZone</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module BingAdsApi::SOAPHasheable</h1>
+
+  <div id="description" class="description">
+    <dl class="rdoc-list note-list"><dt>Public
+<dd>
+<p>Module to define an object as Hasheable for the SOAP requests</p>
+</dd><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-date_to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">date_to_hash</span><span
+            class="method-args">(date, keys_case)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal : Returns a DateTime as a hash for SOAP requests</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-date_to_hash-label-Parameters">Parameters</h3>
+<ul><li>
+<p>date - DateTime to be hashed</p>
+</li><li>
+<p>keys_case - defines the case for keys in the hash</p>
+</li></ul>
+
+<h4 id="method-i-date_to_hash-label-keys_case">keys_case</h4>
+<ul><li>
+<p>:camelcase  - CamelCase</p>
+</li><li>
+<p>:underscore - underscore_case</p>
+</li></ul>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash with the :year, :month, :day keys</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="date_to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">date_to_hash</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">keys_case</span>)
+        {
+                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-identifier">keys_case</span>)   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>,
+                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;month&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">month</span>,
+                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;year&quot;</span>, <span class="ruby-identifier">keys_case</span>)  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- date_to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- date_to_hash-method -->
+
+    
+      <div id="method-i-get_attribute_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_attribute_key</span><span
+            class="method-args">(attribute, keys_case = :underscore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal : Helper method to determinate the key name in the hash for the
+SOAP request</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-get_attribute_key-label-Parameters">Parameters</h3>
+<ul><li>
+<p>attribute - the attribute name</p>
+</li><li>
+<p>keys_case - defines the case for the attribute name.</p>
+</li></ul>
+
+<h4 id="method-i-get_attribute_key-label-keys_case">keys_case</h4>
+<ul><li>
+<p>:camelcase  - CamelCase</p>
+</li><li>
+<p>:underscore - underscore_case</p>
+</li></ul>
+
+<h3 id="method-i-get_attribute_key-label-Examples+">Examples </h3>
+
+<pre class="ruby"><span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;attribute_name&quot;</span>, :<span class="ruby-identifier">underscore</span>) 
+<span class="ruby-comment"># =&gt; &quot;attribute_name&quot; </span>
+
+<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;name&quot;</span>, :<span class="ruby-identifier">camelcase</span>) 
+<span class="ruby-comment"># =&gt; &quot;AttributeName&quot;</span>
+</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>String with the attribute name for the key in the hash</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="get_attribute_key-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">keys_case</span> = <span class="ruby-value">:underscore</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys_case</span> <span class="ruby-operator">==</span> <span class="ruby-value">:underscore</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;@&quot;</span>).<span class="ruby-identifier">underscore</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">keys_case</span> <span class="ruby-operator">==</span> <span class="ruby-value">:camelcase</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;@&quot;</span>).<span class="ruby-identifier">camelcase</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_attribute_key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_attribute_key-method -->
+
+    
+      <div id="method-i-normalize_hash_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_hash_keys</span><span
+            class="method-args">(hash, keys_case)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_hash_keys-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_hash_keys</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">keys_case</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">inject</span>({}) { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, (<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-identifier">v</span>; <span class="ruby-identifier">h</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalize_hash_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalize_hash_keys-method -->
+
+    
+      <div id="method-i-object_to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">object_to_hash</span><span
+            class="method-args">(object, keys_case=:underscore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal: Metodo custom para transformar a hash un objeto. Se puede indicar
+si se desean las keys en formato CamelCase o underscore_case</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>asaavedrab@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-object_to_hash-label-Parameters">Parameters</h3>
+<ul><li>
+<p>object    - El objeto a ser entregado como Hash</p>
+</li><li>
+<p>keys_case - indica si las keys del hash deben estar en formato</p>
+</li></ul>
+
+<h4 id="method-i-object_to_hash-label-keys_case">keys_case</h4>
+<ul><li>
+<p>:camelcase  - CamelCase</p>
+</li><li>
+<p>:underscore - underscore_case</p>
+</li></ul>
+
+<h3 id="method-i-object_to_hash-label-Example%3A">Example:</h3>
+
+<pre class="ruby"><span class="ruby-identifier">a</span>=<span class="ruby-constant">BusinessPartner</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-comment"># =&gt; {id =&gt; 1, name =&gt; &quot;emol&quot;}</span>
+</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash.</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="object_to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">keys_case</span>=<span class="ruby-value">:underscore</span>)
+        <span class="ruby-identifier">hash</span>={}
+        <span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span><span class="ruby-operator">|</span> 
+                <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">var</span>).<span class="ruby-identifier">nil?</span>
+                        <span class="ruby-identifier">value</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">var</span>)
+                        <span class="ruby-identifier">hashed_value</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>
+                                <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Hash&quot;</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">normalize_hash_keys</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">keys_case</span>)
+                                <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;Array&quot;</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">collect</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">keys_case</span>) }
+                                <span class="ruby-keyword">else</span> <span class="ruby-identifier">value</span>
+                        <span class="ruby-keyword">end</span>
+                        <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">var</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-identifier">hashed_value</span> 
+                <span class="ruby-keyword">end</span> 
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- object_to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- object_to_hash-method -->
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">(keys_case=:underscore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal: Metodo custom para transformar a hash un objeto. Se puede indicar
+si se desean las keys en formato CamelCase o underscore_case</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>asaavedrab@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-to_hash-label-Parameters">Parameters</h3>
+<ul><li>
+<p>keys_case - indica si las keys del hash deben estar en formato</p>
+</li></ul>
+
+<p>** :camelcase  - CamelCase ** :underscore - underscore_case</p>
+
+<h3 id="method-i-to_hash-label-Example">Example</h3>
+
+<pre class="ruby"><span class="ruby-identifier">a</span>=<span class="ruby-constant">BusinessPartner</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-comment"># =&gt; {id =&gt; 1, name =&gt; &quot;emol&quot;}</span>
+</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">keys_case</span>=<span class="ruby-value">:underscore</span>)
+        <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">keys_case</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

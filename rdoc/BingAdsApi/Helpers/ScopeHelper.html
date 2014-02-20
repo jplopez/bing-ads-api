@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module BingAdsApi::Helpers::ScopeHelper - BingAdsApi</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/bing-ads-api/data/reporting/helpers/scope_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-scope_to_hash">#scope_to_hash</a>
+    
+    <li><a href="#method-i-valid_scope">#valid_scope</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../BingAdsApi.html">BingAdsApi</a>
+  
+    <li><a href="../../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
+  
+    <li><a href="../../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
+  
+    <li><a href="../../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
+  
+    <li><a href="../../BingAdsApi/AdApiFaultDetail.html">BingAdsApi::AdApiFaultDetail</a>
+  
+    <li><a href="../../BingAdsApi/AdGroup.html">BingAdsApi::AdGroup</a>
+  
+    <li><a href="../../BingAdsApi/AdLanguage.html">BingAdsApi::AdLanguage</a>
+  
+    <li><a href="../../BingAdsApi/ApiException.html">BingAdsApi::ApiException</a>
+  
+    <li><a href="../../BingAdsApi/ApiFaultDetail.html">BingAdsApi::ApiFaultDetail</a>
+  
+    <li><a href="../../BingAdsApi/ApplicationFault.html">BingAdsApi::ApplicationFault</a>
+  
+    <li><a href="../../BingAdsApi/BatchError.html">BingAdsApi::BatchError</a>
+  
+    <li><a href="../../BingAdsApi/Campaign.html">BingAdsApi::Campaign</a>
+  
+    <li><a href="../../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
+  
+    <li><a href="../../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
+  
+    <li><a href="../../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
+  
+    <li><a href="../../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
+  
+    <li><a href="../../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
+  
+    <li><a href="../../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
+  
+    <li><a href="../../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
+    <li><a href="../../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
+  
+    <li><a href="../../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
+  
+    <li><a href="../../BingAdsApi/PartialErrors.html">BingAdsApi::PartialErrors</a>
+  
+    <li><a href="../../BingAdsApi/PerformanceReportRequest.html">BingAdsApi::PerformanceReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/ProductAd.html">BingAdsApi::ProductAd</a>
+  
+    <li><a href="../../BingAdsApi/ReportAggregation.html">BingAdsApi::ReportAggregation</a>
+  
+    <li><a href="../../BingAdsApi/ReportFormat.html">BingAdsApi::ReportFormat</a>
+  
+    <li><a href="../../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
+  
+    <li><a href="../../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
+  
+    <li><a href="../../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
+    <li><a href="../../BingAdsApi/Service.html">BingAdsApi::Service</a>
+  
+    <li><a href="../../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
+  
+    <li><a href="../../BingAdsApi/TimeZone.html">BingAdsApi::TimeZone</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module BingAdsApi::Helpers::ScopeHelper</h1>
+
+  <div id="description" class="description">
+    
+<p>Public : Utility module for scope attribute in <code>ReportRequest</code>
+derived classes</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="FILTERS_CRITERIA">FILTERS_CRITERIA
+        
+        <dd class="description"><p>Valid filters values for each known criteria</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-scope_to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scope_to_hash</span><span
+            class="method-args">(keys_case=:undescore)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public : Returns the filter attribute as a Hash to SOAP requests</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<p>filter - Hash with the filter values</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="scope_to_hash-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/helpers/scope_helper.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scope_to_hash</span>(<span class="ruby-identifier">keys_case</span>=<span class="ruby-value">:undescore</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scope_to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scope_to_hash-method -->
+
+    
+      <div id="method-i-valid_scope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_scope</span><span
+            class="method-args">(valid_scopes, scope)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal : Validates the filter attribute at the ReporRequest
+initialization At the first invalid filter criteria or value detected this
+method raises Exception. If all filter criteria and values are ok, this
+method returns true  Valid filter criteria are validated against <a
+href="ScopeHelper.html#FILTERS_CRITERIA">FILTERS_CRITERIA</a> constant
+Valid filter values are validated against FILTERS constant</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-valid_scope-label-Parameters">Parameters</h3>
+
+<p>valid_filters - Hash with the set of valid filter values filter - Hash with
+the filter criteria and values</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>true if filter is valid</p>
+</dd><dt>Raises
+<dd>
+<p>Exception at the first invalid filter criteria o value</p>
+</dd></dl>
+          
+
+          
+          <div class="method-source-code" id="valid_scope-source">
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/helpers/scope_helper.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_scope</span>(<span class="ruby-identifier">valid_scopes</span>, <span class="ruby-identifier">scope</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid_scope-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid_scope-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

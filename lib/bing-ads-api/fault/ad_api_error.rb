@@ -6,7 +6,7 @@ module BingAdsApi
 	# 
 	# Reference : http://msdn.microsoft.com/en-US/library/bing-ads-overview-adapierror.aspx
 	# 
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class AdApiError < BingAdsApi::DataObject
 	
 		attr_accessor :code, :detail, :error_code, :message

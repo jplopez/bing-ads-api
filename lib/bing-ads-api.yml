@@ -212,6 +212,28 @@ constants:
       last_six_months: 'LastSixMonths'
       this_year: 'ThisYear'
       last_year: 'LastYear'
+    filters:
+      ad_distribution:
+        search: 'Search'
+        content: 'Content'
+      device_os:
+        other: 'Other'
+        windows: 'Windows'
+        ios: 'iOS'
+        android: 'Android'
+        black_berry: 'BlackBerry'
+      device_type:
+        computer: 'Computer'
+        smart_phone: 'SmartPhone'
+        non_smart_phone: 'NonSmartPhone'
+        tablet: 'Tablet'
+      campaign_status:
+        submited: 'Submited'
+        cancelled: 'Cancelled'
+        deleted: 'Deleted'
+        paused: 'Paused'
+        budget_paused: 'BudgetPaused'
+        active: 'Active'
     # From here the constants are specific per ReportRequest derive
     # This includes columns, filters and scopes (if any)
     account_performance_report:

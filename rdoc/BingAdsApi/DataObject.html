@@ -63,7 +63,19 @@
   
 </nav>
 
-    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
+  
+  </ul>
+</nav>
+
     <!-- Method Quickref -->
 <nav id="method-list-section" class="section">
   <h3 class="section-header">Methods</h3>
@@ -71,8 +83,6 @@
   <ul class="link-list">
     
     <li><a href="#method-c-new">::new</a>
-    
-    <li><a href="#method-i-to_hash">#to_hash</a>
     
     <li><a href="#method-i-to_s">#to_s</a>
     
@@ -139,6 +149,16 @@
   
     <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
   
+    <li><a href="../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
     <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
   
     <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
@@ -161,6 +181,8 @@
   
     <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
   
+    <li><a href="../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
+  
     <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
   
     <li><a href="../BingAdsApi/TextAd.html">BingAdsApi::TextAd</a>
@@ -180,8 +202,10 @@
     
 <p>Public : Base Class to define Bing API data objects Do not use this class
 directly, use any of the derived classes</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
   </div><!-- description -->
 
@@ -216,15 +240,17 @@ directly, use any of the derived classes</p>
           
           <p>Public : Constructor in a ActiveRecord style, with a hash of attributes as
 input</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <p>attributes - Hash with the objects attributes</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data_object.rb, line 18</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data_object.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
         <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">val</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>) }
 <span class="ruby-keyword">end</span></pre>
@@ -244,57 +270,6 @@ input</p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-to_hash" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_hash</span><span
-            class="method-args">(keys = :underscore)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Internal: Metodo custom para transformar a hash un objeto. Se puede indicar
-si se desean las keys en formato CamelCase o underscore_case</p>
-
-<p>Author: asaavedrab@neonline.cl</p>
-
-<p>keys - indica si las keys del hash deben estar en formato  CamelCase
-(:camelcase) o underscore_case (:underscore)</p>
-
-<p>Example:</p>
-
-<pre class="ruby"><span class="ruby-identifier">a</span>=<span class="ruby-constant">BusinessPartner</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>
-<span class="ruby-comment"># =&gt; {id =&gt; 1, name =&gt; &quot;emol&quot;}</span>
-</pre>
-
-<p>Returns Hash.</p>
-          
-
-          
-          <div class="method-source-code" id="to_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data_object.rb, line 38</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">keys</span> = <span class="ruby-value">:underscore</span>)
-        <span class="ruby-identifier">hash</span>={}
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span><span class="ruby-operator">|</span> 
-                <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">var</span>).<span class="ruby-identifier">nil?</span>
-                        <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">var</span>, <span class="ruby-identifier">keys</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">var</span>)
-                <span class="ruby-keyword">end</span> 
-        <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_hash-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_hash-method -->
-
-    
       <div id="method-i-to_s" class="method-detail ">
         
         <div class="method-heading">
@@ -307,13 +282,15 @@ si se desean las keys en formato CamelCase o underscore_case</p>
         <div class="method-description">
           
           <p>Public : Specified to string method</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data_object.rb, line 52</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data_object.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
         <span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></pre>

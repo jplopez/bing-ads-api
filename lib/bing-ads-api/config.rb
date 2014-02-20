@@ -5,7 +5,7 @@ module BingAdsApi
 
 	# Public : Helper class for configuration issues like WSDL URLs and constants 
 	# 
-	# Author author@neonline.cl 
+	# Author:: author@neonline.cl 
 	# 
 	# Examples 
 	#   class_usage 
@@ -21,16 +21,16 @@ module BingAdsApi
 		
 		# Public : Constructor 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		def initialize
 			@config = YAML.load_file(File.join(File.dirname(__FILE__),"../bing-ads-api.yml"))
 		end
 
 		# Public : Returns the config file as an Hash instance 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
-		# Returns Hash
+		# Returns:: Hash
 		def self.hash_instance
 			instance.config
 		end
@@ -48,7 +48,7 @@ module BingAdsApi
 
 		# Public : Returns a String with WSDL url for the service indicated 
 		# 
-		# Author jlopezn@neonline.cl 
+		# Author:: jlopezn@neonline.cl 
 		# 
 		# === Parameters
 		# environment - Bing Environment: 'sandbox' or 'production'
@@ -58,8 +58,8 @@ module BingAdsApi
 		#   config.service_wsdl(:sandbox, :campaign_management) 
 		#   # => "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
 		# 
-		# Returns returns
-		# Raises exception
+		# Returns:: returns
+		# Raises:: exception
 		def service_wsdl(environment, service)
 			if (ENVIRONMENTS.include?(environment.to_s))
 				if @config['wsdl'][environment.to_s].include?(service.to_s)

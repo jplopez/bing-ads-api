@@ -137,6 +137,16 @@
   
     <li><a href="../BingAdsApi/EditorialError.html">BingAdsApi::EditorialError</a>
   
+    <li><a href="../BingAdsApi/Helpers.html">BingAdsApi::Helpers</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ColumnHelper.html">BingAdsApi::Helpers::ColumnHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/FilterHelper.html">BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/ScopeHelper.html">BingAdsApi::Helpers::ScopeHelper</a>
+  
+    <li><a href="../BingAdsApi/Helpers/TimeHelper.html">BingAdsApi::Helpers::TimeHelper</a>
+  
     <li><a href="../BingAdsApi/MobileAd.html">BingAdsApi::MobileAd</a>
   
     <li><a href="../BingAdsApi/OperationError.html">BingAdsApi::OperationError</a>
@@ -158,6 +168,8 @@
     <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
   
     <li><a href="../BingAdsApi/Reporting.html">BingAdsApi::Reporting</a>
+  
+    <li><a href="../BingAdsApi/SOAPHasheable.html">BingAdsApi::SOAPHasheable</a>
   
     <li><a href="../BingAdsApi/Service.html">BingAdsApi::Service</a>
   
@@ -181,8 +193,10 @@ encapsular la conexión y request</p>
 
 <pre>de servicios a la API de Bing. En su inicialización requiere los datos 
 de autenticación y el WSDL al servicio que se requiere.</pre>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <p>Examples</p>
 
@@ -364,8 +378,10 @@ usada</p>
         <div class="method-description">
           
           <p>Public : Constructor</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-c-new-label-Parameters">Parameters</h3>
 
@@ -406,8 +422,10 @@ logger or enconding)</p>
 <span class="ruby-comment"># =&gt; Instancia de ClientProxy</span>
 <span class="ruby-identifier">client</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">ClientProxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
 </pre>
-
-<p>Returns <a href="ClientProxy.html">ClientProxy</a> instance</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p><a href="ClientProxy.html">ClientProxy</a> instance</p>
+</dd></dl>
           
 
           
@@ -453,8 +471,10 @@ logger or enconding)</p>
         <div class="method-description">
           
           <p>Public : Delegate for Savon::Client.call method</p>
-
-<p>Author jlopezn@neonline.cl</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
 
 <h3 id="method-i-call-label-Parameters">Parameters</h3>
 
@@ -466,9 +486,13 @@ Message for the service options - Additional options for the service</p>
 <pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">call_service</span>(:<span class="ruby-identifier">some_service_name</span>, {<span class="ruby-identifier">key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>}) 
 <span class="ruby-comment"># =&gt; &lt;Response&gt;</span>
 </pre>
-
-<p>Returns Response from the Savon::Client  Raises Savon::SOAPFault
-Savon::HTTPError Savon::InvalidResponseError</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Response from the Savon::Client</p>
+</dd><dt>Raises
+<dd>
+<p>Savon::SOAPFault Savon::HTTPError Savon::InvalidResponseError</p>
+</dd></dl>
           
 
           

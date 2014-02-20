@@ -3,7 +3,7 @@ require 'test_helper'
 
 # Public : Test case for Reporting services 
 # 
-# Author jlopezn@neonline.cl 
+# Author:: jlopezn@neonline.cl 
 class ReportingTest < ActiveSupport::TestCase
 
 	def setup

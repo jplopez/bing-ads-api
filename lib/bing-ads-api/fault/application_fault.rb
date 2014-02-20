@@ -6,7 +6,7 @@ module BingAdsApi
 	# 
 	# Reference: http://msdn.microsoft.com/en-US/library/bing-ads-overview-applicationfault.aspx
 	#
-	# Author jlopezn@neonline.cl 
+	# Author:: jlopezn@neonline.cl 
 	class ApplicationFault < BingAdsApi::DataObject
 		
 		attr_accessor :tracking_id
