@@ -1,4 +1,4 @@
-Thu, 20 Feb 2014 15:21:54 -0300
+Thu, 20 Feb 2014 15:49:00 -0300
 README.rdoc	Mon, 16 Dec 2013 11:55:40 -0300
 lib/bing-ads-api.rb	Thu, 20 Feb 2014 11:10:42 -0300
 lib/bing-ads-api/api_exception.rb	Thu, 20 Feb 2014 11:06:54 -0300
@@ -12,7 +12,7 @@ lib/bing-ads-api/data/report_request.rb	Thu, 20 Feb 2014 15:19:36 -0300
 lib/bing-ads-api/data/reporting/account_performance_report_request.rb	Thu, 20 Feb 2014 11:06:54 -0300
 lib/bing-ads-api/data/reporting/account_through_campaign_report_scope.rb	Thu, 20 Feb 2014 11:06:54 -0300
 lib/bing-ads-api/data/reporting/campaign_performance_report_filter.rb	Thu, 20 Feb 2014 11:06:54 -0300
-lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb	Thu, 20 Feb 2014 12:54:24 -0300
+lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb	Thu, 20 Feb 2014 15:47:22 -0300
 lib/bing-ads-api/data/reporting/campaign_scope.rb	Thu, 20 Feb 2014 11:06:54 -0300
 lib/bing-ads-api/data/reporting/helpers/column_helper.rb	Thu, 20 Feb 2014 11:06:54 -0300
 lib/bing-ads-api/data/reporting/helpers/filter_helper.rb	Thu, 20 Feb 2014 11:54:54 -0300
@@ -30,5 +30,5 @@ lib/bing-ads-api/fault/partial_errors.rb	Thu, 20 Feb 2014 11:06:55 -0300
 lib/bing-ads-api/service.rb	Thu, 20 Feb 2014 11:06:55 -0300
 lib/bing-ads-api/service/campaign_management.rb	Thu, 20 Feb 2014 11:06:55 -0300
 lib/bing-ads-api/service/reporting.rb	Thu, 20 Feb 2014 11:06:55 -0300
-lib/bing-ads-api/soap_hasheable.rb	Thu, 20 Feb 2014 13:05:13 -0300
+lib/bing-ads-api/soap_hasheable.rb	Thu, 20 Feb 2014 15:39:41 -0300
 lib/bing-ads-api/version.rb	Fri, 14 Feb 2014 10:50:54 -0300

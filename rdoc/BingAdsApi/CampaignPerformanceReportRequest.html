@@ -209,10 +209,13 @@ href="http://msdn.microsoft.com/en-us/library/bing-ads-reporting-bing-ads-report
   :<span class="ruby-identifier">columns</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">account_name</span>, :<span class="ruby-identifier">account_number</span>, :<span class="ruby-identifier">time_period</span>],
   <span class="ruby-comment"># The filter is specified as a hash</span>
   :<span class="ruby-identifier">filter</span> =<span class="ruby-operator">&gt;</span> {
-    :<span class="ruby-identifier">ad_distribution</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">search</span>, 
+    <span class="ruby-comment"># specifies the Bing expected String value</span>
+    :<span class="ruby-identifier">ad_distribution</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Search&quot;</span>, 
+    <span class="ruby-comment"># specifies criteria as a snake case symbol</span>
     :<span class="ruby-identifier">device_os</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">android</span>,
     :<span class="ruby-identifier">device_type</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">tablet</span>,
-    :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">submited</span> },
+    <span class="ruby-comment"># criteria nil is similar to not specify it at all</span>
+    :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span> },
   :<span class="ruby-identifier">scope</span> =<span class="ruby-operator">&gt;</span> { 
     :<span class="ruby-identifier">account_ids</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">123456</span>, <span class="ruby-value">234567</span>],
     :<span class="ruby-identifier">campaigns</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-operator">&lt;</span><span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignReportScope</span><span class="ruby-operator">&gt;</span>] },
@@ -293,8 +296,9 @@ attributes</p>
 </dd></dl>
 
 <h3 id="method-c-new-label-Parameters">Parameters</h3>
-
-<p>attributes - Hash with the report request attributes</p>
+<ul><li>
+<p><code>attributes</code> - Hash with the report request attributes</p>
+</li></ul>
 
 <h3 id="method-c-new-label-Example">Example</h3>
 
@@ -339,7 +343,7 @@ attributes</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 106</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 109</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Invalid columns&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_columns</span>(<span class="ruby-constant">COLUMNS</span>, <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:columns</span>])
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Invalid filters&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_filter</span>(<span class="ruby-constant">FILTERS</span>, <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:filter</span>])
@@ -378,15 +382,14 @@ attributes</p>
 
           
           <div class="method-source-code" id="to_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 114</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 117</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">keys</span> = <span class="ruby-value">:underscore</span>)
         <span class="ruby-identifier">hash</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">keys</span>)
         <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'columns'</span>, <span class="ruby-identifier">keys</span>)] = 
                 <span class="ruby-identifier">columns_to_hash</span>(<span class="ruby-constant">COLUMNS</span>, <span class="ruby-identifier">columns</span>, <span class="ruby-identifier">keys</span>)
         <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'filter'</span>, <span class="ruby-identifier">keys</span>)] = 
                 <span class="ruby-identifier">filter_to_hash</span>(<span class="ruby-constant">FILTERS</span>, <span class="ruby-identifier">keys</span>)
-        <span class="ruby-comment">#hash[get_attribute_key('scope', keys)] = </span>
-        <span class="ruby-comment">#    scope_to_hash(keys)</span>
+        <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'scope'</span>, <span class="ruby-identifier">keys</span>)] = <span class="ruby-identifier">scope_to_hash</span>(<span class="ruby-identifier">keys</span>) 
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- to_hash-source -->

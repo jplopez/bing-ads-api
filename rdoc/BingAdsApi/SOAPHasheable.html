@@ -253,7 +253,7 @@
 
           
           <div class="method-source-code" id="date_to_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 112</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 133</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">date_to_hash</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">keys_case</span>)
         {
                 <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-identifier">keys_case</span>)   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>,
@@ -319,7 +319,7 @@ SOAP request</p>
 
           
           <div class="method-source-code" id="get_attribute_key-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 91</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 112</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">keys_case</span> = <span class="ruby-value">:underscore</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys_case</span> <span class="ruby-operator">==</span> <span class="ruby-value">:underscore</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;@&quot;</span>).<span class="ruby-identifier">underscore</span>
@@ -353,9 +353,9 @@ SOAP request</p>
 
           
           <div class="method-source-code" id="normalize_hash_keys-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 68</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_hash_keys</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">keys_case</span>)
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">inject</span>({}) { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, (<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-identifier">v</span>; <span class="ruby-identifier">h</span> }
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">inject</span>({}) { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, (<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">keys_case</span>); <span class="ruby-identifier">h</span> }
 <span class="ruby-keyword">end</span></pre>
           </div><!-- normalize_hash_keys-source -->
           
@@ -378,18 +378,23 @@ SOAP request</p>
 
         <div class="method-description">
           
-          <p>Internal: Metodo custom para transformar a hash un objeto. Se puede indicar
-si se desean las keys en formato CamelCase o underscore_case</p>
+          <p>Internal: Internal method to return an object as a SOAP Request alike hash
+If the object is an array, this methods executes <a
+href="SOAPHasheable.html#method-i-object_to_hash">#object_to_hash</a> for
+each item. If the object is a Hash, this methods normalize the keys
+according to <code>keys_case</code> and executes <a
+href="SOAPHasheable.html#method-i-object_to_hash">#object_to_hash</a> for
+each value If the object is a String or Numeric, returns the object</p>
 <dl class="rdoc-list note-list"><dt>Author
 <dd>
-<p>asaavedrab@neonline.cl</p>
+<p>asaavedrab@neonline.cl, jlopezn@neonline.cl</p>
 </dd></dl>
 
 <h3 id="method-i-object_to_hash-label-Parameters">Parameters</h3>
 <ul><li>
-<p>object    - El objeto a ser entregado como Hash</p>
+<p><code>object</code>    - object instance to be hashed</p>
 </li><li>
-<p>keys_case - indica si las keys del hash deben estar en formato</p>
+<p><code>keys_case</code> - specifies the hash keys case, default 'underscore'</p>
 </li></ul>
 
 <h4 id="method-i-object_to_hash-label-keys_case">keys_case</h4>
@@ -401,20 +406,39 @@ si se desean las keys en formato CamelCase o underscore_case</p>
 
 <h3 id="method-i-object_to_hash-label-Example%3A">Example:</h3>
 
-<pre class="ruby"><span class="ruby-identifier">a</span>=<span class="ruby-constant">BusinessPartner</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>
-<span class="ruby-comment"># =&gt; {id =&gt; 1, name =&gt; &quot;emol&quot;}</span>
+<pre class="ruby"><span class="ruby-identifier">a</span>=<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>(:<span class="ruby-identifier">underscore</span>)
+<span class="ruby-comment"># =&gt; {'id' =&gt; 1, 'full_name' =&gt; &quot;John Doe&quot;}</span>
+
+<span class="ruby-identifier">a</span>=<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>(:<span class="ruby-identifier">camelcase</span>)
+<span class="ruby-comment"># =&gt; {'Id' =&gt; 1, 'FullName' =&gt; &quot;John Doe&quot;}</span>
+
+<span class="ruby-identifier">a</span>=[<span class="ruby-operator">&lt;</span><span class="ruby-constant">Person</span><span class="ruby-operator">&gt;</span>, <span class="ruby-operator">&lt;</span><span class="ruby-constant">Person</span><span class="ruby-operator">&gt;</span>, <span class="ruby-operator">&lt;</span><span class="ruby-constant">Cat</span><span class="ruby-operator">&gt;</span>]
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_hash</span>(:<span class="ruby-identifier">underscore</span>)
+<span class="ruby-comment"># =&gt; [{'id' =&gt; 1, 'full_name' =&gt; &quot;John Doe&quot;}, {'id' =&gt; 2, 'full_name' =&gt; &quot;Ms Mary&quot;}, {'id' =&gt; 3, 'name' =&gt; &quot;Mr Whiskers&quot;, 'color' =&gt; &quot;Gray&quot;}]</span>
 </pre>
 <dl class="rdoc-list note-list"><dt>Returns
 <dd>
-<p>Hash.</p>
+<p>Hash</p>
 </dd></dl>
           
 
           
           <div class="method-source-code" id="object_to_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 51</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">keys_case</span>=<span class="ruby-value">:underscore</span>)
+
+        <span class="ruby-comment"># Nil safe</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">nil?</span>
+        
+        <span class="ruby-comment"># In case of hash, we only normalize the keys values</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">normalize_hash_keys</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">keys_case</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-comment"># In case of array, we make hasheable each element</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">collect</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">keys_case</span>) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-comment"># In case of number or string, this methods return the object</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">object</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+
         <span class="ruby-identifier">hash</span>={}
         <span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span><span class="ruby-operator">|</span> 
                 <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">var</span>).<span class="ruby-identifier">nil?</span>
