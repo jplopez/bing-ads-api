@@ -1,3 +1,92 @@
 = BingAdsApi
 
 This project rocks and uses MIT-LICENSE.
+
+== Presentation
+
+This is a very simple, straight use gem for integrating any Rails app with the 
+Bing Ads SOAP Webservices.
+
+== Installation
+
+Add to your Gemfile
+   gem 'bing-ads-api'
+
+== Examples
+So far, I've just integrated some methods from +CampaignManagement+ and +Reporting+ services 
+
+
+=== Authentication
+
+In all cases, you must initialize some service object with the authentication options
+Here's an example with the CampaignMangement service object
+
+   options = {
+   	:environment => :sandbox,
+   	:username => "desarrollo_neonline",
+   	:password => "neonline2013",
+   	:developer_token => "BBD37VB98",
+   	:customer_id => "21021746",
+   	:account_id => "5978083"
+   }
+   service = BingAdsApi::CampaignManagement.new(options)
+
+* +environment+ can be one of two values: +:sandbox+ or +:production+
+
+
+=== Campaign Management
+
+Example of service object initialization:
+   options = {
+   	:environment => :sandbox,
+   	:username => "desarrollo_neonline",
+   	:password => "neonline2013",
+   	:developer_token => "BBD37VB98",
+   	:customer_id => "21021746",
+   	:account_id => "5978083"
+   }
+   service = BingAdsApi::CampaignManagement.new(options)
+
+
+==== Adding Campaigns
+
+   account_id = 123456789
+   campaigns = [
+   BingAdsApi::Campaign.new(
+   	:budget_type => BingAdsApi::Campaign::DAILY_BUDGET_STANDARD, 
+   	:conversion_tracking_enabled => "false",
+   	:daily_budget => 2000,
+   	:daylight_saving => "false",
+   	:description => name + " first description",
+   	:monthly_budget => 5400,
+   	:name => name + " first name",
+   	:status => BingAdsApi::Campaign::PAUSED,
+   	:time_zone => BingAdsApi::Campaign::SANTIAGO),
+   
+   BingAdsApi::Campaign.new(
+   	:budget_type => BingAdsApi::Campaign::DAILY_BUDGET_STANDARD, 
+   	:conversion_tracking_enabled => "false",
+   	:daily_budget => 2500,
+   	:daylight_saving => "false",
+   	:description => name + " second description",
+   	:monthly_budget => 7800,
+   	:name => name + " second name",
+   	:status => BingAdsApi::Campaign::PAUSED,
+   	:time_zone => BingAdsApi::Campaign::SANTIAGO) ]
+   response = service.add_campaigns(account_id, campaigns)
+
+In some cases the methods will return a Hash with the 'response' tag according
+to the method invoked. Like the example above.
+
+
+==== Find Campaigns
+
+In other cases, like this next example, the method will return an object, like an array or 
+a object representation of the hash
+   campaigns = service.get_campaigns_by_account_id(123456789)
+   # => campaigns is an array of BingAdsApi::Campaign
+
+
+
+=== Reporting
+

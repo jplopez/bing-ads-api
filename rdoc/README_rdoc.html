@@ -149,6 +149,100 @@
 
 <p>This project rocks and uses MIT-LICENSE.</p>
 
+<h2 id="label-Presentation">Presentation</h2>
+
+<p>This is a very simple, straight use gem for integrating any Rails app with
+the  Bing Ads SOAP Webservices.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Add to your Gemfile</p>
+
+<pre>gem 'bing-ads-api'</pre>
+
+<h2 id="label-Examples">Examples</h2>
+
+<p>So far, I’ve just integrated some methods from
+<code>CampaignManagement</code> and <code>Reporting</code> services</p>
+
+<h3 id="label-Authentication">Authentication</h3>
+
+<p>In all cases, you must initialize some service object with the
+authentication options Here’s an example with the CampaignMangement service
+object</p>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = {
+     :<span class="ruby-identifier">environment</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">sandbox</span>,
+     :<span class="ruby-identifier">username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;desarrollo_neonline&quot;</span>,
+     :<span class="ruby-identifier">password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;neonline2013&quot;</span>,
+     :<span class="ruby-identifier">developer_token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;BBD37VB98&quot;</span>,
+     :<span class="ruby-identifier">customer_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;21021746&quot;</span>,
+     :<span class="ruby-identifier">account_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;5978083&quot;</span>
+}
+<span class="ruby-identifier">service</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignManagement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+</pre>
+<ul><li>
+<p><code>environment</code> can be one of two values: <code>:sandbox</code> or
+<code>:production</code></p>
+</li></ul>
+
+<h3 id="label-Campaign+Management">Campaign Management</h3>
+
+<p>Example of service object initialization:</p>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = {
+     :<span class="ruby-identifier">environment</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">sandbox</span>,
+     :<span class="ruby-identifier">username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;desarrollo_neonline&quot;</span>,
+     :<span class="ruby-identifier">password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;neonline2013&quot;</span>,
+     :<span class="ruby-identifier">developer_token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;BBD37VB98&quot;</span>,
+     :<span class="ruby-identifier">customer_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;21021746&quot;</span>,
+     :<span class="ruby-identifier">account_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;5978083&quot;</span>
+}
+<span class="ruby-identifier">service</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignManagement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+</pre>
+
+<h4 id="label-Adding+Campaigns">Adding Campaigns</h4>
+
+<pre class="ruby"><span class="ruby-identifier">account_id</span> = <span class="ruby-value">123456789</span>
+<span class="ruby-identifier">campaigns</span> = [
+<span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span>.<span class="ruby-identifier">new</span>(
+     :<span class="ruby-identifier">budget_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">::</span><span class="ruby-constant">DAILY_BUDGET_STANDARD</span>, 
+     :<span class="ruby-identifier">conversion_tracking_enabled</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;false&quot;</span>,
+     :<span class="ruby-identifier">daily_budget</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2000</span>,
+     :<span class="ruby-identifier">daylight_saving</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;false&quot;</span>,
+     :<span class="ruby-identifier">description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; first description&quot;</span>,
+     :<span class="ruby-identifier">monthly_budget</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5400</span>,
+     :<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; first name&quot;</span>,
+     :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">::</span><span class="ruby-constant">PAUSED</span>,
+     :<span class="ruby-identifier">time_zone</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">::</span><span class="ruby-constant">SANTIAGO</span>),
+
+<span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span>.<span class="ruby-identifier">new</span>(
+     :<span class="ruby-identifier">budget_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">::</span><span class="ruby-constant">DAILY_BUDGET_STANDARD</span>, 
+     :<span class="ruby-identifier">conversion_tracking_enabled</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;false&quot;</span>,
+     :<span class="ruby-identifier">daily_budget</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2500</span>,
+     :<span class="ruby-identifier">daylight_saving</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;false&quot;</span>,
+     :<span class="ruby-identifier">description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; second description&quot;</span>,
+     :<span class="ruby-identifier">monthly_budget</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7800</span>,
+     :<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; second name&quot;</span>,
+     :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">::</span><span class="ruby-constant">PAUSED</span>,
+     :<span class="ruby-identifier">time_zone</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Campaign</span><span class="ruby-operator">::</span><span class="ruby-constant">SANTIAGO</span>) ]
+<span class="ruby-identifier">response</span> = <span class="ruby-identifier">service</span>.<span class="ruby-identifier">add_campaigns</span>(<span class="ruby-identifier">account_id</span>, <span class="ruby-identifier">campaigns</span>)
+</pre>
+
+<p>In some cases the methods will return a Hash with the ‘response’ tag
+according to the method invoked. Like the example above.</p>
+
+<h4 id="label-Find+Campaigns">Find Campaigns</h4>
+
+<p>In other cases, like this next example, the method will return an object,
+like an array or  a object representation of the hash</p>
+
+<pre class="ruby"><span class="ruby-identifier">campaigns</span> = <span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_campaigns_by_account_id</span>(<span class="ruby-value">123456789</span>)
+<span class="ruby-comment"># =&gt; campaigns is an array of BingAdsApi::Campaign</span>
+</pre>
+
+<h3 id="label-Reporting">Reporting</h3>
+
 </div>
 
 
