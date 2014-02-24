@@ -99,8 +99,6 @@
   
     <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
   
-    <li><a href="../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
-  
     <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
   
     <li><a href="../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
@@ -123,11 +121,7 @@
   
     <li><a href="../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
   
-    <li><a href="../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
-  
     <li><a href="../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
-  
-    <li><a href="../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
   
     <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
@@ -164,6 +158,8 @@
     <li><a href="../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
   
     <li><a href="../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ReportRequestStatus.html">BingAdsApi::ReportRequestStatus</a>
   
     <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
   
@@ -231,7 +227,7 @@ Services  defined in the Bing Ads API, to request and download reports</p>
         
         <div class="method-heading">
           <span class="method-name">poll_generate_report</span><span
-            class="method-args">()</span>
+            class="method-args">(report_request_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -246,7 +242,7 @@ Services  defined in the Bing Ads API, to request and download reports</p>
 
 <h3 id="method-i-poll_generate_report-label-Parameters">Parameters</h3>
 
-<p>report_request_id - Identifier of the report request</p>
+<p><code>report_request_id</code> - Identifier of the report request</p>
 
 <h3 id="method-i-poll_generate_report-label-Examples+">Examples </h3>
 
@@ -265,8 +261,13 @@ Services  defined in the Bing Ads API, to request and download reports</p>
           
           <div class="method-source-code" id="poll_generate_report-source">
             <pre><span class="ruby-comment"># File lib/bing-ads-api/service/reporting.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">poll_generate_report</span>
-        
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">poll_generate_report</span>(<span class="ruby-identifier">report_request_id</span>)
+        <span class="ruby-identifier">response</span> = <span class="ruby-identifier">call</span>(<span class="ruby-value">:poll_generate_report</span>, 
+                {<span class="ruby-identifier">report_request_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">report_request_id</span>} )
+        <span class="ruby-identifier">response_hash</span> = <span class="ruby-identifier">get_response_hash</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">__method__</span>)
+        <span class="ruby-identifier">report_request_status</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportRequestStatus</span>.<span class="ruby-identifier">new</span>(
+                <span class="ruby-identifier">response_hash</span>[<span class="ruby-value">:report_request_status</span>])
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">report_request_status</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- poll_generate_report-source -->
           
@@ -297,24 +298,61 @@ Services  defined in the Bing Ads API, to request and download reports</p>
 
 <h3 id="method-i-submit_generate_report-label-Parameters">Parameters</h3>
 
-<p>report_request - a <a
+<p><code>report_request</code> - a <a
 href="ReportRequest.html">BingAdsApi::ReportRequest</a> subclass instance</p>
 
 <h3 id="method-i-submit_generate_report-label-Examples+">Examples </h3>
+
+<h4 id="method-i-submit_generate_report-label-CampaignPerformanceReportRequest"><a href="CampaignPerformanceReportRequest.html">CampaignPerformanceReportRequest</a></h4>
+
+<pre class="ruby"><span class="ruby-identifier">report_request</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignPerformanceReportRequest</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">format</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">xml</span>,
+  :<span class="ruby-identifier">language</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">english</span>, 
+  :<span class="ruby-identifier">report_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;My Report&quot;</span>,
+  :<span class="ruby-identifier">aggregation</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">hourly</span>, 
+  :<span class="ruby-identifier">columns</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">account_name</span>, :<span class="ruby-identifier">account_number</span>, :<span class="ruby-identifier">time_period</span>, 
+          :<span class="ruby-identifier">campaign_name</span>, :<span class="ruby-identifier">campaign_id</span>, :<span class="ruby-identifier">status</span>, :<span class="ruby-identifier">currency_code</span>, 
+          :<span class="ruby-identifier">impressions</span>, :<span class="ruby-identifier">clicks</span>, :<span class="ruby-identifier">ctr</span>, :<span class="ruby-identifier">average_cpc</span>, :<span class="ruby-identifier">spend</span>, 
+          :<span class="ruby-identifier">conversions</span>, :<span class="ruby-identifier">conversion_rate</span>, :<span class="ruby-identifier">cost_per_conversion</span>, :<span class="ruby-identifier">average_cpm</span> ],
+  :<span class="ruby-identifier">filter</span> =<span class="ruby-operator">&gt;</span> {
+          <span class="ruby-comment"># String as bing expected</span>
+          :<span class="ruby-identifier">ad_distribution</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Search&quot;</span>,
+          :<span class="ruby-identifier">device_os</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Windows&quot;</span>,
+          <span class="ruby-comment"># snake case symbol</span>
+          :<span class="ruby-identifier">device_type</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">computer</span>,
+          <span class="ruby-comment"># nil criteria</span>
+          :<span class="ruby-identifier">status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>
+  },
+  :<span class="ruby-identifier">scope</span> =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">account_ids</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5978083</span>, 
+          :<span class="ruby-identifier">campaigns</span> =<span class="ruby-operator">&gt;</span> [
+                  {:<span class="ruby-identifier">account_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5978083</span>, :<span class="ruby-identifier">campaign_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1951230156</span>},
+                  {:<span class="ruby-identifier">account_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5978083</span>, :<span class="ruby-identifier">campaign_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1951245412</span>},
+                  {:<span class="ruby-identifier">account_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5978083</span>, :<span class="ruby-identifier">campaign_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1951245474</span>}]
+  },
+  :<span class="ruby-identifier">time</span> =<span class="ruby-operator">&gt;</span> {
+          :<span class="ruby-identifier">custom_date_range_end</span> =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">31</span>, :<span class="ruby-identifier">month</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">year</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2013</span>},
+          :<span class="ruby-identifier">custom_date_range_start</span> =<span class="ruby-operator">&gt;</span> {:<span class="ruby-identifier">day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, :<span class="ruby-identifier">month</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>, :<span class="ruby-identifier">year</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2013</span>},
+  })
+<span class="ruby-identifier">report_request_id</span> = <span class="ruby-identifier">reporting_service</span>.<span class="ruby-identifier">submit_generate_report</span>(<span class="ruby-identifier">report_request</span>)
+<span class="ruby-comment"># =&gt; &quot;1234567890&quot;</span>
+</pre>
 <dl class="rdoc-list note-list"><dt>Returns
 <dd>
 <p>String with the requested report id</p>
 </dd><dt>Raises
 <dd>
-<p>exception</p>
+<p>Exception if report_request is invalid or SOAP request failed</p>
 </dd></dl>
           
 
           
           <div class="method-source-code" id="submit_generate_report-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/reporting.rb, line 51</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service/reporting.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_generate_report</span>(<span class="ruby-identifier">report_request</span>)
-        
+        <span class="ruby-identifier">response</span> = <span class="ruby-identifier">call</span>(<span class="ruby-value">:submit_generate_report</span>, 
+                {<span class="ruby-identifier">report_request</span><span class="ruby-operator">:</span> <span class="ruby-identifier">report_request</span>.<span class="ruby-identifier">to_hash</span>(<span class="ruby-value">:camelcase</span>)})
+        <span class="ruby-identifier">response_hash</span> = <span class="ruby-identifier">get_response_hash</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">__method__</span>)
+        <span class="ruby-identifier">report_request_id</span> = <span class="ruby-identifier">response_hash</span>[<span class="ruby-value">:report_request_id</span>]
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">report_request_id</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- submit_generate_report-source -->
           

@@ -93,8 +93,6 @@
   
     <li><a href="../../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
   
-    <li><a href="../../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
-  
     <li><a href="../../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
   
     <li><a href="../../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
@@ -117,11 +115,7 @@
   
     <li><a href="../../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
   
-    <li><a href="../../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
-  
     <li><a href="../../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
-  
-    <li><a href="../../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
   
     <li><a href="../../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
@@ -158,6 +152,8 @@
     <li><a href="../../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
   
     <li><a href="../../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../../BingAdsApi/ReportRequestStatus.html">BingAdsApi::ReportRequestStatus</a>
   
     <li><a href="../../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
   
@@ -256,16 +252,16 @@ requests</p>
         <span class="ruby-comment"># Custom date range</span>
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">time</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
                 <span class="ruby-keyword">return</span> {
-                        <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;custom_date_range_start&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> {
-                                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_start</span>][<span class="ruby-value">:day</span>],
-                                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;month&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_start</span>][<span class="ruby-value">:month</span>],
-                                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;year&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_start</span>][<span class="ruby-value">:year</span>],
-                        },
                         <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;custom_date_range_end&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> {
                                 <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_end</span>][<span class="ruby-value">:day</span>],
                                 <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;month&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_end</span>][<span class="ruby-value">:month</span>],
                                 <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;year&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_end</span>][<span class="ruby-value">:year</span>],
                                 
+                        },
+                        <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;custom_date_range_start&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> {
+                                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_start</span>][<span class="ruby-value">:day</span>],
+                                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;month&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_start</span>][<span class="ruby-value">:month</span>],
+                                <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;year&quot;</span>, <span class="ruby-identifier">keys_case</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span>[<span class="ruby-value">:custom_date_range_start</span>][<span class="ruby-value">:year</span>],
                         }
                 }
         <span class="ruby-comment"># Time periods</span>

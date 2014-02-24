@@ -99,8 +99,6 @@
   
     <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
   
-    <li><a href="../BingAdsApi/AccountThroughCampaignReportScope.html">BingAdsApi::AccountThroughCampaignReportScope</a>
-  
     <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
   
     <li><a href="../BingAdsApi/AdApiError.html">BingAdsApi::AdApiError</a>
@@ -123,11 +121,7 @@
   
     <li><a href="../BingAdsApi/CampaignManagement.html">BingAdsApi::CampaignManagement</a>
   
-    <li><a href="../BingAdsApi/CampaignPerformanceReportFilter.html">BingAdsApi::CampaignPerformanceReportFilter</a>
-  
     <li><a href="../BingAdsApi/CampaignPerformanceReportRequest.html">BingAdsApi::CampaignPerformanceReportRequest</a>
-  
-    <li><a href="../BingAdsApi/CampaignScope.html">BingAdsApi::CampaignScope</a>
   
     <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
@@ -164,6 +158,8 @@
     <li><a href="../BingAdsApi/ReportLanguage.html">BingAdsApi::ReportLanguage</a>
   
     <li><a href="../BingAdsApi/ReportRequest.html">BingAdsApi::ReportRequest</a>
+  
+    <li><a href="../BingAdsApi/ReportRequestStatus.html">BingAdsApi::ReportRequestStatus</a>
   
     <li><a href="../BingAdsApi/ReportTimePeriods.html">BingAdsApi::ReportTimePeriods</a>
   
@@ -377,12 +373,27 @@ attributes</p>
 
         <div class="method-description">
           
-          
+          <dl class="rdoc-list note-list"><dt>Public
+<dd>
+<p>Returns the object as a Hash valid for SOAP requests</p>
+</dd><dt>Author
+<dd>
+<p>jlopezn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-to_hash-label-Parameters">Parameters</h3>
+<ul><li>
+<p><code>keys_case</code> - case for the hashes keys: underscore or camelcase</p>
+</li></ul>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash</p>
+</dd></dl>
           
 
           
           <div class="method-source-code" id="to_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 117</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/data/reporting/campaign_performance_report_request.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">keys</span> = <span class="ruby-value">:underscore</span>)
         <span class="ruby-identifier">hash</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">keys</span>)
         <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'columns'</span>, <span class="ruby-identifier">keys</span>)] = 
@@ -390,6 +401,7 @@ attributes</p>
         <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'filter'</span>, <span class="ruby-identifier">keys</span>)] = 
                 <span class="ruby-identifier">filter_to_hash</span>(<span class="ruby-constant">FILTERS</span>, <span class="ruby-identifier">keys</span>)
         <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">'scope'</span>, <span class="ruby-identifier">keys</span>)] = <span class="ruby-identifier">scope_to_hash</span>(<span class="ruby-identifier">keys</span>) 
+        <span class="ruby-identifier">hash</span>[<span class="ruby-string">&quot;@xsi:type&quot;</span>] = <span class="ruby-identifier">type_attribute_for_soap</span> 
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- to_hash-source -->

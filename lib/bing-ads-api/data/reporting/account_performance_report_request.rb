@@ -101,35 +101,76 @@ module BingAdsApi
 		#       :custom_date_range_end   => {:day => 12, :month => 12, :year => 2013} }
 		#     )
 		def initialize(attributes={})
-			raise "Invalid columns" if !valid_columns(attributes[:columns])
-			raise "Invalid filters" if !valid_filter(attributes[:filter])
+			raise "Invalid columns" if !valid_columns(COLUMNS, attributes[:columns])
+			raise "Invalid filters" if !valid_filter(FILTERS, attributes[:filter])
 			raise "Invalid scope" if !valid_scope(attributes[:scope])
 			super(attributes)
 		end
 
+		# Public:: Returns the object as a Hash valid for SOAP requests 
+		# 
+		# Author:: jlopezn@neonline.cl 
+		# 
+		# === Parameters
+		# * +keys_case+ - case for the hashes keys: underscore or camelcase
+		# 
+		# Returns:: Hash
+		def to_hash(keys = :underscore)
+			hash = super(keys)
+			hash[get_attribute_key('columns', keys)] = 
+				columns_to_hash(COLUMNS, columns, keys)
+			hash[get_attribute_key('filter', keys)] = 
+				filter_to_hash(FILTERS, keys)
+			hash[get_attribute_key('scope', keys)] = scope_to_hash(keys) 
+			hash["@xsi:type"] = type_attribute_for_soap 
+			return hash
+		end
+		
 		private
 			
-			def valid_columns(columns)
-				columns.each do |col|
-					return false if !COLUMNS.key?(col.to_s)
-				end
-				return true
-			end
+
 			
-			
-			def valid_filter(filter)
-				columns.each do |col|
-					return false if !COLUMNS.key?(col.to_s)
-				end
-				return true
-			end
-			
-			
+			# Internal:: Validates the scope attribute given in the constructor 
+			# 
+			# Author:: jlopezn@neonline.cl 
+			# 
+			# === Parameters
+			# * +scope+ - value for the 'scope' key in the has initializer
+			# 
+			# Returns:: true if the scope specification is valid. Raises Exception otherwise
+			# 
+			# Raises:: Exception if the scope is not valid
 			def valid_scope(scope)
-				return false if !scope.key?(:account_ids)
-				return false if !scope.key?(:campaigns)
+				raise Exception.new("Invalid scope: no account_ids key") if !scope.key?(:account_ids)
 				return true
 			end
+			
+			
+			# Internal:: Returns the scope attribute as a hash for the SOAP request 
+			# 
+			# Author:: jlopezn@neonline.cl 
+			# 
+			# === Parameters
+			# * +keys_case+ - case for the hash: underscore or camelcase
+			# 
+			# Returns:: Hash
+			def scope_to_hash(keys_case=:underscore)
+				return { get_attribute_key('account_ids', keys_case) => 
+						{"ins0:long" => object_to_hash(scope[:account_ids], keys_case)} }
+			end
+			
+			
+			# Internal:: Returns a string with type attribute for the ReportRequest SOAP tag 
+			# 
+			# Author:: jlopezn@neonline.cl 
+			# 
+			# Returns:: "v9:AccountPerformanceReportRequest"
+			def type_attribute_for_soap
+				return BingAdsApi::ClientProxy::NAMESPACE.to_s + ":" + 
+					BingAdsApi::Config.instance.
+						reporting_constants['account_performance_report']['type']
+			end
+
 	end
 	
 end

@@ -47,16 +47,16 @@ module BingAdsApi::Helpers
 			# Custom date range
 			if time.is_a?(Hash)
 				return {
-					get_attribute_key("custom_date_range_start", keys_case) => {
-						get_attribute_key("day", keys_case) => self.time[:custom_date_range_start][:day],
-						get_attribute_key("month", keys_case) => self.time[:custom_date_range_start][:month],
-						get_attribute_key("year", keys_case) => self.time[:custom_date_range_start][:year],
-					},
 					get_attribute_key("custom_date_range_end", keys_case) => {
 						get_attribute_key("day", keys_case) => self.time[:custom_date_range_end][:day],
 						get_attribute_key("month", keys_case) => self.time[:custom_date_range_end][:month],
 						get_attribute_key("year", keys_case) => self.time[:custom_date_range_end][:year],
 						
+					},
+					get_attribute_key("custom_date_range_start", keys_case) => {
+						get_attribute_key("day", keys_case) => self.time[:custom_date_range_start][:day],
+						get_attribute_key("month", keys_case) => self.time[:custom_date_range_start][:month],
+						get_attribute_key("year", keys_case) => self.time[:custom_date_range_start][:year],
 					}
 				}
 			# Time periods
