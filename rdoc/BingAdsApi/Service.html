@@ -99,6 +99,8 @@
   
     <li><a href="../BingAdsApi.html">BingAdsApi</a>
   
+    <li><a href="../BingAdsApi/AccountInfo.html">BingAdsApi::AccountInfo</a>
+  
     <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
   
     <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
@@ -128,6 +130,8 @@
     <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
     <li><a href="../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../BingAdsApi/CustomerManagement.html">BingAdsApi::CustomerManagement</a>
   
     <li><a href="../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
   
@@ -315,7 +319,7 @@ logger or enconding)</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service.rb, line 43</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>={})
         
         <span class="ruby-comment"># Service Environment</span>
@@ -395,7 +399,7 @@ href="ClientProxy.html">ClientProxy</a> fails or the response is invalid</p>
 
           
           <div class="method-source-code" id="call-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service.rb, line 82</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">operation</span>, <span class="ruby-identifier">message</span>, &amp;<span class="ruby-identifier">block</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;You must provide an operation&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">operation</span>.<span class="ruby-identifier">nil?</span>
         <span class="ruby-keyword">begin</span>
@@ -482,7 +486,7 @@ of ‘AddCampaignsResponse’ tag as a Hash</p>
 
           
           <div class="method-source-code" id="get_response_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/service.rb, line 136</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/service.rb, line 138</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_response_hash</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">method</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>[<span class="ruby-value">:envelope</span>][<span class="ruby-value">:body</span>][<span class="ruby-node">&quot;#{method}_response&quot;</span>.<span class="ruby-identifier">to_sym</span>]
 <span class="ruby-keyword">end</span></pre>

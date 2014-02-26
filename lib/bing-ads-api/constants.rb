@@ -56,6 +56,23 @@ module BingAdsApi
 
 	end
 
+
+	## Dynamic classes for customer management constants
+	BingAdsApi::Config.instance.customer_management_constants.each do |const_key, const_value|
+
+		const_module = Module.new do
+			# Dynamically create Constants classes for each value found 
+			const_value.each do |key, value|
+				self.const_set(key.upcase, value)
+			end
+	
+		end	
+		BingAdsApi.const_set(const_key.camelize, const_module)
+
+	end
+
+
+
 	# Public : Module for Reporting formats 
 	# 
 	# Example

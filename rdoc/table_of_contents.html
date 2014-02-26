@@ -38,7 +38,11 @@
       <li><a href="README_rdoc.html#label-Campaign+Management">Campaign Management</a>
       <li><a href="README_rdoc.html#label-Adding+Campaigns">Adding Campaigns</a>
       <li><a href="README_rdoc.html#label-Find+Campaigns">Find Campaigns</a>
+      <li><a href="README_rdoc.html#label-Customer+Management">Customer Management</a>
+      <li><a href="README_rdoc.html#label-Get+accounts+info">Get accounts info</a>
       <li><a href="README_rdoc.html#label-Reporting">Reporting</a>
+      <li><a href="README_rdoc.html#label-Submit+generate+report">Submit generate report</a>
+      <li><a href="README_rdoc.html#label-Poll+generate+report">Poll generate report</a>
     </ul>
   </li>
   
@@ -48,6 +52,9 @@
 <ul>
   <li class="module">
     <a href="BingAdsApi.html">BingAdsApi</a>
+  </li>
+    <li class="class">
+    <a href="BingAdsApi/AccountInfo.html">BingAdsApi::AccountInfo</a>
   </li>
     <li class="class">
     <a href="BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
@@ -103,6 +110,9 @@
   </li>
     <li class="class">
     <a href="BingAdsApi/Config.html">BingAdsApi::Config</a>
+  </li>
+    <li class="class">
+    <a href="BingAdsApi/CustomerManagement.html">BingAdsApi::CustomerManagement</a>
   </li>
     <li class="class">
     <a href="BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
@@ -181,33 +191,37 @@
   
     <li class="method"><a href="BingAdsApi/Config.html#method-c-hash_instance">::hash_instance &mdash; BingAdsApi::Config</a>
   
-    <li class="method"><a href="BingAdsApi/AccountPerformanceReportRequest.html#method-c-new">::new &mdash; BingAdsApi::AccountPerformanceReportRequest</a>
+    <li class="method"><a href="BingAdsApi/DataObject.html#method-c-new">::new &mdash; BingAdsApi::DataObject</a>
   
     <li class="method"><a href="BingAdsApi/ClientProxy.html#method-c-new">::new &mdash; BingAdsApi::ClientProxy</a>
   
-    <li class="method"><a href="BingAdsApi/CampaignPerformanceReportRequest.html#method-c-new">::new &mdash; BingAdsApi::CampaignPerformanceReportRequest</a>
+    <li class="method"><a href="BingAdsApi/PerformanceReportRequest.html#method-c-new">::new &mdash; BingAdsApi::PerformanceReportRequest</a>
   
     <li class="method"><a href="BingAdsApi/Config.html#method-c-new">::new &mdash; BingAdsApi::Config</a>
   
     <li class="method"><a href="BingAdsApi/ApiException.html#method-c-new">::new &mdash; BingAdsApi::ApiException</a>
   
+    <li class="method"><a href="BingAdsApi/CustomerManagement.html#method-c-new">::new &mdash; BingAdsApi::CustomerManagement</a>
+  
+    <li class="method"><a href="BingAdsApi/AccountPerformanceReportRequest.html#method-c-new">::new &mdash; BingAdsApi::AccountPerformanceReportRequest</a>
+  
     <li class="method"><a href="BingAdsApi/AdApiFaultDetail.html#method-c-new">::new &mdash; BingAdsApi::AdApiFaultDetail</a>
   
-    <li class="method"><a href="BingAdsApi/DataObject.html#method-c-new">::new &mdash; BingAdsApi::DataObject</a>
-  
-    <li class="method"><a href="BingAdsApi/PerformanceReportRequest.html#method-c-new">::new &mdash; BingAdsApi::PerformanceReportRequest</a>
-  
-    <li class="method"><a href="BingAdsApi/CampaignManagement.html#method-c-new">::new &mdash; BingAdsApi::CampaignManagement</a>
-  
-    <li class="method"><a href="BingAdsApi/PartialErrors.html#method-c-new">::new &mdash; BingAdsApi::PartialErrors</a>
-  
-    <li class="method"><a href="BingAdsApi/ApiFaultDetail.html#method-c-new">::new &mdash; BingAdsApi::ApiFaultDetail</a>
+    <li class="method"><a href="BingAdsApi/CampaignPerformanceReportRequest.html#method-c-new">::new &mdash; BingAdsApi::CampaignPerformanceReportRequest</a>
   
     <li class="method"><a href="BingAdsApi/ReportRequest.html#method-c-new">::new &mdash; BingAdsApi::ReportRequest</a>
   
+    <li class="method"><a href="BingAdsApi/AdGroup.html#method-c-new">::new &mdash; BingAdsApi::AdGroup</a>
+  
+    <li class="method"><a href="BingAdsApi/ApiFaultDetail.html#method-c-new">::new &mdash; BingAdsApi::ApiFaultDetail</a>
+  
     <li class="method"><a href="BingAdsApi/Service.html#method-c-new">::new &mdash; BingAdsApi::Service</a>
   
-    <li class="method"><a href="BingAdsApi/AdGroup.html#method-c-new">::new &mdash; BingAdsApi::AdGroup</a>
+    <li class="method"><a href="BingAdsApi/PartialErrors.html#method-c-new">::new &mdash; BingAdsApi::PartialErrors</a>
+  
+    <li class="method"><a href="BingAdsApi/CampaignManagement.html#method-c-new">::new &mdash; BingAdsApi::CampaignManagement</a>
+  
+    <li class="method"><a href="BingAdsApi/AccountInfo.html#method-i-active-3F">#active? &mdash; BingAdsApi::AccountInfo</a>
   
     <li class="method"><a href="BingAdsApi/CampaignManagement.html#method-i-add_ad_groups">#add_ad_groups &mdash; BingAdsApi::CampaignManagement</a>
   
@@ -223,9 +237,13 @@
   
     <li class="method"><a href="BingAdsApi/SOAPHasheable.html#method-i-date_to_hash">#date_to_hash &mdash; BingAdsApi::SOAPHasheable</a>
   
+    <li class="method"><a href="BingAdsApi/AccountInfo.html#method-i-draft-3F">#draft? &mdash; BingAdsApi::AccountInfo</a>
+  
     <li class="method"><a href="BingAdsApi/ReportRequestStatus.html#method-i-error-3F">#error? &mdash; BingAdsApi::ReportRequestStatus</a>
   
     <li class="method"><a href="BingAdsApi/Helpers/FilterHelper.html#method-i-filter_to_hash">#filter_to_hash &mdash; BingAdsApi::Helpers::FilterHelper</a>
+  
+    <li class="method"><a href="BingAdsApi/CustomerManagement.html#method-i-get_accounts_info">#get_accounts_info &mdash; BingAdsApi::CustomerManagement</a>
   
     <li class="method"><a href="BingAdsApi/CampaignManagement.html#method-i-get_ad_groups_by_campaign_id">#get_ad_groups_by_campaign_id &mdash; BingAdsApi::CampaignManagement</a>
   
@@ -241,11 +259,17 @@
   
     <li class="method"><a href="BingAdsApi/Service.html#method-i-get_response_hash">#get_response_hash &mdash; BingAdsApi::Service</a>
   
+    <li class="method"><a href="BingAdsApi/AccountInfo.html#method-i-inactive-3F">#inactive? &mdash; BingAdsApi::AccountInfo</a>
+  
     <li class="method"><a href="BingAdsApi/SOAPHasheable.html#method-i-normalize_hash_keys">#normalize_hash_keys &mdash; BingAdsApi::SOAPHasheable</a>
   
     <li class="method"><a href="BingAdsApi/SOAPHasheable.html#method-i-object_to_hash">#object_to_hash &mdash; BingAdsApi::SOAPHasheable</a>
   
+    <li class="method"><a href="BingAdsApi/AccountInfo.html#method-i-pause-3F">#pause? &mdash; BingAdsApi::AccountInfo</a>
+  
     <li class="method"><a href="BingAdsApi/ReportRequestStatus.html#method-i-pending-3F">#pending? &mdash; BingAdsApi::ReportRequestStatus</a>
+  
+    <li class="method"><a href="BingAdsApi/AccountInfo.html#method-i-pending-3F">#pending? &mdash; BingAdsApi::AccountInfo</a>
   
     <li class="method"><a href="BingAdsApi/Reporting.html#method-i-poll_generate_report">#poll_generate_report &mdash; BingAdsApi::Reporting</a>
   
@@ -261,29 +285,29 @@
   
     <li class="method"><a href="BingAdsApi/Helpers/TimeHelper.html#method-i-time_to_hash">#time_to_hash &mdash; BingAdsApi::Helpers::TimeHelper</a>
   
+    <li class="method"><a href="BingAdsApi/AccountPerformanceReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::AccountPerformanceReportRequest</a>
+  
+    <li class="method"><a href="BingAdsApi/ReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::ReportRequest</a>
+  
+    <li class="method"><a href="BingAdsApi/AdGroup.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::AdGroup</a>
+  
     <li class="method"><a href="BingAdsApi/TextAd.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::TextAd</a>
   
     <li class="method"><a href="BingAdsApi/MobileAd.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::MobileAd</a>
   
-    <li class="method"><a href="BingAdsApi/ProductAd.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::ProductAd</a>
+    <li class="method"><a href="BingAdsApi/PerformanceReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::PerformanceReportRequest</a>
   
     <li class="method"><a href="BingAdsApi/CampaignPerformanceReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::CampaignPerformanceReportRequest</a>
   
-    <li class="method"><a href="BingAdsApi/AccountPerformanceReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::AccountPerformanceReportRequest</a>
-  
-    <li class="method"><a href="BingAdsApi/AdGroup.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::AdGroup</a>
-  
-    <li class="method"><a href="BingAdsApi/ReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::ReportRequest</a>
+    <li class="method"><a href="BingAdsApi/ProductAd.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::ProductAd</a>
   
     <li class="method"><a href="BingAdsApi/SOAPHasheable.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::SOAPHasheable</a>
   
-    <li class="method"><a href="BingAdsApi/PerformanceReportRequest.html#method-i-to_hash">#to_hash &mdash; BingAdsApi::PerformanceReportRequest</a>
+    <li class="method"><a href="BingAdsApi/EditorialError.html#method-i-to_s">#to_s &mdash; BingAdsApi::EditorialError</a>
   
     <li class="method"><a href="BingAdsApi/OperationError.html#method-i-to_s">#to_s &mdash; BingAdsApi::OperationError</a>
   
-    <li class="method"><a href="BingAdsApi/EditorialError.html#method-i-to_s">#to_s &mdash; BingAdsApi::EditorialError</a>
-  
-    <li class="method"><a href="BingAdsApi/PartialErrors.html#method-i-to_s">#to_s &mdash; BingAdsApi::PartialErrors</a>
+    <li class="method"><a href="BingAdsApi/BatchError.html#method-i-to_s">#to_s &mdash; BingAdsApi::BatchError</a>
   
     <li class="method"><a href="BingAdsApi/ApiException.html#method-i-to_s">#to_s &mdash; BingAdsApi::ApiException</a>
   
@@ -291,11 +315,11 @@
   
     <li class="method"><a href="BingAdsApi/DataObject.html#method-i-to_s">#to_s &mdash; BingAdsApi::DataObject</a>
   
-    <li class="method"><a href="BingAdsApi/ApiFaultDetail.html#method-i-to_s">#to_s &mdash; BingAdsApi::ApiFaultDetail</a>
-  
     <li class="method"><a href="BingAdsApi/ApplicationFault.html#method-i-to_s">#to_s &mdash; BingAdsApi::ApplicationFault</a>
   
-    <li class="method"><a href="BingAdsApi/BatchError.html#method-i-to_s">#to_s &mdash; BingAdsApi::BatchError</a>
+    <li class="method"><a href="BingAdsApi/ApiFaultDetail.html#method-i-to_s">#to_s &mdash; BingAdsApi::ApiFaultDetail</a>
+  
+    <li class="method"><a href="BingAdsApi/PartialErrors.html#method-i-to_s">#to_s &mdash; BingAdsApi::PartialErrors</a>
   
     <li class="method"><a href="BingAdsApi/CampaignManagement.html#method-i-update_ad_groups">#update_ad_groups &mdash; BingAdsApi::CampaignManagement</a>
   

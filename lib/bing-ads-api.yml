@@ -8,9 +8,11 @@
 wsdl:
   sandbox:
     campaign_management: "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
+    customer_management: "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?singleWsdl"
     reporting: "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc?singleWsdl"
   production:
     campaign_management: "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
+    customer_management: "i.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?singleWsdl"
     reporting: "https://api.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc?singleWsdl"
 
 # All major constants are here
@@ -177,6 +179,14 @@ constants:
       paused: 'Paused'
       deleted: 'Deleted'
       inactive: 'Inactive'
+  # Constants specific for customer management
+  customer_management:
+    account_life_cycle_statuses:
+      draft: "Draft"
+      active: "Active"
+      inactive: "Inactive"
+      pause: "Pause"
+      pending: "Pending"
   # Constants specific for reporting services 
   reporting:
     format:

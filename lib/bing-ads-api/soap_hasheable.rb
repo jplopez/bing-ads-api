@@ -86,9 +86,26 @@ module BingAdsApi
 		end
 		
 		
+		# Public:: Normalize the keys of a hash with the case specified 
+		# 
+		# Author:: jlopexn@neonline.cl 
+		# 
+		# === Parameters
+		# * +hash+ - Hash to be normalized
+		# * +keys_case+ - :underscore or :camelcase
+		# 
+		# === Examples 
+		#   normalize_hash_keys({:some_key => value1}, :camelcase) 
+		#   # => {"SomeKey" => value1} 
+		# 
+		#   normalize_hash_keys({:some_key => value1}, :underscore) 
+		#   # => {"some_key" => value1} 
+		# 
+		# Returns:: Hash
 		def normalize_hash_keys(hash, keys_case)
 			return hash.inject({}) { |h, (k, v)| h[get_attribute_key(k, keys_case)] = object_to_hash(v, keys_case); h }
 		end
+		
 		
 		# Internal : Helper method to determinate the key name in the hash for the SOAP request 
 		# 

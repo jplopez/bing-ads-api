@@ -13,6 +13,7 @@ module BingAdsApi
 		# Default logger for services
 		LOGGER = Logger.new(STDOUT)
 		
+		
 		# Public : Constructor 
 		# 
 		# Author:: jlopezn@neonline.cl 
@@ -62,7 +63,8 @@ module BingAdsApi
 			self.client_proxy = BingAdsApi::ClientProxy.new(clientProxySettings)
 
 		end
-
+		
+		
 		# Public : This is a utility wrapper for calling services into the 
 		# +ClientProxy+. This methods handle all the +Savon::Client+ Exceptions
 		# and returns a Hash with the call response  

@@ -61,6 +61,8 @@
   
     <li><a href="./BingAdsApi.html">BingAdsApi</a>
   
+    <li><a href="./BingAdsApi/AccountInfo.html">BingAdsApi::AccountInfo</a>
+  
     <li><a href="./BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
   
     <li><a href="./BingAdsApi/Ad.html">BingAdsApi::Ad</a>
@@ -90,6 +92,8 @@
     <li><a href="./BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
     <li><a href="./BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="./BingAdsApi/CustomerManagement.html">BingAdsApi::CustomerManagement</a>
   
     <li><a href="./BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
   
@@ -163,7 +167,8 @@ the  Bing Ads SOAP Webservices.</p>
 <h2 id="label-Examples">Examples</h2>
 
 <p>So far, I’ve just integrated some methods from
-<code>CampaignManagement</code> and <code>Reporting</code> services</p>
+<code>CampaignManagement</code>, <code>CustomerManagement</code> and
+<code>Reporting</code> services</p>
 
 <h3 id="label-Authentication">Authentication</h3>
 
@@ -241,7 +246,40 @@ like an array or  a object representation of the hash</p>
 <span class="ruby-comment"># =&gt; campaigns is an array of BingAdsApi::Campaign</span>
 </pre>
 
+<h3 id="label-Customer+Management">Customer Management</h3>
+
+<p>Example of service object initialization:</p>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = {
+     :<span class="ruby-identifier">environment</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">sandbox</span>,
+     :<span class="ruby-identifier">username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;desarrollo_neonline&quot;</span>,
+     :<span class="ruby-identifier">password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;neonline2013&quot;</span>,
+     :<span class="ruby-identifier">developer_token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;BBD37VB98&quot;</span>,
+     :<span class="ruby-identifier">customer_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;21021746&quot;</span>,
+     :<span class="ruby-identifier">account_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;5978083&quot;</span>
+}
+<span class="ruby-identifier">service</span> = <span class="ruby-constant">BingAdsApi</span><span class="ruby-operator">::</span><span class="ruby-constant">CustomerManagement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+</pre>
+
+<h4 id="label-Get+accounts+info">Get accounts info</h4>
+
+<pre class="ruby"><span class="ruby-identifier">accounts</span> = <span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_accounts_info</span>
+<span class="ruby-comment"># =&gt; accounts is an array of BingAdsApi::AccountsInfo</span>
+</pre>
+
+<p>For this method you can also specify a diferent customer id</p>
+
+<pre class="ruby"><span class="ruby-identifier">accounts</span> = <span class="ruby-identifier">service</span>.<span class="ruby-identifier">get_accounts_info</span>(<span class="ruby-value">12345</span>)
+<span class="ruby-comment"># =&gt; accounts is an array of BingAdsApi::AccountsInfo</span>
+</pre>
+
+<p>That would give you the customer’s 12345 accounts</p>
+
 <h3 id="label-Reporting">Reporting</h3>
+
+<h4 id="label-Submit+generate+report">Submit generate report</h4>
+
+<h4 id="label-Poll+generate+report">Poll generate report</h4>
 
 </div>
 

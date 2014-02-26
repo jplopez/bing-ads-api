@@ -13,7 +13,7 @@ Add to your Gemfile
    gem 'bing-ads-api'
 
 == Examples
-So far, I've just integrated some methods from +CampaignManagement+ and +Reporting+ services 
+So far, I've just integrated some methods from +CampaignManagement+, +CustomerManagement+ and +Reporting+ services 
 
 
 === Authentication
@@ -87,6 +87,35 @@ a object representation of the hash
    # => campaigns is an array of BingAdsApi::Campaign
 
 
+=== Customer Management
+
+Example of service object initialization:
+   options = {
+   	:environment => :sandbox,
+   	:username => "desarrollo_neonline",
+   	:password => "neonline2013",
+   	:developer_token => "BBD37VB98",
+   	:customer_id => "21021746",
+   	:account_id => "5978083"
+   }
+   service = BingAdsApi::CustomerManagement.new(options)
+
+==== Get accounts info
+   accounts = service.get_accounts_info
+   # => accounts is an array of BingAdsApi::AccountsInfo
+
+For this method you can also specify a diferent customer id
+   accounts = service.get_accounts_info(12345)
+   # => accounts is an array of BingAdsApi::AccountsInfo
+That would give you the customer's 12345 accounts
+
+
 
 === Reporting
+
+==== Submit generate report
+
+
+==== Poll generate report
+
 

@@ -97,6 +97,8 @@
   
     <li><a href="../BingAdsApi.html">BingAdsApi</a>
   
+    <li><a href="../BingAdsApi/AccountInfo.html">BingAdsApi::AccountInfo</a>
+  
     <li><a href="../BingAdsApi/AccountPerformanceReportRequest.html">BingAdsApi::AccountPerformanceReportRequest</a>
   
     <li><a href="../BingAdsApi/Ad.html">BingAdsApi::Ad</a>
@@ -126,6 +128,8 @@
     <li><a href="../BingAdsApi/ClientProxy.html">BingAdsApi::ClientProxy</a>
   
     <li><a href="../BingAdsApi/Config.html">BingAdsApi::Config</a>
+  
+    <li><a href="../BingAdsApi/CustomerManagement.html">BingAdsApi::CustomerManagement</a>
   
     <li><a href="../BingAdsApi/DataObject.html">BingAdsApi::DataObject</a>
   
@@ -249,7 +253,7 @@
 
           
           <div class="method-source-code" id="date_to_hash-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 133</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 150</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">date_to_hash</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">keys_case</span>)
         {
                 <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-identifier">keys_case</span>)   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>,
@@ -315,7 +319,7 @@ SOAP request</p>
 
           
           <div class="method-source-code" id="get_attribute_key-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 112</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 129</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">keys_case</span> = <span class="ruby-value">:underscore</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys_case</span> <span class="ruby-operator">==</span> <span class="ruby-value">:underscore</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;@&quot;</span>).<span class="ruby-identifier">underscore</span>
@@ -344,12 +348,38 @@ SOAP request</p>
 
         <div class="method-description">
           
-          
+          <dl class="rdoc-list note-list"><dt>Public
+<dd>
+<p>Normalize the keys of a hash with the case specified</p>
+</dd><dt>Author
+<dd>
+<p>jlopexn@neonline.cl</p>
+</dd></dl>
+
+<h3 id="method-i-normalize_hash_keys-label-Parameters">Parameters</h3>
+<ul><li>
+<p><code>hash</code> - Hash to be normalized</p>
+</li><li>
+<p><code>keys_case</code> - :underscore or :camelcase</p>
+</li></ul>
+
+<h3 id="method-i-normalize_hash_keys-label-Examples+">Examples </h3>
+
+<pre class="ruby"><span class="ruby-identifier">normalize_hash_keys</span>({:<span class="ruby-identifier">some_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value1</span>}, :<span class="ruby-identifier">camelcase</span>) 
+<span class="ruby-comment"># =&gt; {&quot;SomeKey&quot; =&gt; value1} </span>
+
+<span class="ruby-identifier">normalize_hash_keys</span>({:<span class="ruby-identifier">some_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value1</span>}, :<span class="ruby-identifier">underscore</span>) 
+<span class="ruby-comment"># =&gt; {&quot;some_key&quot; =&gt; value1}</span>
+</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>Hash</p>
+</dd></dl>
           
 
           
           <div class="method-source-code" id="normalize_hash_keys-source">
-            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 89</span>
+            <pre><span class="ruby-comment"># File lib/bing-ads-api/soap_hasheable.rb, line 105</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_hash_keys</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">keys_case</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">inject</span>({}) { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, (<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">get_attribute_key</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">keys_case</span>)] = <span class="ruby-identifier">object_to_hash</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">keys_case</span>); <span class="ruby-identifier">h</span> }
 <span class="ruby-keyword">end</span></pre>
