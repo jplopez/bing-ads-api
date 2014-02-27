@@ -31,7 +31,7 @@ module BingAdsApi
 		# Author:: jlopezn@neonline.cl 
 		def to_s
 			str = super.to_s + ":\n" 
-			if batch_errors
+			if errors
 				str += "\tErrors:\n" + errors.map{ |e| "\t" + e.to_s }.join("\n")
 			end
 			
