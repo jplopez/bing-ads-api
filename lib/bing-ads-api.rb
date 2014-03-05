@@ -17,7 +17,13 @@ Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'service', '*.rb')].each {
 Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'data', '*.rb')].each { |file| require file }
 
 # Require Fault objects
-Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'fault', '*.rb')].each { |file| require file }
+require 'bing-ads-api/fault/application_fault'
+require 'bing-ads-api/fault/ad_api_error'
+require 'bing-ads-api/fault/ad_api_fault_detail'
+require 'bing-ads-api/fault/api_fault_detail'
+require 'bing-ads-api/fault/batch_error'
+require 'bing-ads-api/fault/operation_error'
+require 'bing-ads-api/fault/partial_errors'
 
 # Require Reporting helper objects
 Dir[File.join(File.dirname(__FILE__), 'bing-ads-api', 'data', 'reporting', 'helpers', '*.rb')].each { |file| require file }

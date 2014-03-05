@@ -33,7 +33,7 @@ module BingAdsApi
 
 
 		# Atributos del client proxy
-		attr_accessor :username, :password, :developer_token, :wsdl_url, :account_id, :customer_id, :service, :namespace
+		attr_accessor :username, :password, :developer_token, :authentication_token, :wsdl_url, :account_id, :customer_id, :service, :namespace
 		
 		# Public : Constructor 
 		# 
@@ -67,8 +67,12 @@ module BingAdsApi
 		# Returns:: ClientProxy instance
 		def initialize(options=nil)
 			if options
-				@username        ||= options[:username]
-				@password        ||= options[:password]
+				if options[:authentication_token]
+					@authentication_token ||= options[:authentication_token]
+				else
+					@username    ||= options[:username]
+					@password    ||= options[:password]
+				end
 				@developer_token ||= options[:developer_token]
 				@wsdl_url        ||= options[:wsdl_url]
 				@account_id      ||= options[:account_id]
@@ -115,16 +119,28 @@ module BingAdsApi
 					convert_request_keys_to: KEYS_CASE,
 					wsdl: self.wsdl_url,
 					namespace_identifier: NAMESPACE,
-					soap_header: {
-						"#{NAMESPACE.to_s}:CustomerAccountId" => self.account_id,
-						"#{NAMESPACE.to_s}:CustomerId" => self.customer_id,
-						"#{NAMESPACE.to_s}:DeveloperToken" => self.developer_token,
-						"#{NAMESPACE.to_s}:UserName" => self.username,
-						"#{NAMESPACE.to_s}:Password" => self.password
-					}
+					soap_header: build_headers
 				}
 				settings.merge(client_settings) if client_settings
+				puts "settings"
+				puts settings
 				return Savon.client(settings)
+			end
+			
+			
+			def build_headers
+				headers = {
+					"#{NAMESPACE.to_s}:CustomerAccountId" => self.account_id,
+					"#{NAMESPACE.to_s}:CustomerId" => self.customer_id,
+					"#{NAMESPACE.to_s}:DeveloperToken" => self.developer_token,
+				}
+				if self.authentication_token
+					headers["#{NAMESPACE.to_s}:AuthenticationToken"] = self.authentication_token
+				else
+					headers["#{NAMESPACE.to_s}:UserName"] = self.username
+					headers["#{NAMESPACE.to_s}:Password"] = self.password
+				end
+				return headers
 			end
 	end
 

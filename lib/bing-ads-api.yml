@@ -12,7 +12,7 @@ wsdl:
     reporting: "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc?singleWsdl"
   production:
     campaign_management: "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
-    customer_management: "i.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?singleWsdl"
+    customer_management: "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?singleWsdl"
     reporting: "https://api.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc?singleWsdl"
 
 # All major constants are here

@@ -6,6 +6,15 @@ require 'test_helper'
 # Author:: jlopezn@neonline.cl 
 class BingAdsApiTest < ActiveSupport::TestCase
 
+	def setup
+		@username = ""
+		@password = ""
+		@developer_token = ""
+		@customer_id = ""
+		@account_id = ""
+		@auth_token = ""
+	end
+
 	test "truth" do
 		assert_kind_of Module, BingAdsApi
 	end
@@ -53,11 +62,11 @@ class BingAdsApiTest < ActiveSupport::TestCase
 
 	test "create client proxy" do
 		options = {
-			:username => "desarrollo_neonline",
-			:password => "neonline2013",
-			:developer_token => "BBD37VB98",
-			:customer_id => "21021746",
-			:account_id => "5978083",
+			:username => @username,
+			:password => @password,
+			:developer_token => @developer_token,
+			:customer_id => @customer_id,
+			:account_id => @account_id,
 			:wsdl_url => "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
 		}
 		client = BingAdsApi::ClientProxy.new(options)
@@ -71,11 +80,11 @@ class BingAdsApiTest < ActiveSupport::TestCase
 
 	test "create client proxy with additional settings" do
 		options = {
-			:username => "desarrollo_neonline",
-			:password => "neonline2013",
-			:developer_token => "BBD37VB98",
-			:customer_id => "21021746",
-			:account_id => "5978083",
+			:username => @username,
+			:password => @password,
+			:developer_token => @developer_token,
+			:customer_id => @customer_id,
+			:account_id => @account_id,
 			:wsdl_url => "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl",
 			:proxy => {
 				:logger => Rails.logger, 
@@ -91,13 +100,42 @@ class BingAdsApiTest < ActiveSupport::TestCase
 	end
 
 
+	test "create oauth client proxy" do
+		
+		options = {
+			:authentication_token => @auth_token,
+			:developer_token => @developer_token,
+			:customer_id => @customer_id,
+			:account_id => @account_id,
+			:wsdl_url => "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl",
+			:proxy => {
+				:logger => Rails.logger, 
+				:encoding => "UTF-8"
+			}
+		}
+		client = BingAdsApi::ClientProxy.new(options)
+		#puts client.inspect
+		assert !client.nil?, "Client proxy not created"
+
+		#puts client.service
+		assert !client.service.nil?, "Service client not created"
+		
+		#call service method
+		assert_nothing_raised(Exception, "Service call raised exception") {
+			response = client.call(:get_campaigns_by_account_id, 
+				message: {Account_id: "2642632"})
+			puts response
+		}
+	end
+
+
 	test "call service" do
 		options = {
-			:username => "desarrollo_neonline",
-			:password => "neonline2013",
-			:developer_token => "BBD37VB98",
-			:customer_id => "21021746",
-			:account_id => "5978083",
+			:username => @username,
+			:password => @password,
+			:developer_token => @developer_token,
+			:customer_id => @customer_id,
+			:account_id => @account_id,
 			:wsdl_url => "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl"
 		}
 		
@@ -113,11 +151,11 @@ class BingAdsApiTest < ActiveSupport::TestCase
 	test "create and call from config" do
 		config = BingAdsApi::Config.instance
 		options = {
-			:username => "desarrollo_neonline",
-			:password => "neonline2013",
-			:developer_token => "BBD37VB98",
-			:customer_id => "21021746",
-			:account_id => "5978083",
+			:username => @username,
+			:password => @password,
+			:developer_token => @developer_token,
+			:customer_id => @customer_id,
+			:account_id => @account_id,
 			:wsdl_url => config.service_wsdl(:sandbox, :campaign_management)
 		}
 		
